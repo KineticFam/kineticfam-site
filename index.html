@@ -539,7 +539,7 @@
         <div class="signup-success" id="signupSuccess">
             <div class="check">🎉</div>
             <h3>You're in!</h3>
-            <p>Check your inbox — we just sent you a welcome email to get your family set up.</p>
+            <p>Check your inbox — we just sent you a welcome email to get your family set up.<br><br><strong style="color:rgba(255,255,255,0.95);">Don't see it?</strong> Check your spam or promotions folder. The email comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -590,7 +590,7 @@ function handleHeroSignup() {
 
     input.value = '';
     input.style.borderColor = '#1565C0';
-    input.placeholder = '🎉 Check your inbox!';
+    input.placeholder = '🎉 Check your inbox (or spam)!';
 }
 
 document.getElementById('heroEmailInput').addEventListener('keypress', function(e) {
