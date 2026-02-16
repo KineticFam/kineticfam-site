@@ -416,9 +416,13 @@
     <p class="tagline">Designed for families on the move.</p>
     <div class="divider"></div>
     <div class="hero-signup">
-        <div class="hero-input-row">
+        <div class="hero-input-row" id="heroForm">
             <input type="email" id="heroEmailInput" placeholder="Enter your email address">
             <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started</button>
+        </div>
+        <div id="heroSuccess" style="display:none; margin-top:16px;">
+            <p style="font-size:1rem; color:#333; font-weight:600;">🎉 You're in!</p>
+            <p style="font-size:0.9rem; color:#555; line-height:1.6;">Check your inbox — we just sent you a welcome email.<br><strong>Don't see it?</strong> Check your spam or promotions folder.<br>The email comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -588,9 +592,8 @@ function handleHeroSignup() {
         body: JSON.stringify({ email: email })
     }).catch(() => {});
 
-    input.value = '';
-    input.style.borderColor = '#1565C0';
-    input.placeholder = '🎉 Check your inbox (or spam)!';
+    document.getElementById('heroForm').style.display = 'none';
+    document.getElementById('heroSuccess').style.display = 'block';
 }
 
 document.getElementById('heroEmailInput').addEventListener('keypress', function(e) {
