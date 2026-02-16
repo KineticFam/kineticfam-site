@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Kinetic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #fafafa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #FF6F00 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header a {
+            text-decoration: none;
+        }
+
+        header .logo-img {
+            max-width: 240px;
+            width: 60%;
+            height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1565C0;
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+
+        p {
+            font-size: 0.98rem;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            font-size: 0.98rem;
+            color: #555;
+            line-height: 1.75;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1565C0;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #1565C0;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .heart-section {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px 24px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .heart-section .heart {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .heart-section p {
+            font-size: 1.05rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .heart-section .small {
+            font-size: 0.88rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 12px;
+        }
+
+        .contact-box {
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: #1565C0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: rgba(255,255,255,0.7);
+            padding: 32px 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            margin: 0 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-links {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+            .content { padding: 32px 18px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/"><img src="/assets/kinetic-logo.png" alt="Kinetic" class="logo-img"></a>
+</header>
+
+<div class="content">
+    <h1>Your Family's Privacy 💙</h1>
+    <p class="intro">At Kinetic, your family's trust is everything. Here's how we protect your information — and why you can feel confident using Kinetic every day.</p>
+
+    <h2>What We Collect</h2>
+    <p>When you sign up, we ask for just the basics:</p>
+    <ul>
+        <li>Your <strong>last name</strong> — so we can personalize your newsletter</li>
+        <li>Your <strong>zip code</strong> — so we can deliver local weather and nearby events</li>
+        <li><strong>Email addresses</strong> of family members who should receive the newsletter</li>
+    </ul>
+    <p>That's it. No passwords. No payment info. No social media accounts.</p>
+
+    <h2>Your Family Calendar</h2>
+    <p>Your family gets a <strong>private, dedicated calendar</strong> that only your authorized family members can add to. Here's how it works:</p>
+    <ul>
+        <li>Only emails from addresses <strong>you've approved</strong> can add events to your calendar</li>
+        <li>No one outside your family can see or modify your schedule</li>
+        <li>Each family's calendar is completely separate — your information is <strong>never shared</strong> with other Kinetic families</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <p>Your information is used for <strong>one purpose</strong>: delivering your personalized Kinetic Daily newsletter each morning. That means:</p>
+    <ul>
+        <li>Pulling weather for your zip code</li>
+        <li>Showing your family's schedule</li>
+        <li>Finding events near you</li>
+        <li>Delivering to the email addresses you've chosen</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p>We never sell, share, or rent your information to anyone. Period.</p>
+    </div>
+
+    <h2>How We Protect Your Data</h2>
+    <ul>
+        <li>All calendar and email data is stored securely within Google Workspace, protected by Google's enterprise-grade security</li>
+        <li>Access to family data is strictly limited to the Kinetic system — no third parties</li>
+        <li>We regularly review our security practices to make sure your information stays safe</li>
+        <li>Authorized sender verification means strangers can't add events to your calendar, even if they guess your Kinetic email address</li>
+    </ul>
+
+    <h2>You're Always in Control</h2>
+    <ul>
+        <li><strong>Add family members</strong> anytime by letting us know</li>
+        <li><strong>Remove family members</strong> — just send us a quick email</li>
+        <li><strong>Cancel anytime</strong> — we'll delete your calendar and all associated data. No questions asked.</li>
+    </ul>
+
+    <div class="contact-box">
+        <p>Questions? We're real people.<br>Just reply to any Kinetic email or reach out to <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a></p>
+    </div>
+
+    <div class="heart-section">
+        <div class="heart">💙</div>
+        <p>Your family's trust makes Kinetic possible.<br>We don't take that lightly.</p>
+        <p class="small">This policy is kept simple on purpose — because protecting your family's information shouldn't require a law degree to understand.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:admin@kineticfam.com">Contact</a>
+    </div>
+    <p>&copy; 2026 Kinetic. Designed for families on the move.</p>
+</footer>
+
+</body>
+</html>

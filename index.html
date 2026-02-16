@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic — Designed for families on the move.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #fff;
+            color: #333;
+        }
+
+        /* Hero */
+        .hero {
+            background: #fff;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+
+        .logo-img {
+            max-width: 300px;
+            width: 70%;
+            height: auto;
+            margin-bottom: 16px;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #888;
+            letter-spacing: 0.3px;
+            margin-bottom: 8px;
+        }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(to right, #1565C0, #FF6F00);
+            max-width: 200px;
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .hero-signup {
+            margin-top: 32px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-input-row input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            color: #333;
+            transition: border-color 0.2s;
+        }
+
+        .hero-input-row input:focus {
+            border-color: #1565C0;
+        }
+
+        .hero-input-row input::placeholder {
+            color: #aaa;
+        }
+
+        .btn-hero-signup {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #1565C0, #1976D2);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-hero-signup:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(21,101,192,0.3);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 64px 20px;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 48px;
+        }
+
+        .steps {
+            display: flex;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 260px;
+            max-width: 300px;
+            text-align: left;
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 32px 28px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            background: linear-gradient(135deg, #1565C0, #FF6F00);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            margin-bottom: 16px;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Real-World Examples */
+        .examples {
+            background: #f8f9fa;
+            padding: 64px 20px;
+        }
+
+        .examples h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .examples .section-sub {
+            font-size: 1.05rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 48px;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-list {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .example {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .example-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4ff;
+            border-radius: 10px;
+        }
+
+        .example-text h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .example-text p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* What You Get */
+        .what-you-get {
+            padding: 64px 20px;
+            text-align: center;
+        }
+
+        .what-you-get h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .what-you-get .section-sub {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .feature-list {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-check {
+            color: #1565C0;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #FF6F00 100%);
+            padding: 72px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .cta .subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 32px;
+        }
+
+        .signup-box {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 32px 28px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .trial-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .input-group input:focus {
+            border-color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .btn-signup {
+            width: 100%;
+            padding: 14px;
+            background: #fff;
+            color: #1565C0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #f0f0f0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .fine-print {
+            font-size: 0.76rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        .fine-print a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: underline;
+        }
+
+        .signup-success {
+            display: none;
+            text-align: center;
+            padding: 16px 0;
+        }
+
+        .signup-success .check { font-size: 2.5rem; margin-bottom: 10px; }
+        .signup-success h3 { font-size: 1.2rem; color: #fff; margin-bottom: 6px; }
+        .signup-success p { color: rgba(255,255,255,0.85); font-size: 0.92rem; line-height: 1.5; }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: rgba(255,255,255,0.6);
+            padding: 32px 20px;
+            text-align: center;
+            font-size: 0.83rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin: 0 14px;
+        }
+
+        footer a:hover { text-decoration: underline; }
+        footer .footer-links { margin-bottom: 12px; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 40px 20px 28px; }
+            .how-it-works h2, .examples h2, .what-you-get h2, .cta h2 { font-size: 1.6rem; }
+            .example { padding: 20px 22px; }
+            .signup-box { padding: 24px 20px; }
+            .hero-input-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <img src="assets/kinetic-logo.png" alt="Kinetic" class="logo-img">
+    <p class="tagline">Designed for families on the move.</p>
+    <div class="divider"></div>
+    <div class="hero-signup">
+        <div class="hero-input-row">
+            <input type="email" id="heroEmailInput" placeholder="Enter your email address">
+            <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started</button>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <h2>How Kinetic Works</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Sign Up</h3>
+            <p>Enter your email below. We'll ask for your last name, zip code, and who in your family should get the newsletter. Takes about 30 seconds.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Use Your Dedicated Email Address</h3>
+            <p>Forward emails, snap photos, attach PDFs — anything with dates on it. We'll pull out the details and add them to your daily morning updates automatically.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Wake Up to Kinetic</h3>
+            <p>Every morning at 6:30 AM, your family gets a clean daily briefing — today's schedule, weather, news, local events, and more. One email. Everything you need.</p>
+        </div>
+    </div>
+</section>
+
+<section class="examples">
+    <h2>Your Schedule Is Ready Before Your Coffee.</h2>
+    <p class="section-sub">No apps. No data entry. Send it to your Kinetic email and it shows up on your daily morning updates automatically.</p>
+    <div class="example-list">
+        <div class="example">
+            <div class="example-icon">📸</div>
+            <div class="example-text">
+                <h3>Snap a photo of the soccer schedule on your fridge</h3>
+                <p>Kinetic reads the image, pulls out every game date and time, and adds them all to your calendar. Done.</p>
+            </div>
+        </div>
+        <div class="example">
+            <div class="example-icon">📧</div>
+            <div class="example-text">
+                <h3>Forward a birthday party invite from another parent</h3>
+                <p>We'll grab the date, time, and location from the email and put it on your schedule — no copy-pasting required.</p>
+            </div>
+        </div>
+        <div class="example">
+            <div class="example-icon">📄</div>
+            <div class="example-text">
+                <h3>Attach the school's annual calendar PDF</h3>
+                <p>Half days, teacher workdays, spring break — Kinetic reads the document and loads every date into your calendar at once.</p>
+            </div>
+        </div>
+        <div class="example">
+            <div class="example-icon">🏥</div>
+            <div class="example-text">
+                <h3>Forward a dentist appointment confirmation</h3>
+                <p>Appointment reminders, doctor visits, vet checkups — forward the confirmation email and it's on the calendar.</p>
+            </div>
+        </div>
+        <div class="example">
+            <div class="example-icon">✏️</div>
+            <div class="example-text">
+                <h3>Just type it yourself</h3>
+                <p>"Dinner at Mom's, Saturday 6pm." That works too. Send a plain email and Kinetic figures it out.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="what-you-get">
+    <h2>Every Morning at 6:30 AM</h2>
+    <p class="section-sub">One email with everything your family needs to start the day.</p>
+    <div class="feature-list">
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Today's schedule</strong> — what's on the calendar right now</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Next two weeks</strong> — so nothing sneaks up on you</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Local weather</strong> — highs, lows, rain chance, UV for your zip code</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Top headlines</strong> — 5 national stories + local news from your area</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Events near you</strong> — festivals, games, concerts within 30 miles</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Reminders</strong> — put "Reminder" in the subject line and it shows up for 7 days</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>Daily inspiration</strong> — a fresh quote to start the morning right</span>
+        </div>
+        <div class="feature-item">
+            <span class="feature-check">✓</span>
+            <span><strong>National holidays</strong> — automatically included so you never miss one</span>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="signup">
+    <h2>Ready to simplify your mornings?</h2>
+    <p class="subtitle">Enter your email and we'll get your family set up in minutes.</p>
+    <div class="signup-box">
+        <div id="signupForm">
+            <div class="input-group">
+                <input type="email" id="emailInput" placeholder="Enter your email address" required>
+            </div>
+            <button class="btn-signup" onclick="handleSignup()">Get Started</button>
+            <p class="fine-print">We'll send you a welcome email with quick setup instructions.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
+        </div>
+        <div class="signup-success" id="signupSuccess">
+            <div class="check">🎉</div>
+            <h3>You're in!</h3>
+            <p>Check your inbox — we just sent you a welcome email to get your family set up.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:admin@kineticfam.com">Contact</a>
+    </div>
+    <p>&copy; 2026 Kinetic. Designed for families on the move.</p>
+</footer>
+
+<script>
+function handleSignup() {
+    const email = document.getElementById('emailInput').value.trim();
+    if (!email || !email.includes('@')) {
+        document.getElementById('emailInput').style.borderColor = '#ff4444';
+        return;
+    }
+
+    fetch('https://formspree.io/f/PLACEHOLDER', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    }).catch(() => {});
+
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('signupSuccess').style.display = 'block';
+}
+
+document.getElementById('emailInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') handleSignup();
+});
+
+function handleHeroSignup() {
+    const input = document.getElementById('heroEmailInput');
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+        input.style.borderColor = '#ff4444';
+        return;
+    }
+
+    fetch('https://formspree.io/f/PLACEHOLDER', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+    }).catch(() => {});
+
+    input.value = '';
+    input.style.borderColor = '#1565C0';
+    input.placeholder = '🎉 Check your inbox!';
+}
+
+document.getElementById('heroEmailInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') handleHeroSignup();
+});
+</script>
+
+</body>
+</html>
