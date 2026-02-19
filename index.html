@@ -52,12 +52,18 @@
             margin-right: auto;
         }
 
+        .hero-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .hero-input-row {
             display: flex;
             gap: 10px;
         }
 
-        .hero-input-row input {
+        .hero-fields input {
             flex: 1;
             padding: 14px 18px;
             border: 2px solid #e0e0e0;
@@ -69,11 +75,11 @@
             transition: border-color 0.2s;
         }
 
-        .hero-input-row input:focus {
+        .hero-fields input:focus {
             border-color: #1565C0;
         }
 
-        .hero-input-row input::placeholder {
+        .hero-fields input::placeholder {
             color: #aaa;
         }
 
@@ -89,6 +95,7 @@
             cursor: pointer;
             transition: all 0.2s;
             white-space: nowrap;
+            width: 100%;
         }
 
         .btn-hero-signup:hover {
@@ -389,7 +396,13 @@
             margin-bottom: 12px;
         }
 
-        .input-group input {
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .input-group input, .input-row input {
             width: 100%;
             padding: 14px 18px;
             border: 2px solid rgba(255,255,255,0.3);
@@ -402,11 +415,11 @@
             transition: border-color 0.2s;
         }
 
-        .input-group input::placeholder {
+        .input-group input::placeholder, .input-row input::placeholder {
             color: rgba(255,255,255,0.5);
         }
 
-        .input-group input:focus {
+        .input-group input:focus, .input-row input:focus {
             border-color: rgba(255,255,255,0.7);
             background: rgba(255,255,255,0.15);
         }
@@ -477,6 +490,7 @@
             .example { padding: 20px 22px; }
             .signup-box { padding: 24px 20px; }
             .hero-input-row { flex-direction: column; }
+            .input-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -487,13 +501,17 @@
     <p class="tagline">Born from family chaos. Built for family calm.</p>
     <div class="divider"></div>
     <div class="hero-signup">
-        <div class="hero-input-row" id="heroForm">
-            <input type="email" id="heroEmailInput" placeholder="Enter your email address">
-            <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started</button>
+        <div class="hero-fields" id="heroForm">
+            <input type="email" id="heroEmailInput" placeholder="Your email address">
+            <div class="hero-input-row">
+                <input type="text" id="heroLastNameInput" placeholder="Last name">
+                <input type="text" id="heroZipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
+            </div>
+            <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started — It's Free</button>
         </div>
         <div id="heroSuccess" style="display:none; margin-top:16px;">
             <p style="font-size:1rem; color:#333; font-weight:600;">🎉 You're in!</p>
-            <p style="font-size:0.9rem; color:#555; line-height:1.6;">Check your inbox — we just sent you a welcome email.<br><strong>Don't see it?</strong> Check your spam or promotions folder.<br>The email comes from <strong>admin@kineticfam.com</strong>.</p>
+            <p style="font-size:0.9rem; color:#555; line-height:1.6;">Check your inbox — we're sending you a welcome email with your dedicated Kinetic address.<br>Your first daily briefing arrives tomorrow morning.<br><br><strong>Don't see it?</strong> Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -613,7 +631,7 @@
         <div class="step">
             <div class="step-number">1</div>
             <h3>Sign Up</h3>
-            <p>Enter your email below. We'll ask for your last name, zip code, and who in your family should get the newsletter. Takes about 30 seconds.</p>
+            <p>Enter your email, last name, and zip code. That's it — you'll get a welcome email with your dedicated Kinetic address in minutes.</p>
         </div>
         <div class="step">
             <div class="step-number">2</div>
@@ -630,19 +648,23 @@
 
 <section class="cta" id="signup">
     <h2>Ready to simplify your mornings?</h2>
-    <p class="subtitle">Enter your email and we'll get your family set up in minutes.</p>
+    <p class="subtitle">Three fields. That's all it takes.</p>
     <div class="signup-box">
         <div id="signupForm">
             <div class="input-group">
-                <input type="email" id="emailInput" placeholder="Enter your email address" required>
+                <input type="email" id="emailInput" placeholder="Your email address" required>
             </div>
-            <button class="btn-signup" onclick="handleSignup()">Get Started</button>
-            <p class="fine-print">We'll send you a welcome email with quick setup instructions.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
+            <div class="input-row">
+                <input type="text" id="lastNameInput" placeholder="Last name" required>
+                <input type="text" id="zipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required>
+            </div>
+            <button class="btn-signup" onclick="handleSignup()">Get Started — It's Free</button>
+            <p class="fine-print">Your first daily briefing arrives tomorrow morning.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
         </div>
         <div class="signup-success" id="signupSuccess">
             <div class="check">🎉</div>
             <h3>You're in!</h3>
-            <p>Check your inbox — we just sent you a welcome email to get your family set up.<br><br><strong style="color:rgba(255,255,255,0.95);">Don't see it?</strong> Check your spam or promotions folder. The email comes from <strong>admin@kineticfam.com</strong>.</p>
+            <p>Check your inbox — we're sending a welcome email with your dedicated Kinetic address and everything you need to get started.<br><br><strong style="color:rgba(255,255,255,0.95);">Your first daily briefing arrives tomorrow morning.</strong><br><br>Don't see the welcome email? Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -656,47 +678,71 @@
 </footer>
 
 <script>
+var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx3U62YD43o_AoUnxjF3crAHUDx9yhd8RK5eDFUHlAgLS5vpU0UAPBPMxW6cQid5fdx/exec';
+
+function validateFields(email, lastName, zip) {
+    if (!email || !email.includes('@')) return false;
+    if (!lastName || lastName.trim().length < 2) return false;
+    if (!zip || !/^\d{5}$/.test(zip.trim())) return false;
+    return true;
+}
+
+function submitSignup(email, lastName, zip) {
+    fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            email: email.trim(),
+            lastName: lastName.trim(),
+            zipCode: zip.trim()
+        })
+    }).catch(function() {});
+}
+
 function handleSignup() {
-    const email = document.getElementById('emailInput').value.trim();
-    if (!email || !email.includes('@')) {
-        document.getElementById('emailInput').style.borderColor = '#ff4444';
+    var email = document.getElementById('emailInput').value;
+    var lastName = document.getElementById('lastNameInput').value;
+    var zip = document.getElementById('zipInput').value;
+
+    if (!validateFields(email, lastName, zip)) {
+        if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff4444';
+        if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff4444';
+        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff4444';
         return;
     }
 
-    fetch('https://script.google.com/macros/s/AKfycbx3U62YD43o_AoUnxjF3crAHUDx9yhd8RK5eDFUHlAgLS5vpU0UAPBPMxW6cQid5fdx/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-    }).catch(() => {});
-
+    submitSignup(email, lastName, zip);
     document.getElementById('signupForm').style.display = 'none';
     document.getElementById('signupSuccess').style.display = 'block';
 }
 
-document.getElementById('emailInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') handleSignup();
-});
-
 function handleHeroSignup() {
-    const input = document.getElementById('heroEmailInput');
-    const email = input.value.trim();
-    if (!email || !email.includes('@')) {
-        input.style.borderColor = '#ff4444';
+    var email = document.getElementById('heroEmailInput').value;
+    var lastName = document.getElementById('heroLastNameInput').value;
+    var zip = document.getElementById('heroZipInput').value;
+
+    if (!validateFields(email, lastName, zip)) {
+        if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff4444';
+        if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff4444';
+        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff4444';
         return;
     }
 
-    fetch('https://script.google.com/macros/s/AKfycbx3U62YD43o_AoUnxjF3crAHUDx9yhd8RK5eDFUHlAgLS5vpU0UAPBPMxW6cQid5fdx/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-    }).catch(() => {});
-
+    submitSignup(email, lastName, zip);
     document.getElementById('heroForm').style.display = 'none';
     document.getElementById('heroSuccess').style.display = 'block';
 }
 
-document.getElementById('heroEmailInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') handleHeroSignup();
+// Enter key support for all inputs
+['emailInput','lastNameInput','zipInput'].forEach(function(id) {
+    document.getElementById(id).addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleSignup();
+    });
+});
+['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
+    document.getElementById(id).addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleHeroSignup();
+    });
 });
 </script>
 
