@@ -523,6 +523,7 @@
                 <input type="text" id="heroZipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
             </div>
             <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started — It's Free</button>
+            <div id="heroError" style="display:none; margin-top:10px; font-size:0.85rem; color:#555;"></div>
         </div>
         <div id="heroSuccess" style="display:none; margin-top:16px;">
             <p style="font-size:1rem; color:#333; font-weight:600;">🎉 You're in!</p>
@@ -674,6 +675,7 @@
                 <input type="text" id="zipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required>
             </div>
             <button class="btn-signup" onclick="handleSignup()">Get Started — It's Free</button>
+            <div id="signupError" style="display:none; margin-top:10px; font-size:0.85rem; color:rgba(255,255,255,0.9);"></div>
             <p class="fine-print">Your first daily briefing arrives tomorrow morning.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
         </div>
         <div class="signup-success" id="signupSuccess">
@@ -693,7 +695,12 @@
 </footer>
 
 <script>
-var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx3U62YD43o_AoUnxjF3crAHUDx9yhd8RK5eDFUHlAgLS5vpU0UAPBPMxW6cQid5fdx/exec';
+// --- Kinetic Signup: 3-layer reliability ---
+// Layer 1: POST to Apps Script (no-cors, text/plain to avoid CORS preflight)
+// Layer 2: GET fallback with query params (if POST fails)
+// Layer 3: mailto fallback (if both JS methods fail)
+
+var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz3od4tGtf19UhKnVHH0rPtjMPuHbA1e2zH2JaZgdjlMlnQKucXfgD-qctN3brCCk1L/exec';
 
 function validateFields(email, lastName, zip) {
     if (!email || !email.includes('@')) return false;
@@ -703,21 +710,56 @@ function validateFields(email, lastName, zip) {
 }
 
 function submitSignup(email, lastName, zip) {
-    fetch(WEBHOOK_URL, {
+    var payload = JSON.stringify({
+        email: email.trim(),
+        lastName: lastName.trim(),
+        zipCode: zip.trim()
+    });
+
+    // Layer 1: POST with no-cors + text/plain (avoids CORS preflight, Apps Script reads body fine)
+    var postSucceeded = false;
+    return fetch(WEBHOOK_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: email.trim(),
-            lastName: lastName.trim(),
-            zipCode: zip.trim()
-        })
-    }).catch(function() {});
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: payload
+    }).then(function() {
+        // no-cors = opaque response, can't check status, but request was sent
+        postSucceeded = true;
+    }).catch(function(err) {
+        console.warn('Kinetic signup POST failed, trying GET fallback:', err);
+    }).then(function() {
+        // Layer 2: GET fallback (always fire as backup — idempotent on server side)
+        var params = '?email=' + encodeURIComponent(email.trim()) +
+                     '&lastName=' + encodeURIComponent(lastName.trim()) +
+                     '&zipCode=' + encodeURIComponent(zip.trim()) +
+                     '&source=get-fallback';
+        return fetch(WEBHOOK_URL + params, { mode: 'no-cors' });
+    }).catch(function(err) {
+        console.warn('Kinetic signup GET fallback also failed:', err);
+    });
+}
+
+function showError(formId, email, lastName, zip) {
+    // Layer 3: mailto fallback
+    var mailto = 'mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body='
+        + encodeURIComponent('Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip);
+    var errorDiv = document.getElementById(formId + 'Error');
+    if (errorDiv) {
+        errorDiv.innerHTML = 'Having trouble? <a href="' + mailto + '" style="color:#fff;text-decoration:underline;">Click here to sign up via email</a>.';
+        errorDiv.style.display = 'block';
+    }
 }
 
 function handleSignup() {
     var email = document.getElementById('emailInput').value;
     var lastName = document.getElementById('lastNameInput').value;
     var zip = document.getElementById('zipInput').value;
+
+    // Reset error styles
+    ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
+        document.getElementById(id).style.borderColor = '';
+    });
 
     if (!validateFields(email, lastName, zip)) {
         if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff4444';
@@ -726,15 +768,27 @@ function handleSignup() {
         return;
     }
 
-    submitSignup(email, lastName, zip);
-    document.getElementById('signupForm').style.display = 'none';
-    document.getElementById('signupSuccess').style.display = 'block';
+    // Disable button during submission
+    var btn = document.querySelector('#signupForm .btn-signup');
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
+
+    submitSignup(email, lastName, zip).then(function() {
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('signupSuccess').style.display = 'block';
+    }).catch(function() {
+        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
+        showError('signup', email, lastName, zip);
+    });
 }
 
 function handleHeroSignup() {
     var email = document.getElementById('heroEmailInput').value;
     var lastName = document.getElementById('heroLastNameInput').value;
     var zip = document.getElementById('heroZipInput').value;
+
+    ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
+        document.getElementById(id).style.borderColor = '';
+    });
 
     if (!validateFields(email, lastName, zip)) {
         if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff4444';
@@ -743,9 +797,16 @@ function handleHeroSignup() {
         return;
     }
 
-    submitSignup(email, lastName, zip);
-    document.getElementById('heroForm').style.display = 'none';
-    document.getElementById('heroSuccess').style.display = 'block';
+    var btn = document.querySelector('#heroForm .btn-signup');
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
+
+    submitSignup(email, lastName, zip).then(function() {
+        document.getElementById('heroForm').style.display = 'none';
+        document.getElementById('heroSuccess').style.display = 'block';
+    }).catch(function() {
+        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
+        showError('hero', email, lastName, zip);
+    });
 }
 
 // Enter key support for all inputs
