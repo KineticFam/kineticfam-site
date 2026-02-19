@@ -797,7 +797,7 @@ function handleHeroSignup() {
         return;
     }
 
-    var btn = document.querySelector('#heroForm .btn-signup');
+    var btn = document.querySelector('#heroForm .btn-hero-signup');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
 
     submitSignup(email, lastName, zip).then(function() {
