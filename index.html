@@ -21,6 +21,10 @@
     <meta name="twitter:image" content="https://kineticfam.com/assets/og-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -64,6 +68,96 @@
         .stagger-3 { transition-delay: 0.18s; }
         .stagger-4 { transition-delay: 0.24s; }
         .stagger-5 { transition-delay: 0.30s; }
+
+        /* Google Sign-In Button Styles */
+        .google-signin-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 14px 18px;
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .google-signin-button:hover {
+            border-color: var(--gray-300);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transform: translateY(-1px);
+        }
+
+        .google-signin-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Google button for CTA section (white on dark) */
+        .cta .google-signin-button {
+            background: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            color: var(--text);
+        }
+
+        .cta .google-signin-button:hover {
+            background: #f8f8f8;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-200);
+        }
+
+        .form-divider span {
+            padding: 0 16px;
+        }
+
+        .cta .form-divider {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .cta .form-divider::before,
+        .cta .form-divider::after {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .google-auth-badge {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--blue);
+            background: rgba(21,101,192,0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .cta .google-auth-badge {
+            color: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.15);
+        }
 
         /* Hero */
         .hero {
@@ -160,6 +254,69 @@
 
         .hero-fields input::placeholder {
             color: #a0a8b8;
+        }
+
+        /* Family member sections for Hero form */
+        .hero-family-section {
+            margin-top: 6px;
+        }
+
+        .hero-add-family {
+            color: var(--blue);
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .hero-add-family:hover {
+            opacity: 0.8;
+        }
+
+        .hero-family-helper {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .hero-family-members {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hero-family-member {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-family-member input {
+            flex: 1;
+        }
+
+        .hero-remove-family {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: none;
+            color: #999;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.2s;
+        }
+
+        .hero-remove-family:hover {
+            color: #ff4444;
         }
 
         .btn-hero-signup {
@@ -651,6 +808,69 @@
             box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
         }
 
+        /* Family member sections for CTA form */
+        .cta-family-section {
+            margin-top: 6px;
+        }
+
+        .cta-add-family {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.88rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .cta-add-family:hover {
+            opacity: 0.8;
+        }
+
+        .cta-family-helper {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .cta-family-members {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .cta-family-member {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-family-member input {
+            flex: 1;
+        }
+
+        .cta-remove-family {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: color 0.2s;
+        }
+
+        .cta-remove-family:hover {
+            color: #ff4444;
+        }
+
         .btn-signup {
             width: 100%;
             padding: 15px;
@@ -728,6 +948,10 @@
             .steps::before { display: none; }
             .feature-list { border-radius: 14px; }
             .feature-item { padding: 13px 20px; }
+            .hero-family-member { flex-direction: column; }
+            .cta-family-member { flex-direction: column; }
+            .hero-family-member input { margin-bottom: 4px; }
+            .cta-family-member input { margin-bottom: 4px; }
         }
 
         @media (max-width: 380px) {
@@ -743,17 +967,36 @@
     <div class="divider fade-up"></div>
     <div class="hero-signup fade-up">
         <div class="hero-fields" id="heroForm">
+            <div id="heroGoogleSignin" class="g_id_signin" 
+                 data-type="standard" 
+                 data-theme="outline" 
+                 data-size="large" 
+                 data-text="signup_with"
+                 data-width="400"
+                 data-callback="handleHeroGoogleSignin"
+                 style="width: 100%;"></div>
+            <div class="form-divider">
+                <span>— or —</span>
+            </div>
+            <div id="heroGoogleAuthBadge" class="google-auth-badge">
+                <span>✓ Signed in as <span id="heroGoogleEmail"></span></span>
+            </div>
             <input type="email" id="heroEmailInput" placeholder="Your email address">
             <div class="hero-input-row">
                 <input type="text" id="heroLastNameInput" placeholder="Last name">
                 <input type="text" id="heroZipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
             </div>
-            <button class="btn-hero-signup" onclick="handleHeroSignup()">Get Started — It's Free</button>
+            <div class="hero-family-section">
+                <a href="#" class="hero-add-family" onclick="addHeroFamilyMember(event)">＋ Add a family member</a>
+                <div class="hero-family-helper">They'll receive the daily briefing and can add plans too.</div>
+                <div class="hero-family-members" id="heroFamilyMembers"></div>
+            </div>
+            <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
             <div id="heroError" style="display:none; margin-top:10px; font-size:0.85rem; color:#555;"></div>
         </div>
         <div id="heroSuccess" style="display:none; margin-top:16px;">
             <p style="font-size:1rem; color:#333; font-weight:600;">🎉 You're in!</p>
-            <p style="font-size:0.9rem; color:#555; line-height:1.6;">Check your inbox — we're sending you a welcome email with your dedicated Kinetic address.<br>Your first daily briefing arrives tomorrow morning.<br><br><strong>Don't see it?</strong> Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
+            <p style="font-size:0.9rem; color:#555; line-height:1.6;">Check your inbox — we're sending you a welcome email with your dedicated Kinetic address.<br>Your first daily briefing arrives tomorrow morning.<br><br>📅 <strong>Want your Google Calendar events in your briefing?</strong> Check your welcome email for a link to connect your Google Calendar — your events will automatically appear in your daily briefing.<br><br><strong>Don't see it?</strong> Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -893,6 +1136,20 @@
     <p class="subtitle fade-up">Three fields. That's all it takes.</p>
     <div class="signup-box fade-up">
         <div id="signupForm">
+            <div id="ctaGoogleSignin" class="g_id_signin" 
+                 data-type="standard" 
+                 data-theme="filled_blue" 
+                 data-size="large" 
+                 data-text="signup_with"
+                 data-width="400"
+                 data-callback="handleCtaGoogleSignin"
+                 style="width: 100%;"></div>
+            <div class="form-divider">
+                <span>— or —</span>
+            </div>
+            <div id="ctaGoogleAuthBadge" class="google-auth-badge">
+                <span>✓ Signed in as <span id="ctaGoogleEmail"></span></span>
+            </div>
             <div class="input-group">
                 <input type="email" id="emailInput" placeholder="Your email address" required>
             </div>
@@ -900,14 +1157,19 @@
                 <input type="text" id="lastNameInput" placeholder="Last name" required>
                 <input type="text" id="zipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required>
             </div>
-            <button class="btn-signup" onclick="handleSignup()">Get Started — It's Free</button>
+            <div class="cta-family-section">
+                <a href="#" class="cta-add-family" onclick="addCtaFamilyMember(event)">＋ Add a family member</a>
+                <div class="cta-family-helper">They'll receive the daily briefing and can add plans too.</div>
+                <div class="cta-family-members" id="ctaFamilyMembers"></div>
+            </div>
+            <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Get Started — It's Free</button>
             <div id="signupError" style="display:none; margin-top:10px; font-size:0.85rem; color:rgba(255,255,255,0.9);"></div>
             <p class="fine-print">Your first daily briefing arrives tomorrow morning.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
         </div>
         <div class="signup-success" id="signupSuccess">
             <div class="check">🎉</div>
             <h3>You're in!</h3>
-            <p>Check your inbox — we're sending a welcome email with your dedicated Kinetic address and everything you need to get started.<br><br><strong style="color:rgba(255,255,255,0.95);">Your first daily briefing arrives tomorrow morning.</strong><br><br>Don't see the welcome email? Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
+            <p>Check your inbox — we're sending a welcome email with your dedicated Kinetic address and everything you need to get started.<br><br><strong style="color:rgba(255,255,255,0.95);">Your first daily briefing arrives tomorrow morning.</strong><br><br>📅 <strong>Want your Google Calendar events in your briefing?</strong> Check your welcome email for a link to connect your Google Calendar — your events will automatically appear in your daily briefing.<br><br>Don't see the welcome email? Check spam or promotions. It comes from <strong>admin@kineticfam.com</strong>.</p>
         </div>
     </div>
 </section>
@@ -921,6 +1183,101 @@
 </footer>
 
 <script>
+// Google Sign-In Configuration
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: '343498042087-e99iib35ns1nf8vmiv71g97rch5h8fil.apps.googleusercontent.com',
+        callback: function() {}, // Will be overridden by data-callback
+        auto_select: false,
+        cancel_on_tap_outside: true
+    });
+    
+    // Render Google Sign-In buttons
+    google.accounts.id.renderButton(
+        document.getElementById("heroGoogleSignin"),
+        {
+            type: 'standard',
+            theme: 'outline',
+            size: 'large',
+            text: 'signup_with',
+            width: 400
+        }
+    );
+    
+    google.accounts.id.renderButton(
+        document.getElementById("ctaGoogleSignin"),
+        {
+            type: 'standard',
+            theme: 'filled_blue',
+            size: 'large',
+            text: 'signup_with',
+            width: 400
+        }
+    );
+};
+
+// Google Sign-In state
+var heroGoogleAuth = null;
+var ctaGoogleAuth = null;
+
+function parseJWT(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    
+    return JSON.parse(jsonPayload);
+}
+
+function handleHeroGoogleSignin(response) {
+    var payload = parseJWT(response.credential);
+    heroGoogleAuth = {
+        email: payload.email,
+        firstName: payload.given_name || '',
+        lastName: payload.family_name || ''
+    };
+    
+    // Auto-fill fields
+    document.getElementById('heroEmailInput').value = heroGoogleAuth.email;
+    document.getElementById('heroLastNameInput').value = heroGoogleAuth.lastName;
+    
+    // Show badge
+    document.getElementById('heroGoogleEmail').textContent = heroGoogleAuth.email;
+    document.getElementById('heroGoogleAuthBadge').style.display = 'flex';
+    
+    // Update button text
+    document.getElementById('heroSignupButton').textContent = 'Complete Signup';
+    
+    // Hide Google Sign-In button
+    document.getElementById('heroGoogleSignin').style.display = 'none';
+    document.querySelector('#heroForm .form-divider').style.display = 'none';
+}
+
+function handleCtaGoogleSignin(response) {
+    var payload = parseJWT(response.credential);
+    ctaGoogleAuth = {
+        email: payload.email,
+        firstName: payload.given_name || '',
+        lastName: payload.family_name || ''
+    };
+    
+    // Auto-fill fields
+    document.getElementById('emailInput').value = ctaGoogleAuth.email;
+    document.getElementById('lastNameInput').value = ctaGoogleAuth.lastName;
+    
+    // Show badge
+    document.getElementById('ctaGoogleEmail').textContent = ctaGoogleAuth.email;
+    document.getElementById('ctaGoogleAuthBadge').style.display = 'flex';
+    
+    // Update button text
+    document.getElementById('ctaSignupButton').textContent = 'Complete Signup';
+    
+    // Hide Google Sign-In button
+    document.getElementById('ctaGoogleSignin').style.display = 'none';
+    document.querySelector('#signupForm .form-divider').style.display = 'none';
+}
+
 // --- Scroll animation observer (CSS-only animations triggered by IntersectionObserver) ---
 (function() {
     var els = document.querySelectorAll('.fade-up');
@@ -938,6 +1295,50 @@
 </script>
 
 <script>
+// --- Family member functionality ---
+function addHeroFamilyMember(event) {
+    event.preventDefault();
+    var container = document.getElementById('heroFamilyMembers');
+    var memberDiv = document.createElement('div');
+    memberDiv.className = 'hero-family-member';
+    memberDiv.innerHTML = 
+        '<input type="email" placeholder="Family member email" class="hero-family-email">' +
+        '<button type="button" class="hero-remove-family" onclick="removeHeroFamilyMember(this)">✕</button>';
+    container.appendChild(memberDiv);
+}
+
+function removeHeroFamilyMember(button) {
+    button.parentElement.remove();
+}
+
+function addCtaFamilyMember(event) {
+    event.preventDefault();
+    var container = document.getElementById('ctaFamilyMembers');
+    var memberDiv = document.createElement('div');
+    memberDiv.className = 'cta-family-member';
+    memberDiv.innerHTML = 
+        '<input type="email" placeholder="Family member email" class="cta-family-email">' +
+        '<button type="button" class="cta-remove-family" onclick="removeCtaFamilyMember(this)">✕</button>';
+    container.appendChild(memberDiv);
+}
+
+function removeCtaFamilyMember(button) {
+    button.parentElement.remove();
+}
+
+function getAdditionalEmails(formType) {
+    var className = formType === 'hero' ? 'hero-family-email' : 'cta-family-email';
+    var inputs = document.querySelectorAll('.' + className);
+    var emails = [];
+    inputs.forEach(function(input) {
+        var email = input.value.trim();
+        if (email && email.includes('@')) {
+            emails.push(email);
+        }
+    });
+    return emails;
+}
+
 // --- Kinetic Signup: 3-layer reliability ---
 // Layer 1: POST to Apps Script (no-cors, text/plain to avoid CORS preflight)
 // Layer 2: GET fallback with query params (if POST fails)
@@ -952,11 +1353,13 @@ function validateFields(email, lastName, zip) {
     return true;
 }
 
-function submitSignup(email, lastName, zip) {
+function submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth) {
     var payload = JSON.stringify({
         email: email.trim(),
         lastName: lastName.trim(),
-        zipCode: zip.trim()
+        zipCode: zip.trim(),
+        additionalEmails: additionalEmails || [],
+        googleAuth: isGoogleAuth || false
     });
 
     // Layer 1: POST with no-cors + text/plain (avoids CORS preflight, Apps Script reads body fine)
@@ -976,6 +1379,8 @@ function submitSignup(email, lastName, zip) {
         var params = '?email=' + encodeURIComponent(email.trim()) +
                      '&lastName=' + encodeURIComponent(lastName.trim()) +
                      '&zipCode=' + encodeURIComponent(zip.trim()) +
+                     '&additionalEmails=' + encodeURIComponent(additionalEmails.join(',')) +
+                     '&googleAuth=' + encodeURIComponent(isGoogleAuth || false) +
                      '&source=get-fallback';
         return fetch(WEBHOOK_URL + params, { mode: 'no-cors' });
     }).catch(function(err) {
@@ -983,10 +1388,13 @@ function submitSignup(email, lastName, zip) {
     });
 }
 
-function showError(formId, email, lastName, zip) {
+function showError(formId, email, lastName, zip, additionalEmails) {
     // Layer 3: mailto fallback
-    var mailto = 'mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body='
-        + encodeURIComponent('Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip);
+    var bodyText = 'Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip;
+    if (additionalEmails && additionalEmails.length > 0) {
+        bodyText += '\nAdditional family emails: ' + additionalEmails.join(', ');
+    }
+    var mailto = 'mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body=' + encodeURIComponent(bodyText);
     var errorDiv = document.getElementById(formId + 'Error');
     if (errorDiv) {
         errorDiv.innerHTML = 'Having trouble? <a href="' + mailto + '" style="color:#fff;text-decoration:underline;">Click here to sign up via email</a>.';
@@ -998,6 +1406,8 @@ function handleSignup() {
     var email = document.getElementById('emailInput').value;
     var lastName = document.getElementById('lastNameInput').value;
     var zip = document.getElementById('zipInput').value;
+    var additionalEmails = getAdditionalEmails('cta');
+    var isGoogleAuth = ctaGoogleAuth !== null;
 
     // Reset error styles
     ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
@@ -1015,12 +1425,12 @@ function handleSignup() {
     var btn = document.querySelector('#signupForm .btn-signup');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
 
-    submitSignup(email, lastName, zip).then(function() {
+    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function() {
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
     }).catch(function() {
-        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
-        showError('signup', email, lastName, zip);
+        if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
+        showError('signup', email, lastName, zip, additionalEmails);
     });
 }
 
@@ -1028,6 +1438,8 @@ function handleHeroSignup() {
     var email = document.getElementById('heroEmailInput').value;
     var lastName = document.getElementById('heroLastNameInput').value;
     var zip = document.getElementById('heroZipInput').value;
+    var additionalEmails = getAdditionalEmails('hero');
+    var isGoogleAuth = heroGoogleAuth !== null;
 
     ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
@@ -1043,12 +1455,12 @@ function handleHeroSignup() {
     var btn = document.querySelector('#heroForm .btn-hero-signup');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
 
-    submitSignup(email, lastName, zip).then(function() {
+    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function() {
         document.getElementById('heroForm').style.display = 'none';
         document.getElementById('heroSuccess').style.display = 'block';
     }).catch(function() {
-        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
-        showError('hero', email, lastName, zip);
+        if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
+        showError('hero', email, lastName, zip, additionalEmails);
     });
 }
 
@@ -1062,6 +1474,17 @@ function handleHeroSignup() {
     document.getElementById(id).addEventListener('keypress', function(e) {
         if (e.key === 'Enter') handleHeroSignup();
     });
+});
+
+// Add enter key support for family member emails
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        if (e.target.classList.contains('hero-family-email')) {
+            handleHeroSignup();
+        } else if (e.target.classList.contains('cta-family-email')) {
+            handleSignup();
+        }
+    }
 });
 </script>
 
