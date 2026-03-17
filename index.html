@@ -1184,10 +1184,31 @@
 
 <script>
 // Google Sign-In Configuration
+// Track which form the user is interacting with
+var lastGoogleFormContext = 'hero';
+
 window.onload = function () {
+    // Watch scroll position to determine which form is in view
+    var ctaSection = document.getElementById('signup');
+    if (ctaSection) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) lastGoogleFormContext = 'cta';
+                else lastGoogleFormContext = 'hero';
+            });
+        }, { threshold: 0.3 });
+        observer.observe(ctaSection);
+    }
+
     google.accounts.id.initialize({
         client_id: '343498042087-e99iib35ns1nf8vmiv71g97rch5h8fil.apps.googleusercontent.com',
-        callback: function() {}, // Will be overridden by data-callback
+        callback: function(response) {
+            if (lastGoogleFormContext === 'cta') {
+                handleCtaGoogleSignin(response);
+            } else {
+                handleHeroGoogleSignin(response);
+            }
+        },
         auto_select: false,
         cancel_on_tap_outside: true
     });
