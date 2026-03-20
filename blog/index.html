@@ -9,103 +9,66 @@
     <meta property="og:title" content="Kinetic Blog | AI Family Organization, Morning Routines & Parenting Tips">
     <meta property="og:description" content="Practical guides for busy parents on family organization, morning routines, reducing mental load, and using AI to simplify family life.">
     <meta property="og:url" content="https://kineticfam.com/blog/">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://kineticfam.com/assets/og-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
-        :root {
-            --blue: #1565C0; --blue-light: #1976D2; --orange: #FF6F00;
-            --dark: #0f1623; --text: #1a1f36; --text-secondary: #5e6278;
-            --radius: 16px;
-        }
-        body { font-family:'Inter',-apple-system,sans-serif; background:#fff; color:var(--text); }
+        :root { --blue:#1565C0; --orange:#FF6F00; --dark:#0f1623; }
+        body { font-family:'Inter',-apple-system,sans-serif; background:#fff; color:#1a1f36; }
         h1,h2,h3 { font-family:'Outfit','Inter',sans-serif; }
-        nav {
-            background:var(--dark); padding:16px 24px;
-            display:flex; align-items:center; justify-content:space-between;
-        }
+        nav { background:var(--dark); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
         nav a { color:#fff; text-decoration:none; font-weight:600; font-size:1.1rem; }
         nav .nav-links a { margin-left:24px; font-weight:400; font-size:0.95rem; color:rgba(255,255,255,0.8); }
-        nav .nav-links a:hover { color:#fff; }
-        .hero-band {
-            background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 60%,var(--orange) 100%);
-            padding:48px 24px 40px; text-align:center; color:#fff;
-        }
-        .hero-band h1 { font-size:2rem; margin-bottom:12px; }
-        .hero-band p { font-size:1.1rem; opacity:0.9; max-width:640px; margin:0 auto; }
-        .content { max-width:860px; margin:0 auto; padding:40px 24px; }
-        .content h2 { font-size:1.4rem; margin:32px 0 12px; color:var(--dark); }
-        .content p { line-height:1.7; margin-bottom:16px; color:#333; }
-        .content ul { margin:0 0 16px 24px; }
-        .content ul li { line-height:1.7; margin-bottom:6px; color:#333; }
-        .cta-box {
-            background:linear-gradient(135deg,var(--blue),var(--orange));
-            border-radius:var(--radius); padding:32px; text-align:center;
-            color:#fff; margin:40px 0;
-        }
-        .cta-box h2 { font-size:1.5rem; margin-bottom:10px; }
-        .cta-box p { opacity:0.9; margin-bottom:20px; }
-        .cta-btn {
-            display:inline-block; background:#fff; color:var(--blue);
-            padding:12px 32px; border-radius:40px; font-weight:700;
-            text-decoration:none; font-size:1rem;
-        }
-        .cta-btn:hover { background:#f0f4ff; }
-        .schedule-table {
-            width:100%; border-collapse:collapse; margin:20px 0;
-        }
-        .schedule-table th {
-            background:var(--dark); color:#fff; padding:10px 14px; text-align:left;
-            font-size:0.9rem;
-        }
-        .schedule-table td {
-            padding:10px 14px; border-bottom:1px solid #eee; font-size:0.9rem;
-        }
-        .schedule-table tr:hover td { background:#f8f9ff; }
-        .badge {
-            display:inline-block; padding:3px 10px; border-radius:20px;
-            font-size:0.75rem; font-weight:600; background:#e8f0fe; color:var(--blue);
-        }
-        .tag-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
-        footer {
-            background:var(--dark); color:rgba(255,255,255,0.6);
-            padding:32px 24px; text-align:center; font-size:0.85rem; margin-top:60px;
-        }
+        .hero-band { background:linear-gradient(135deg,var(--blue) 0%,#1976D2 60%,var(--orange) 100%); padding:56px 24px 48px; text-align:center; color:#fff; }
+        .hero-band h1 { font-size:2.2rem; margin-bottom:12px; }
+        .hero-band p { font-size:1.1rem; opacity:0.9; max-width:600px; margin:0 auto; }
+        .content { max-width:860px; margin:0 auto; padding:48px 24px 64px; }
+        .post-grid { display:grid; gap:24px; }
+        .cta-box { background:linear-gradient(135deg,var(--blue),var(--orange)); border-radius:16px; padding:36px; text-align:center; color:#fff; margin:48px 0; }
+        .cta-box h2 { font-size:1.4rem; margin-bottom:10px; }
+        .cta-box p { opacity:0.9; margin-bottom:22px; }
+        .cta-btn { display:inline-block; background:#fff; color:var(--blue); padding:13px 36px; border-radius:40px; font-weight:700; text-decoration:none; }
+        footer { background:var(--dark); color:rgba(255,255,255,0.6); padding:32px 24px; text-align:center; font-size:0.85rem; }
         footer a { color:rgba(255,255,255,0.6); }
-        @media(max-width:600px) { .hero-band h1 { font-size:1.5rem; } }
     </style>
 </head>
 <body>
 <nav>
     <a href="/">Kinetic</a>
-    <div class="nav-links">
-        <a href="/blog/">Blog</a>
-        <a href="/nfl/">NFL</a>
-        <a href="/nba/">NBA</a>
-        <a href="/mlb/">MLB</a>
-        <a href="/">Sign Up Free</a>
-    </div>
+    <div class="nav-links"><a href="/blog/">Blog</a><a href="/">Sign Up Free</a></div>
 </nav>
 <div class="hero-band">
     <h1>The Kinetic Blog</h1>
     <p>Practical guides for busy parents — family organization, morning routines, reducing mental load, and making technology actually work for your family.</p>
 </div>
 <div class="content">
-    <p style="color:#888; font-size:0.9rem;">More articles coming soon. Subscribe to Kinetic to get new posts in your morning briefing.</p>
-    <div style="display:grid; gap:24px; margin-top:24px;" id="blog-posts">
-        <!-- Blog posts will be added here as they publish -->
+    <div class="post-grid">
+        <article style="border:1px solid #e8e8e8; border-radius:12px; padding:24px; background:#fafafa;">
+            <h2 style="font-size:1.2rem; margin-bottom:8px;"><a href="/blog/ai-family-organizer/" style="color:#1565C0; text-decoration:none;">AI Family Organizer: What It Is and Why Busy Parents Are Switching</a></h2>
+            <p style="color:#666; font-size:0.9rem; margin-bottom:12px;">March 20, 2026 · 5 min read</p>
+            <p style="color:#333;">An AI family organizer does more than store events — it actively manages your family's schedule. Here's what it is, how it works, and what to look for.</p>
+            <a href="/blog/ai-family-organizer/" style="display:inline-block; margin-top:12px; color:#1565C0; font-weight:600; text-decoration:none;">Read more →</a>
+        </article>
+        <article style="border:1px solid #e8e8e8; border-radius:12px; padding:24px; background:#fafafa;">
+            <h2 style="font-size:1.2rem; margin-bottom:8px;"><a href="/blog/organize-school-emails/" style="color:#1565C0; text-decoration:none;">How to Stop Drowning in School Emails (And Never Miss a Date Again)</a></h2>
+            <p style="color:#666; font-size:0.9rem; margin-bottom:12px;">March 20, 2026 · 5 min read</p>
+            <p style="color:#333;">School emails pile up fast — and important dates get buried. Here's how to organize school emails and make sure nothing falls through the cracks again.</p>
+            <a href="/blog/organize-school-emails/" style="display:inline-block; margin-top:12px; color:#1565C0; font-weight:600; text-decoration:none;">Read more →</a>
+        </article>
+        <article style="border:1px solid #e8e8e8; border-radius:12px; padding:24px; background:#fafafa;">
+            <h2 style="font-size:1.2rem; margin-bottom:8px;"><a href="/blog/family-morning-briefing/" style="color:#1565C0; text-decoration:none;">What Is a Family Morning Briefing? (And Why It's the New Family Calendar)</a></h2>
+            <p style="color:#666; font-size:0.9rem; margin-bottom:12px;">March 20, 2026 · 5 min read</p>
+            <p style="color:#333;">A family morning briefing delivers your day's schedule, weather, and reminders before the chaos starts. Here's what it is and why it beats checking five different apps.</p>
+            <a href="/blog/family-morning-briefing/" style="display:inline-block; margin-top:12px; color:#1565C0; font-weight:600; text-decoration:none;">Read more →</a>
+        </article>
     </div>
-    <div style="margin-top:48px;">
-<div class="cta-box">
-    <h2>Get Family Organization Tips in Your Morning Briefing</h2>
-    <p>Join families using Kinetic to start every day organized, informed, and on time.</p>
-    <a href="/" class="cta-btn">Try Kinetic Free →</a>
-</div>    </div>
+    <div class="cta-box">
+        <h2>Get a Free Family Morning Briefing</h2>
+        <p>Join families using Kinetic to start every day organized, informed, and on time.</p>
+        <a href="/" class="cta-btn">Try Kinetic Free →</a>
+    </div>
 </div>
 <footer>
     <p>© 2026 Kinetic Harmony LLC · <a href="/privacy/">Privacy Policy</a> · <a href="/">kineticfam.com</a></p>
-    <p style="margin-top:8px;">Kinetic delivers a personalized AI family morning briefing every day at 6:30 AM.</p>
 </footer>
 </body></html>
