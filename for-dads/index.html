@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Calendar for Dads — Always Know What's Happening | Kinetic</title>
+  <meta name="description" content="Kinetic is the family calendar app for dads who want to stay in the loop. Both parents get the same AI morning briefing — nobody's the default parent for schedule info anymore." />
+  <link rel="canonical" href="https://kineticfam.com/for-dads/" />
+  <meta property="og:title" content="Family Calendar for Dads — Kinetic">
+  <meta property="og:description" content="Always know what's happening with your kids. Kinetic sends every parent the same daily briefing at 6:30 AM.">
+  <meta property="og:url" content="https://kineticfam.com/for-dads/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Family Calendar for Dads — Kinetic",
+    "url": "https://kineticfam.com/for-dads/",
+    "description": "Kinetic helps dads stay equally informed about the family schedule with a daily AI morning briefing — so nobody has to be the default parent for schedule information.",
+    "publisher": { "@type": "Organization", "name": "Kinetic Harmony LLC", "url": "https://kineticfam.com" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1565C0;
+      --blue-light: #1976D2;
+      --orange: #FF6F00;
+      --dark: #0f1623;
+      --gray-50: #f7f8fc;
+      --gray-100: #eef1f6;
+      --gray-200: #dde2ec;
+      --text: #1a1f36;
+      --text-secondary: #5e6278;
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: var(--text); }
+    h1, h2, h3 { font-family: 'Outfit', 'Inter', sans-serif; }
+
+    .nav { background: white; border-bottom: 1px solid var(--gray-200); padding: 0 24px; }
+    .nav-inner { max-width: 1000px; margin: 0 auto; height: 64px; display: flex; align-items: center; gap: 16px; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .nav-logo span { color: var(--orange); }
+    .nav-spacer { flex: 1; }
+    .nav-cta { background: var(--blue); color: white; font-size: 0.88rem; font-weight: 600; padding: 8px 18px; border-radius: 10px; text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #f0f7ff 0%, #fff 50%, #fff8f0 100%);
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(21,101,192,0.1);
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      max-width: 760px;
+      margin: 0 auto 20px;
+      line-height: 1.12;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+    .divider { height: 3px; background: linear-gradient(to right, var(--blue), var(--orange)); max-width: 160px; margin: 0 auto 40px; border-radius: 2px; }
+    .signup-row { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+    .signup-input { flex: 1; padding: 14px 18px; border: 2px solid var(--gray-200); border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; color: var(--text); }
+    .signup-input:focus { border-color: var(--blue); }
+    .signup-btn {
+      background: var(--blue);
+      color: white; border: none; border-radius: 12px; padding: 14px 24px;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      white-space: nowrap; text-decoration: none; display: inline-block;
+    }
+    .signup-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 10px; text-align: center; }
+
+    /* Scenario section */
+    .scenario { background: var(--dark); padding: 80px 24px; }
+    .scenario-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .scenario h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 40px; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    @media (max-width: 600px) { .scenario-grid { grid-template-columns: 1fr; } }
+    .scenario-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px; text-align: left; }
+    .scenario-card .emoji { font-size: 1.8rem; margin-bottom: 12px; }
+    .scenario-card h3 { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 8px; }
+    .scenario-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; margin: 0; }
+
+    /* How it works */
+    .how-section { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .how-section h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+    .how-intro { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 48px; line-height: 1.65; max-width: 620px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 700px) { .how-grid { grid-template-columns: 1fr; max-width: 400px; } }
+    .how-card { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 18px; padding: 28px 22px; }
+    .how-card .icon { font-size: 2rem; margin-bottom: 14px; }
+    .how-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .how-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+
+    /* Equalizer section */
+    .equal-section { background: var(--gray-50); padding: 80px 24px; }
+    .equal-inner { max-width: 860px; margin: 0 auto; }
+    .equal-inner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 800; color: var(--dark); margin-bottom: 20px; }
+    .equal-inner p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; }
+    .equal-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+    .equal-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 1rem; color: var(--text); line-height: 1.5; }
+    .equal-list li .check { width: 24px; height: 24px; background: var(--blue); border-radius: 50%; color: white; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+    /* Quote */
+    .quote-section { padding: 80px 24px; text-align: center; }
+    .quote-section blockquote { font-family: 'Outfit', sans-serif; font-size: clamp(1.3rem, 3.5vw, 1.8rem); font-weight: 700; color: var(--dark); max-width: 700px; margin: 0 auto 20px; line-height: 1.35; font-style: italic; }
+    .quote-section .attribution { color: var(--text-secondary); font-size: 0.9rem; }
+
+    /* CTA */
+    .cta-final { padding: 80px 24px; text-align: center; background: var(--dark); }
+    .cta-final h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; color: white; margin-bottom: 16px; }
+    .cta-final p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--orange), #FFA000); color: white; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 14px; text-decoration: none; }
+
+    /* Related */
+    .related { padding: 64px 24px; }
+    .related-inner { max-width: 900px; margin: 0 auto; }
+    .related h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+    .related-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .related-link { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: 12px; padding: 14px 18px; text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; }
+
+    .footer { background: var(--dark); padding: 32px 24px; text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 12px; }
+    .footer-links a { color: rgba(255,255,255,0.45); font-size: 0.82rem; text-decoration: none; }
+    .footer-copy { color: rgba(255,255,255,0.25); font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Kinetic<span>.</span></a>
+    <div class="nav-spacer"></div>
+    <a href="/pricing/" style="font-size:0.9rem;color:var(--text-secondary);text-decoration:none;margin-right:8px;">Pricing</a>
+    <a href="/" class="nav-cta">Get Started Free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">For Dads · Family Calendar App</div>
+  <h1>Always Know What's Happening With Your Kids</h1>
+  <p class="hero-sub">Kinetic sends every parent the same daily family briefing at 6:30 AM. Events, weather, schedules. Both of you informed. Nobody has to be the schedule keeper.</p>
+  <div class="divider"></div>
+  <div class="signup-row">
+    <input type="email" class="signup-input" placeholder="your@email.com">
+    <a href="/" class="signup-btn">Get Started Free</a>
+  </div>
+  <p class="signup-note">Free forever · No app required · 2-minute setup</p>
+</section>
+
+<!-- Scenarios -->
+<section class="scenario">
+  <div class="scenario-inner">
+    <h2>Sound familiar?</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="emoji">📅</div>
+        <h3>"Wait, what time is the game?"</h3>
+        <p>You know there's something tonight but you're not sure of the time, the location, or whether you need to bring anything. You have to ask.</p>
+      </div>
+      <div class="scenario-card">
+        <div class="emoji">🤷</div>
+        <h3>"Is there school tomorrow?"</h3>
+        <p>Teacher workday? Early release? Snow day? You genuinely don't know and you're the one with the kid in the car at drop-off.</p>
+      </div>
+      <div class="scenario-card">
+        <div class="emoji">📱</div>
+        <h3>Texting to ask what's on the calendar</h3>
+        <p>Shouldn't have to happen. But it does, constantly. And it means someone else is carrying the schedule for the whole family.</p>
+      </div>
+      <div class="scenario-card">
+        <div class="emoji">😬</div>
+        <h3>Being reminded — again — the night before</h3>
+        <p>You knew it was coming. You just didn't have it front-of-mind. That's not the same as not caring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How Kinetic helps -->
+<section class="how-section">
+  <h2>How Kinetic keeps you equally in the loop</h2>
+  <p class="how-intro">Kinetic is an AI morning briefing that lands in your email at 6:30 AM with everything your family has going on today. Your events, kids' schedules, weather, and school reminders. Built for the morning you're already in.</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="icon">📨</div>
+      <h3>It lands in your inbox</h3>
+      <p>No app to check. No calendar to open. The briefing arrives in email — where you already start your day.</p>
+    </div>
+    <div class="how-card">
+      <div class="icon">👨‍👩‍👧‍👦</div>
+      <h3>You both get it</h3>
+      <p>Both parents get the same briefing. You're working from the same information. No one has an information advantage.</p>
+    </div>
+    <div class="how-card">
+      <div class="icon">🤖</div>
+      <h3>AI handles the parsing</h3>
+      <p>Forward a school newsletter, a sports schedule email, a PDF flier. Kinetic's AI extracts the dates and adds them to your briefing. You don't have to do anything manually.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Equalizer -->
+<section class="equal-section">
+  <div class="equal-inner">
+    <h2>The equal parenting app that doesn't feel like a chore</h2>
+    <p>The goal isn't to add another thing to your plate. It's to make sure you're not missing what's already there. Kinetic's whole job is to proactively surface what you need to know, before you need to ask.</p>
+    <p>When both parents have the same information every morning, something shifts. You're more available. More present. Less in the dark.</p>
+    <ul class="equal-list">
+      <li><div class="check">✓</div> Both parents get today's full schedule every morning</li>
+      <li><div class="check">✓</div> School calendars load automatically — holidays, early releases, teacher days</li>
+      <li><div class="check">✓</div> Events you're tagged on appear in your briefing, not just your partner's</li>
+      <li><div class="check">✓</div> Sports scores and upcoming games included (Family plan)</li>
+      <li><div class="check">✓</div> Local weather and news so you know what the day looks like</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <blockquote>"My wife stopped having to remind me about everything. I just check my Kinetic email in the morning. It takes 30 seconds."</blockquote>
+  <div class="attribution">— Dad in Atlanta, GA</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final">
+  <h2>Start your morning briefing today</h2>
+  <p>Free to start. Add your partner in 30 seconds. Both of you briefed by 6:30 AM tomorrow.</p>
+  <a href="/" class="cta-btn">Get Started Free →</a>
+</section>
+
+<!-- Related -->
+<div class="related">
+  <div class="related-inner">
+    <h3>Related reading</h3>
+    <div class="related-links">
+      <a href="/for-moms/" class="related-link">→ Kinetic for Moms — reducing mental load</a>
+      <a href="/blog/reduce-mental-load-parents/" class="related-link">→ How to reduce the mental load as a parent</a>
+      <a href="/blog/family-calendar-app-comparison/" class="related-link">→ Best family calendar apps compared</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/for-moms/">For Moms</a>
+    <a href="/features/">Features</a>
+    <a href="/blog/">Blog</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+  <div class="footer-copy">© 2026 Kinetic Harmony LLC · Fort Lauderdale, FL</div>
+</footer>
+
+</body>
+</html>

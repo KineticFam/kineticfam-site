@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Kinetic | AI Family Morning Briefing</title>
+  <meta name="description" content="Simple, transparent pricing for Kinetic — the AI family morning briefing. Free forever plan, Family plan at $4.99/mo, and Family Pro at $9.99/mo with SMS text summaries." />
+  <link rel="canonical" href="https://kineticfam.com/pricing/" />
+  <meta property="og:title" content="Pricing — Kinetic | AI Family Morning Briefing">
+  <meta property="og:description" content="Simple, transparent pricing. Start free — upgrade when your family grows.">
+  <meta property="og:url" content="https://kineticfam.com/pricing/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kinetic Pricing",
+    "url": "https://kineticfam.com/pricing/",
+    "description": "Kinetic pricing plans for families",
+    "publisher": { "@type": "Organization", "name": "Kinetic Harmony LLC", "url": "https://kineticfam.com" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1565C0;
+      --blue-light: #1976D2;
+      --orange: #FF6F00;
+      --dark: #0f1623;
+      --dark-card: #161d2e;
+      --gray-50: #f7f8fc;
+      --gray-100: #eef1f6;
+      --gray-200: #dde2ec;
+      --text: #1a1f36;
+      --text-secondary: #5e6278;
+      --radius: 16px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #fff;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-family: 'Outfit', 'Inter', sans-serif; }
+
+    /* Nav */
+    .nav {
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-spacer { flex: 1; }
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover { background: var(--gray-100); color: var(--text); }
+    .nav-cta {
+      background: var(--blue);
+      color: white;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-light); }
+
+    /* Hero */
+    .pricing-hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #fff 50%, #fff8f0 100%);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .pricing-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .pricing-hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .divider {
+      height: 3px;
+      background: linear-gradient(to right, var(--blue), var(--orange));
+      max-width: 180px;
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
+
+    /* Toggle */
+    .billing-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gray-100);
+      border-radius: 100px;
+      padding: 6px;
+      margin-bottom: 8px;
+    }
+    .toggle-option {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 8px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .toggle-option.active {
+      background: white;
+      color: var(--text);
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .save-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF6F00, #FFA000);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Cards */
+    .pricing-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px 80px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 800px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    .pricing-card {
+      background: white;
+      border: 2px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      transition: box-shadow 0.25s;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .pricing-card.featured {
+      border-color: var(--blue);
+      box-shadow: 0 12px 48px rgba(21,101,192,0.18);
+      transform: translateY(-8px);
+      background: linear-gradient(160deg, #fafcff 0%, #fff 100%);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+
+    .card-tier {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .featured .card-tier { color: var(--blue); }
+
+    .card-price {
+      margin-bottom: 4px;
+    }
+    .price-amount {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .price-annual-note {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      min-height: 18px;
+    }
+    .price-annual-note strong { color: var(--orange); }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 24px;
+      min-height: 44px;
+    }
+
+    .card-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      margin-bottom: 28px;
+    }
+    .btn-free {
+      background: var(--gray-100);
+      color: var(--text);
+      border: 2px solid var(--gray-200);
+    }
+    .btn-free:hover { background: var(--gray-200); }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--blue-light); box-shadow: 0 4px 16px rgba(21,101,192,0.3); }
+    .btn-pro {
+      background: linear-gradient(135deg, var(--orange), #FFA000);
+      color: white;
+    }
+    .btn-pro:hover { box-shadow: 0 4px 16px rgba(255,111,0,0.35); }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .feature-list li .check {
+      color: #22c55e;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .feature-list li .check-blue {
+      color: var(--blue);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .feature-list li .check-orange {
+      color: var(--orange);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .feature-divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin: 12px 0;
+    }
+    .feature-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      background: var(--gray-50);
+      padding: 80px 24px;
+    }
+    .faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .faq-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 4px;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--blue); }
+    .faq-a {
+      display: none;
+      padding: 0 4px 20px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA bottom */
+    .cta-bottom {
+      background: var(--dark);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cta-bottom h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-bottom p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+    .cta-bottom-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--orange), #FFA000);
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cta-bottom-btn:hover {
+      box-shadow: 0 8px 32px rgba(255,111,0,0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-copy {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Kinetic<span>.</span></a>
+    <div class="nav-spacer"></div>
+    <a href="/features/" class="nav-link">Features</a>
+    <a href="/blog/" class="nav-link">Blog</a>
+    <a href="/" class="nav-cta">Get Started Free</a>
+  </div>
+</nav>
+
+<section class="pricing-hero">
+  <h1>Simple, honest pricing</h1>
+  <p>Start free. Upgrade when your family needs more. No hidden fees, no surprise charges.</p>
+  <div class="divider"></div>
+
+  <div class="billing-toggle" id="billingToggle">
+    <div class="toggle-option" id="toggleMonthly" onclick="setBilling('monthly')">Monthly</div>
+    <div class="toggle-option active" id="toggleAnnual" onclick="setBilling('annual')">Annual <span class="save-badge">Save 35%</span></div>
+  </div>
+  <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:8px;" id="billingNote">Billed annually · Cancel anytime</div>
+</section>
+
+<section class="pricing-section">
+  <div class="pricing-grid">
+
+    <!-- Free -->
+    <div class="pricing-card">
+      <div class="card-tier">Free</div>
+      <div class="card-price">
+        <span class="price-amount">$0</span>
+        <span class="price-period">/mo</span>
+      </div>
+      <div class="price-annual-note">&nbsp;</div>
+      <div class="card-desc">The daily family briefing, delivered every morning. No credit card ever.</div>
+      <a href="/" class="card-btn btn-free">Get Started Free</a>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> Daily AI morning briefing at 6:30 AM</li>
+        <li><span class="check">✓</span> Weather + local news</li>
+        <li><span class="check">✓</span> Email-to-calendar forwarding</li>
+        <li><span class="check">✓</span> PDF &amp; photo schedule parsing</li>
+        <li><span class="check">✓</span> 1 email recipient</li>
+        <li><span class="check">✓</span> Quick-add bookmarklet</li>
+      </ul>
+    </div>
+
+    <!-- Family (Featured) -->
+    <div class="pricing-card featured">
+      <div class="popular-badge">⭐ Most Popular</div>
+      <div class="card-tier">Family</div>
+      <div class="card-price">
+        <span class="price-amount" id="familyPrice">$3.25</span>
+        <span class="price-period">/mo</span>
+      </div>
+      <div class="price-annual-note" id="familyNote">Billed <strong>$39/year</strong> · save $21</div>
+      <div class="card-desc">Everything in Free, plus your whole family gets the same briefing. Everyone in the loop.</div>
+      <a href="/" class="card-btn btn-primary">Start Free Trial</a>
+      <div class="feature-label">Everything in Free, plus:</div>
+      <ul class="feature-list">
+        <li><span class="check-blue">✓</span> Up to 6 family email recipients</li>
+        <li><span class="check-blue">✓</span> Sports team scores &amp; schedules</li>
+        <li><span class="check-blue">✓</span> iCal subscription sync</li>
+        <li><span class="check-blue">✓</span> School calendar auto-loading</li>
+        <li><span class="check-blue">✓</span> Carpool network &amp; ride requests</li>
+        <li><span class="check-blue">✓</span> Family member event assignments</li>
+        <li><span class="check-blue">✓</span> 90-day event history</li>
+      </ul>
+    </div>
+
+    <!-- Family Pro -->
+    <div class="pricing-card">
+      <div class="card-tier">Family Pro</div>
+      <div class="card-price">
+        <span class="price-amount" id="proPrice">$6.58</span>
+        <span class="price-period">/mo</span>
+      </div>
+      <div class="price-annual-note" id="proNote">Billed <strong>$79/year</strong> · save $41</div>
+      <div class="card-desc">Your complete family operations center. The briefing plus SMS, Google Calendar sync, and school LMS integration.</div>
+      <a href="/" class="card-btn btn-pro">Start Free Trial</a>
+      <div class="feature-label">Everything in Family, plus:</div>
+      <ul class="feature-list">
+        <li><span class="check-orange">✓</span> SMS morning text at 6:25 AM</li>
+        <li><span class="check-orange">✓</span> Google Calendar two-way sync</li>
+        <li><span class="check-orange">✓</span> LMS integration (Canvas / Schoology)</li>
+        <li><span class="check-orange">✓</span> Priority email support</li>
+        <li><span class="check-orange">✓</span> Unlimited event history</li>
+        <li><span class="check-orange">✓</span> Early access to new features</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;color:var(--text-secondary);font-size:0.88rem;margin-top:40px;">
+    All plans include a 14-day free trial on paid tiers. No credit card required to start free.
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Questions &amp; answers</h2>
+    <p class="faq-subtitle">Everything you need to know before signing up.</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's actually in the daily briefing?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Every morning at 6:30 AM, Kinetic sends a personalized email that includes: your family's events for the day, tomorrow's weather, local news headlines, and — on Family/Pro plans — sports scores and school calendar reminders. It pulls from emails you've forwarded, PDFs you've snapped, and calendars you've connected. No app to open.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does Kinetic get our family's schedule?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Forward any email to your family's unique Kinetic address (like darlington@kineticfam.com) and our AI pulls out the dates, times, and details. You can also forward PDFs and photos of paper schedules — we handle those too. On Family+ plans, you can connect iCal feeds from school websites so reminders come in automatically.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does Kinetic handle my family's privacy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          We take privacy seriously. Emails you forward are processed to extract calendar events, then discarded — we don't store the original email content. Your family data is never sold, never used for advertising, and never shared with third parties. You can delete your account and all associated data at any time from your account settings. Full details in our <a href="/privacy/" style="color:var(--blue);">Privacy Policy</a>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I cancel or change my plan anytime?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Yes, absolutely. You can upgrade, downgrade, or cancel at any time from your account settings — no phone calls, no forms, no friction. If you cancel a paid plan, you keep access through the end of your billing period and then drop to Free. Annual plans are refundable within 30 days of purchase.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the SMS morning text?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          On Family Pro, at 6:25 AM — 5 minutes before your email arrives — Kinetic sends a short text to your phone with the day's top 2 events and a weather snapshot. It's designed for the parent who's already rushing out the door. One tap to glance, no app needed. You can turn it off anytime.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does Kinetic work if I don't have kids in school?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Absolutely. Kinetic works for any household with schedules to track — families with young kids, teenagers, or just two busy adults. The school calendar features are optional. Many families use Kinetic just for coordinating work travel, sports, appointments, and social events.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA bottom -->
+<section class="cta-bottom">
+  <h2>Start your family's morning briefing today</h2>
+  <p>Free forever. No credit card. Takes 2 minutes to set up.</p>
+  <a href="/" class="cta-bottom-btn">Get Started — It's Free →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/features/">Features</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+  <div class="footer-copy">© 2026 Kinetic Harmony LLC · Fort Lauderdale, FL</div>
+</footer>
+
+<script>
+  var isAnnual = true;
+
+  function setBilling(mode) {
+    isAnnual = (mode === 'annual');
+    document.getElementById('toggleMonthly').classList.toggle('active', !isAnnual);
+    document.getElementById('toggleAnnual').classList.toggle('active', isAnnual);
+    document.getElementById('billingNote').textContent = isAnnual
+      ? 'Billed annually · Cancel anytime'
+      : 'Billed monthly · Cancel anytime';
+
+    if (isAnnual) {
+      document.getElementById('familyPrice').textContent = '$3.25';
+      document.getElementById('familyNote').innerHTML = 'Billed <strong>$39/year</strong> · save $21';
+      document.getElementById('proPrice').textContent = '$6.58';
+      document.getElementById('proNote').innerHTML = 'Billed <strong>$79/year</strong> · save $41';
+    } else {
+      document.getElementById('familyPrice').textContent = '$4.99';
+      document.getElementById('familyNote').innerHTML = '&nbsp;';
+      document.getElementById('proPrice').textContent = '$9.99';
+      document.getElementById('proNote').innerHTML = '&nbsp;';
+    }
+  }
+
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var wasOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item.open').forEach(function(el) {
+      el.classList.remove('open');
+    });
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
