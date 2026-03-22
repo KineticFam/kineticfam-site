@@ -1030,6 +1030,7 @@
                 <div class="hero-family-members" id="heroFamilyMembers"></div>
             </div>
             <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
+            <div id="heroSignupError" style="display:none; margin-top:10px; font-size:0.85rem; color:#c00; background:rgba(255,255,255,0.9); padding:8px 12px; border-radius:6px;"></div>
             <div id="heroError" style="display:none; margin-top:10px; font-size:0.85rem; color:#555;"></div>
         </div>
         <div id="heroSuccess" style="display:none; margin-top:16px;">
@@ -1403,7 +1404,7 @@ function getAdditionalEmails(formType) {
 // Layer 2: GET fallback with query params (if POST fails)
 // Layer 3: mailto fallback (if both JS methods fail)
 
-var WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbysP1fBjiELNqC4CIM6WpOSj_HaK70cGAPkyrLsS8FXtraeZdSet_ka4MuIywAah65P/exec';
+var APP_SIGNUP_URL = 'https://app.kineticfam.com/auth/signup';
 
 function validateFields(email, lastName, zip) {
     if (!email || !email.includes('@')) return false;
@@ -1413,37 +1414,29 @@ function validateFields(email, lastName, zip) {
 }
 
 function submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth) {
-    var payload = JSON.stringify({
-        email: email.trim(),
-        lastName: lastName.trim(),
-        zipCode: zip.trim(),
-        additionalEmails: additionalEmails || [],
-        googleAuth: isGoogleAuth || false
-    });
-
-    // Layer 1: POST with no-cors + text/plain (avoids CORS preflight, Apps Script reads body fine)
-    var postSucceeded = false;
-    return fetch(WEBHOOK_URL, {
+    // POST directly to app.kineticfam.com — returns token for auto-login into wizard
+    return fetch(APP_SIGNUP_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: payload
-    }).then(function() {
-        // no-cors = opaque response, can't check status, but request was sent
-        postSucceeded = true;
-    }).catch(function(err) {
-        console.warn('Kinetic signup POST failed, trying GET fallback:', err);
-    }).then(function() {
-        // Layer 2: GET fallback (always fire as backup — idempotent on server side)
-        var params = '?email=' + encodeURIComponent(email.trim()) +
-                     '&lastName=' + encodeURIComponent(lastName.trim()) +
-                     '&zipCode=' + encodeURIComponent(zip.trim()) +
-                     '&additionalEmails=' + encodeURIComponent(additionalEmails.join(',')) +
-                     '&googleAuth=' + encodeURIComponent(isGoogleAuth || false) +
-                     '&source=get-fallback';
-        return fetch(WEBHOOK_URL + params, { mode: 'no-cors' });
-    }).catch(function(err) {
-        console.warn('Kinetic signup GET fallback also failed:', err);
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            last_name: lastName.trim(),
+            zip_code: zip.trim(),
+            email: email.trim(),
+            family_members: additionalEmails || []
+        })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        if (data.status === 'error') {
+            throw new Error(data.message || 'Signup failed');
+        }
+        // If server returned auto-login token, redirect straight into wizard
+        if (data.token && data.redirect) {
+            window.location.href = 'https://app.kineticfam.com/auth/magic-link/verify?token=' +
+                encodeURIComponent(data.token) + '&next=' + encodeURIComponent(data.redirect);
+            return '__redirecting__';
+        }
+        return data;
     });
 }
 
@@ -1484,12 +1477,20 @@ function handleSignup() {
     var btn = document.querySelector('#signupForm .btn-signup');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
 
-    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function() {
+    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function(result) {
+        if (result === '__redirecting__') return; // auto-login redirect in progress
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
-    }).catch(function() {
+    }).catch(function(err) {
         if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
-        showError('signup', email, lastName, zip, additionalEmails);
+        // Show inline error if message available
+        var errorDiv = document.getElementById('signupError');
+        if (errorDiv && err && err.message && err.message !== 'Signup failed') {
+            errorDiv.textContent = err.message;
+            errorDiv.style.display = 'block';
+        } else {
+            showError('signup', email, lastName, zip, additionalEmails);
+        }
     });
 }
 
@@ -1514,12 +1515,19 @@ function handleHeroSignup() {
     var btn = document.querySelector('#heroForm .btn-hero-signup');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
 
-    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function() {
+    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function(result) {
+        if (result === '__redirecting__') return; // auto-login redirect in progress
         document.getElementById('heroForm').style.display = 'none';
         document.getElementById('heroSuccess').style.display = 'block';
-    }).catch(function() {
+    }).catch(function(err) {
         if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
-        showError('hero', email, lastName, zip, additionalEmails);
+        var errorDiv = document.getElementById('heroSignupError');
+        if (errorDiv && err && err.message && err.message !== 'Signup failed') {
+            errorDiv.textContent = err.message;
+            errorDiv.style.display = 'block';
+        } else {
+            showError('hero', email, lastName, zip, additionalEmails);
+        }
     });
 }
 
