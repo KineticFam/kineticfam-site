@@ -9,9 +9,18 @@
     <meta property="og:description" content="Every morning at 6:30 AM, Kinetic delivers your family's schedule, weather, news, local events, and reminders — assembled automatically from what you forward.">
     <meta property="og:url" content="https://kineticfam.com/features/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>*{{margin:0;padding:0;box-sizing:border-box;}}:root{{--blue:#1565C0;--orange:#FF6F00;--dark:#0f1623;}}body{{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#1a1f36;}}h1,h2,h3{{font-family:'Outfit','Inter',sans-serif;}}
-    .hero{{background:linear-gradient(135deg,var(--blue) 0%,#1976D2 60%,var(--orange) 100%);padding:64px 24px;text-align:center;color:#fff;}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>*{{margin:0;padding:0;box-sizing:border-box;}}:root {
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
+        }}body{{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#1a1f36;}}h1,h2,h3{{font-family:'DM Sans','Inter',sans-serif;}}
+    .hero{{background:linear-gradient(135deg, var(--navy) 0%, #3D4F6E 100%) 100%);padding:64px 24px;text-align:center;color:#fff;}}
     .hero h1{{font-size:2.2rem;margin-bottom:14px;max-width:800px;margin-left:auto;margin-right:auto;}}
     .hero p{{font-size:1.15rem;opacity:0.9;max-width:620px;margin:16px auto 0;}}
     .content{{max-width:860px;margin:0 auto;padding:56px 24px;}}
@@ -25,21 +34,20 @@
     .feature-card .icon{{font-size:1.8rem;margin-bottom:10px;}}
     .feature-card h3{{font-size:1rem;margin-bottom:8px;margin-top:0;color:var(--dark);}}
     .feature-card p{{font-size:0.9rem;color:#555;margin:0;line-height:1.6;}}
-    .cta-box{{background:linear-gradient(135deg,var(--blue),var(--orange));border-radius:16px;padding:40px;text-align:center;color:#fff;margin:48px 0;}}
+    .cta-box{{background:linear-gradient(135deg, var(--navy) 0%, #3D4F6E 100%));border-radius:16px;padding:40px;text-align:center;color:#fff;margin:48px 0;}}
     .cta-box h2{{font-size:1.6rem;margin-bottom:12px;}}
     .cta-box p{{opacity:0.9;margin-bottom:24px;font-size:1.05rem;}}
     .cta-btn{{display:inline-block;background:#fff;color:var(--blue);padding:14px 40px;border-radius:40px;font-weight:700;text-decoration:none;font-size:1.05rem;}}
     </style>
 </head>
 <body>
-<nav style="background:#0f1623;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-    <a href="/" style="color:#fff;text-decoration:none;font-weight:600;font-size:1.1rem;">Kinetic</a>
-    <div>
-        <a href="/blog/" style="color:rgba(255,255,255,0.8);text-decoration:none;margin-left:16px;font-size:0.9rem;">Blog</a>
-        <a href="/sports/" style="color:rgba(255,255,255,0.8);text-decoration:none;margin-left:16px;font-size:0.9rem;">Sports</a>
-        <a href="/school-calendar/" style="color:rgba(255,255,255,0.8);text-decoration:none;margin-left:16px;font-size:0.9rem;">Schools</a>
-        <a href="/family-events/" style="color:rgba(255,255,255,0.8);text-decoration:none;margin-left:16px;font-size:0.9rem;">Events</a>
-        <a href="/" style="color:rgba(255,255,255,0.8);text-decoration:none;margin-left:16px;font-size:0.9rem;">Sign Up Free</a>
+<nav style="background:#2E3A59;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
+    <a href="/" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:white;letter-spacing:-0.02em;text-decoration:none;">Kinetic</a>
+    <div style="display:flex;align-items:center;gap:24px;">
+        <a href="/features/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Features</a>
+        <a href="/pricing/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Pricing</a>
+        <a href="/about/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">About</a>
+        <a href="/#signup" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#2E3A59;background:#AFCBFF;padding:8px 18px;border-radius:8px;text-decoration:none;">Get started free</a>
     </div>
 </nav>
 <div class="hero">
@@ -96,4 +104,13 @@
         <a href="/" class="cta-btn">Get Started →</a>
     </div>
 </div>
-<footer style="background:#0f1623;color:rgba(255,255,255,0.6);padding:32px 24px;text-align:center;font-size:0.85rem;margin-top:60px;"><p>© 2026 Kinetic Harmony LLC · <a href="/privacy/" style="color:rgba(255,255,255,0.6);">Privacy Policy</a> · <a href="/" style="color:rgba(255,255,255,0.6);">kineticfam.com</a></p></footer></body></html>
+<footer style="background:#2E3A59;color:rgba(255,255,255,0.5);padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:white;letter-spacing:-0.02em;margin-bottom:4px;">Kinetic</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#AFCBFF;margin-bottom:14px;">From Chaos to Calm</div>
+    <div style="margin-bottom:12px;">
+        <a href="/privacy/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Privacy</a>
+        <a href="/terms/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Terms</a>
+        <a href="mailto:admin@kineticfam.com" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Contact</a>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">&#169; 2025 Kinetic Harmony LLC</p>
+</footer></body></html>

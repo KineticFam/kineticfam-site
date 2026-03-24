@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="vycEVCqRAHr3kqgU0z3qqDZN0MAOqZbVkoot1PZ1WOc" />
-    <title>Kinetic | AI Family Morning Briefing — Daily Schedule, Weather & News</title>
-    <meta name="description" content="Kinetic delivers a personalized AI morning briefing for your family every day at 6:30 AM — your schedule, local weather, news, and events. No app. Just email." />
+    <title>Kinetic | Family Morning Briefing — From Chaos to Calm</title>
+    <meta name="description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM — your schedule, local weather, school events, and everything you need to move with intention. No app. Just email." />
     <link rel="canonical" href="https://kineticfam.com" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Kinetic | AI Family Morning Briefing">
-    <meta property="og:description" content="Kinetic delivers a personalized AI morning briefing for your family every day at 6:30 AM — your schedule, local weather, news, and events. No app. Just email.">
+    <meta property="og:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
+    <meta property="og:description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM — schedules, weather, school events, and more. No app. Just email.">
     <meta property="og:image" content="https://kineticfam.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,8 +19,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kinetic | AI Family Morning Briefing">
-    <meta name="twitter:description" content="Kinetic delivers a personalized AI morning briefing for your family every day at 6:30 AM — your schedule, local weather, news, and events. No app. Just email.">
+    <meta name="twitter:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
+    <meta name="twitter:description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM. No app. Just email.">
     <meta name="twitter:image" content="https://kineticfam.com/assets/og-image.png">
 
     <!-- JSON-LD Structured Data -->
@@ -30,7 +30,7 @@
       "@type": "SoftwareApplication",
       "name": "Kinetic",
       "url": "https://kineticfam.com",
-      "description": "Kinetic is an AI-powered daily morning briefing for families. Forward emails, photos, and PDFs to your secure Kinetic address and receive a personalized family schedule, weather, local news, and events every morning at 6:30 AM.",
+      "description": "Kinetic is a daily morning briefing for families — your schedule, local weather, school events, and more delivered at 6:30 AM every day.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": "Web",
       "offers": {
@@ -52,967 +52,827 @@
       ]
     }
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Google Identity Services -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --blue: #1565C0;
-            --blue-light: #1976D2;
-            --orange: #FF6F00;
-            --dark: #0f1623;
-            --dark-card: #161d2e;
-            --gray-50: #f7f8fc;
-            --gray-100: #eef1f6;
-            --gray-200: #dde2ec;
-            --text: #1a1f36;
-            --text-secondary: #5e6278;
-            --radius: 16px;
+            --navy:    #2E3A59;
+            --blue:    #AFCBFF;
+            --sage:    #CFE8D5;
+            --beige:   #F5F1EA;
+            --gray:    #7A7A7A;
+            --white:   #FFFFFF;
+            --text-dark: #2E3A59;
+            --radius-card: 14px;
+            --radius-btn: 8px;
+            --shadow-soft: 0 2px 16px rgba(46,58,89,0.08), 0 1px 4px rgba(46,58,89,0.04);
+            --shadow-card: 0 4px 24px rgba(46,58,89,0.10), 0 1px 6px rgba(46,58,89,0.05);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #fff;
-            color: var(--text);
+            background: var(--white);
+            color: var(--navy);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
-            font-family: 'Outfit', 'Inter', sans-serif;
-        }
-
-        /* Scroll animations */
+        /* ─── Scroll animations ─── */
         .fade-up {
             opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .stagger-1 { transition-delay: 0.06s; }
-        .stagger-2 { transition-delay: 0.12s; }
-        .stagger-3 { transition-delay: 0.18s; }
-        .stagger-4 { transition-delay: 0.24s; }
-        .stagger-5 { transition-delay: 0.30s; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.07s; }
+        .stagger-2 { transition-delay: 0.14s; }
+        .stagger-3 { transition-delay: 0.21s; }
+        .stagger-4 { transition-delay: 0.28s; }
+        .stagger-5 { transition-delay: 0.35s; }
+        .stagger-6 { transition-delay: 0.42s; }
 
-        /* Google Sign-In Button Styles */
-        .google-signin-button {
+        /* ─── Nav ─── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--navy);
+            padding: 0 32px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 14px 18px;
-            background: white;
-            border: 2px solid var(--gray-200);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.25s;
+            justify-content: space-between;
+            height: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            letter-spacing: -0.02em;
             text-decoration: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-
-        .google-signin-button:hover {
-            border-color: var(--gray-300);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            transform: translateY(-1px);
-        }
-
-        .google-signin-button svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Google button for CTA section (white on dark) */
-        .cta .google-signin-button {
-            background: white;
-            border: 2px solid rgba(255,255,255,0.2);
-            color: var(--text);
-        }
-
-        .cta .google-signin-button:hover {
-            background: #f8f8f8;
-            border-color: rgba(255,255,255,0.3);
-        }
-
-        .form-divider {
+        .nav-links {
             display: flex;
             align-items: center;
-            margin: 16px 0;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+            gap: 28px;
         }
-
-        .form-divider::before,
-        .form-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--gray-200);
+        .nav-links a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            transition: color 0.2s;
         }
-
-        .form-divider span {
-            padding: 0 16px;
+        .nav-links a:hover { color: white; }
+        .nav-cta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy) !important;
+            background: var(--blue);
+            padding: 8px 18px;
+            border-radius: var(--radius-btn);
+            text-decoration: none !important;
+            transition: opacity 0.2s !important;
         }
+        .nav-cta:hover { opacity: 0.9 !important; }
 
-        .cta .form-divider {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .cta .form-divider::before,
-        .cta .form-divider::after {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .google-auth-badge {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            color: var(--blue);
-            background: rgba(21,101,192,0.1);
-            padding: 8px 12px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .cta .google-auth-badge {
-            color: rgba(255,255,255,0.9);
-            background: rgba(255,255,255,0.15);
-        }
-
-        /* Hero */
+        /* ─── Hero ─── */
         .hero {
-            position: relative;
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff 40%, #fff8f0 100%);
-            padding: 80px 20px 56px;
+            background: var(--navy);
+            padding: 72px 24px 0;
             text-align: center;
+            position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
-            top: -60%;
-            left: -20%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(ellipse, rgba(21,101,192,0.07) 0%, transparent 70%);
+            top: -80px; left: -120px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(175,203,255,0.10) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -40%;
-            right: -15%;
-            width: 60%;
-            height: 120%;
-            background: radial-gradient(ellipse, rgba(255,111,0,0.06) 0%, transparent 70%);
+            bottom: 40px; right: -80px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(207,232,213,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .hero > * { position: relative; z-index: 1; }
 
-        .logo-img {
-            max-width: 300px;
-            width: 70%;
-            height: auto;
-            margin-bottom: 16px;
-            background: white;
-            border-radius: 16px;
-            padding: 14px 24px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 20px;
         }
 
-        .tagline {
-            font-size: 1.2rem;
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.6rem, 6vw, 4rem);
             font-weight: 400;
-            color: var(--text-secondary);
-            letter-spacing: 0.3px;
-            margin-bottom: 12px;
-        }
-
-        .divider {
-            height: 3px;
-            background: linear-gradient(to right, var(--blue), var(--orange));
-            max-width: 200px;
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        .hero-signup {
-            margin-top: 36px;
-            max-width: 460px;
+            color: white;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .hero-fields {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .hero h1 em {
+            font-style: italic;
+            color: var(--blue);
         }
 
-        .hero-input-row {
-            display: flex;
-            gap: 10px;
+        .hero-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.65;
+            max-width: 520px;
+            margin: 0 auto 40px;
         }
 
+        /* Hero CTA buttons */
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 52px;
+        }
+        .btn-primary {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 28px;
+            background: white;
+            color: var(--navy);
+            border: none;
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+        }
+        .btn-ghost {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 13px 26px;
+            background: transparent;
+            color: rgba(255,255,255,0.88);
+            border: 1.5px solid rgba(255,255,255,0.35);
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+            display: inline-block;
+        }
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.7);
+            color: white;
+        }
+
+        /* Hero signup form (inline, minimal) */
+        .hero-form-wrap {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 28px 28px 24px;
+            max-width: 460px;
+            margin: 0 auto 0;
+        }
+        .hero-form-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .hero-fields { display: flex; flex-direction: column; gap: 10px; }
+        .hero-input-row { display: flex; gap: 10px; }
         .hero-fields input {
             flex: 1;
-            padding: 14px 18px;
-            border: 2px solid var(--gray-200);
-            border-radius: 12px;
-            font-size: 0.95rem;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.09);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-btn);
+            font-size: 0.93rem;
             font-family: 'Inter', sans-serif;
+            color: white;
             outline: none;
-            color: var(--text);
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(8px);
-            transition: border-color 0.25s, box-shadow 0.25s;
+            transition: border-color 0.2s, background 0.2s;
         }
-
+        .hero-fields input::placeholder { color: rgba(255,255,255,0.38); }
         .hero-fields input:focus {
             border-color: var(--blue);
-            box-shadow: 0 0 0 4px rgba(21,101,192,0.1);
+            background: rgba(175,203,255,0.09);
         }
-
-        .hero-fields input::placeholder {
-            color: #a0a8b8;
-        }
-
-        /* Family member sections for Hero form */
-        .hero-family-section {
-            margin-top: 6px;
-        }
-
+        .hero-family-section { margin-top: 2px; }
         .hero-add-family {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
             color: var(--blue);
-            font-size: 0.88rem;
             text-decoration: none;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            opacity: 0.85;
             transition: opacity 0.2s;
         }
-
-        .hero-add-family:hover {
-            opacity: 0.8;
-        }
-
-        .hero-family-helper {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-
-        .hero-family-members {
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .hero-family-member {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hero-family-member input {
-            flex: 1;
-        }
-
+        .hero-add-family:hover { opacity: 1; }
+        .hero-family-helper { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
+        .hero-family-members { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .hero-family-member { display: flex; align-items: center; gap: 8px; }
+        .hero-family-member input { flex: 1; }
         .hero-remove-family {
-            width: 24px;
-            height: 24px;
-            border: none;
-            background: none;
-            color: #999;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: color 0.2s;
+            width: 24px; height: 24px; border: none; background: none;
+            color: rgba(255,255,255,0.35); font-size: 15px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; transition: color 0.2s;
         }
-
-        .hero-remove-family:hover {
-            color: #ff4444;
-        }
+        .hero-remove-family:hover { color: #ff6b6b; }
 
         .btn-hero-signup {
-            padding: 15px 28px;
-            background: linear-gradient(135deg, var(--blue), var(--blue-light));
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            white-space: nowrap;
             width: 100%;
-            box-shadow: 0 4px 14px rgba(21,101,192,0.25);
-        }
-
-        .btn-hero-signup:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(21,101,192,0.35);
-        }
-        .btn-hero-signup:active {
-            transform: translateY(0);
-        }
-
-        /* Section shared */
-        .section-heading {
-            font-size: 2.2rem;
+            padding: 14px;
+            background: var(--blue);
+            color: var(--navy);
+            border: none;
+            border-radius: var(--radius-btn);
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--text);
-            line-height: 1.2;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-top: 4px;
+            letter-spacing: -0.01em;
         }
+        .btn-hero-signup:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        /* Examples / Real-World */
-        .examples {
-            position: relative;
-            background: var(--dark);
-            padding: 80px 20px;
-            overflow: hidden;
-        }
-
-        .examples::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(21,101,192,0.4), rgba(255,111,0,0.4), transparent);
-        }
-
-        .examples::after {
-            content: '';
-            position: absolute;
-            top: 10%;
-            right: -10%;
-            width: 40%;
-            height: 60%;
-            background: radial-gradient(ellipse, rgba(21,101,192,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .examples h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .examples .section-sub {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.6);
-            text-align: center;
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .example-list {
-            max-width: 720px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .example {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius);
-            padding: 28px 32px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            backdrop-filter: blur(8px);
-        }
-
-        .example:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.14);
-            transform: translateY(-2px);
-        }
-
-        .example-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
+        /* Google OAuth button */
+        .google-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(21,101,192,0.2), rgba(255,111,0,0.15));
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.06);
+            gap: 10px;
+            width: 100%;
+            padding: 13px 18px;
+            background: white;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius-btn);
+            font-size: 0.93rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            color: #3c4043;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+            text-decoration: none;
+            box-shadow: var(--shadow-soft);
         }
+        .google-btn:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+            transform: translateY(-1px);
+        }
+        .form-divider {
+            display: flex; align-items: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            margin: 10px 0;
+        }
+        .form-divider::before, .form-divider::after {
+            content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.12);
+        }
+        .form-divider span { padding: 0 12px; }
 
-        .example-text h3 {
+        /* Hero wave */
+        .hero-wave {
+            margin-top: 56px;
+            display: block;
+            line-height: 0;
+        }
+        .hero-wave svg { width: 100%; display: block; }
+
+        /* ─── How it works ─── */
+        .how {
+            background: var(--beige);
+            padding: 72px 24px 64px;
+            text-align: center;
+        }
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 14px;
+        }
+        .how h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 400;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .how h2 em {
+            font-style: italic;
+            color: #5E7ABF;
+        }
+        .section-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+        .steps {
+            display: flex;
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 32px 26px;
+            text-align: left;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(46,58,89,0.06);
+            transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
+        }
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(46,58,89,0.13);
+        }
+        .step-icon {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+        .step h3 {
+            font-family: 'DM Sans', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            color: #fff;
-            margin-bottom: 6px;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .step p {
             font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.65;
         }
 
-        .example-text p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.55);
+        /* ─── Features ─── */
+        .features {
+            background: white;
+            padding: 72px 24px 64px;
+            text-align: center;
+        }
+        .features h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 400;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-width: 860px;
+            margin: 48px auto 0;
+            text-align: left;
+        }
+        .feature-card {
+            background: var(--beige);
+            border-radius: var(--radius-card);
+            padding: 26px 24px;
+            border: 1px solid rgba(46,58,89,0.06);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+        .feature-card .fc-icon {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .feature-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .feature-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.86rem;
+            color: var(--gray);
             line-height: 1.6;
         }
 
-        /* What You Get */
-        .what-you-get {
-            position: relative;
-            padding: 80px 20px;
+        /* ─── Daily briefing what you get ─── */
+        .daily {
+            background: var(--beige);
+            padding: 72px 24px 64px;
             text-align: center;
-            background: linear-gradient(180deg, #fff 0%, var(--gray-50) 100%);
         }
-
-        .what-you-get h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text);
+        .daily h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            font-weight: 400;
+            color: var(--navy);
             margin-bottom: 12px;
         }
-
-        .what-you-get .section-sub {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-bottom: 44px;
+        .daily-list {
+            max-width: 580px;
+            margin: 40px auto 0;
+            background: white;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
         }
-
-        .feature-list {
-            max-width: 620px;
-            margin: 0 auto;
-            text-align: left;
-            background: #fff;
-            border-radius: 20px;
-            padding: 8px 0;
-            box-shadow: 0 4px 32px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
-            border: 1px solid var(--gray-100);
-        }
-
-        .feature-item {
+        .daily-item {
             display: flex;
             align-items: baseline;
             gap: 14px;
-            padding: 15px 28px;
-            border-bottom: 1px solid var(--gray-100);
-            transition: background 0.2s;
+            padding: 15px 24px;
+            border-bottom: 1px solid rgba(46,58,89,0.06);
+            text-align: left;
+            transition: background 0.15s;
         }
-
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-
-        .feature-item:hover {
-            background: var(--gray-50);
-        }
-
-        .feature-check {
-            color: var(--blue);
-            font-weight: 700;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(21,101,192,0.08);
+        .daily-item:last-child { border-bottom: none; }
+        .daily-item:hover { background: var(--beige); }
+        .daily-check {
+            width: 20px; height: 20px;
+            background: var(--sage);
             border-radius: 50%;
-            font-size: 0.75rem;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 10px;
+            color: var(--navy);
+            font-weight: 700;
         }
-
-        .feature-item span:not(.feature-check) {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+        .daily-item span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.91rem;
+            color: #4A4A4A;
             line-height: 1.5;
         }
-
-        .feature-item span:not(.feature-check) strong {
-            color: var(--text);
+        .daily-item span strong {
+            font-weight: 600;
+            color: var(--navy);
         }
 
-        /* Privacy Promise */
-        .privacy-promise {
-            position: relative;
-            background: var(--gray-50);
-            padding: 80px 20px;
+        /* ─── Privacy promise ─── */
+        .privacy {
+            background: white;
+            padding: 72px 24px 64px;
             text-align: center;
-            overflow: hidden;
         }
-
-        .privacy-promise::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gray-200), transparent);
+        .privacy h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 10px;
         }
-
-        .privacy-inner {
-            max-width: 680px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .privacy-promise h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 8px;
-        }
-
-        .privacy-promise > div > p:first-of-type {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-bottom: 36px;
-        }
-
-        .privacy-points {
-            text-align: left;
+        .privacy-grid {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 36px;
+            gap: 14px;
+            max-width: 600px;
+            margin: 36px auto 28px;
+            text-align: left;
         }
-
         .privacy-point {
-            background: #fff;
-            border-radius: 14px;
-            padding: 24px 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            border: 1px solid var(--gray-100);
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-            overflow: hidden;
+            background: var(--beige);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border-left: 3px solid var(--sage);
+            transition: transform 0.2s;
         }
-
-        .privacy-point::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--blue), var(--orange));
-            border-radius: 3px 0 0 3px;
-        }
-
-        .privacy-point:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-        }
-
+        .privacy-point:hover { transform: translateX(3px); }
         .privacy-point strong {
             display: block;
-            font-size: 0.95rem;
-            color: var(--text);
-            margin-bottom: 6px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .privacy-point span {
+            font-family: 'DM Sans', sans-serif;
             font-size: 0.9rem;
-            color: var(--text-secondary);
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+        .privacy-point span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gray);
             line-height: 1.6;
         }
-
-        .privacy-closer {
-            font-size: 1.05rem;
-            color: #444;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
         .privacy-link {
-            display: inline-block;
-            font-size: 0.9rem;
-            color: var(--blue);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 8px;
-            transition: all 0.2s;
+            border-bottom: 1.5px solid var(--blue);
+            padding-bottom: 1px;
+            transition: opacity 0.2s;
         }
+        .privacy-link:hover { opacity: 0.7; }
 
-        .privacy-link:hover {
-            background: rgba(21,101,192,0.06);
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 80px 20px;
+        /* ─── Social proof ─── */
+        .social-proof {
+            background: var(--beige);
+            padding: 64px 24px;
             text-align: center;
-            background: #fff;
-            position: relative;
         }
-
-        .how-it-works h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 56px;
-        }
-
-        .steps {
-            display: flex;
-            gap: 24px;
-            max-width: 960px;
+        .proof-quote {
+            max-width: 560px;
             margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: relative;
         }
-
-        /* Connector line between steps */
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 15%;
-            right: 15%;
-            height: 2px;
-            background: linear-gradient(to right, var(--blue), var(--orange));
-            opacity: 0.2;
-            border-radius: 2px;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 260px;
-            max-width: 300px;
-            text-align: left;
-            background: var(--gray-50);
-            border-radius: 20px;
-            padding: 36px 28px;
-            border: 1px solid var(--gray-100);
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-        }
-
-        .step:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-            border-color: var(--gray-200);
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--blue), var(--orange));
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 12px;
+        .proof-quote blockquote {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(1.25rem, 3vw, 1.55rem);
+            color: var(--navy);
+            line-height: 1.5;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(21,101,192,0.25);
         }
-
-        .step h3 {
-            font-size: 1.1rem;
+        .proof-quote cite {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-style: normal;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        .proof-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text);
-            margin-bottom: 10px;
-            font-family: 'Inter', sans-serif;
+            color: var(--gray);
+            margin-top: 36px;
+            letter-spacing: 0.01em;
         }
 
-        .step p {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* CTA */
+        /* ─── CTA Section ─── */
         .cta {
-            position: relative;
-            background: linear-gradient(135deg, #0d1b3e 0%, #1565C0 40%, #FF6F00 100%);
-            padding: 88px 20px;
+            background: var(--navy);
+            padding: 80px 24px;
             text-align: center;
+            position: relative;
             overflow: hidden;
         }
-
         .cta::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(21,101,192,0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255,111,0,0.2) 0%, transparent 50%);
+            top: -60px; right: -60px;
+            width: 360px; height: 360px;
+            background: radial-gradient(circle, rgba(175,203,255,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .cta > * { position: relative; z-index: 1; }
-
         .cta h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 12px;
         }
-
-        .cta .subtitle {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 36px;
+        .cta h2 em { font-style: italic; color: var(--blue); }
+        .cta .cta-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 40px;
         }
-
         .signup-box {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255,255,255,0.18);
-            border-radius: 20px;
-            padding: 36px 32px;
-            max-width: 440px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 32px 28px;
+            max-width: 420px;
             margin: 0 auto;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
-
-        .trial-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
+        .input-group { margin-bottom: 10px; }
+        .input-row { display: flex; gap: 10px; margin-bottom: 10px; }
         .input-group input, .input-row input {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.08);
-            color: #fff;
-            font-size: 1rem;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.09);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-btn);
+            color: white;
+            font-size: 0.93rem;
             font-family: 'Inter', sans-serif;
             outline: none;
-            transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+            transition: border-color 0.2s, background 0.2s;
         }
-
-        .input-group input::placeholder, .input-row input::placeholder {
-            color: rgba(255,255,255,0.45);
-        }
-
+        .input-group input::placeholder, .input-row input::placeholder { color: rgba(255,255,255,0.38); }
         .input-group input:focus, .input-row input:focus {
-            border-color: rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.14);
-            box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
+            border-color: var(--blue);
+            background: rgba(175,203,255,0.09);
         }
-
-        /* Family member sections for CTA form */
-        .cta-family-section {
-            margin-top: 6px;
-        }
-
+        .cta-family-section { margin-top: 2px; margin-bottom: 10px; }
         .cta-add-family {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.88rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--blue);
             text-decoration: none;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            opacity: 0.85;
             transition: opacity 0.2s;
         }
-
-        .cta-add-family:hover {
-            opacity: 0.8;
-        }
-
-        .cta-family-helper {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-
-        .cta-family-members {
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .cta-family-member {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cta-family-member input {
-            flex: 1;
-        }
-
+        .cta-add-family:hover { opacity: 1; }
+        .cta-family-helper { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
+        .cta-family-members { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+        .cta-family-member { display: flex; align-items: center; gap: 8px; }
+        .cta-family-member input { flex: 1; }
         .cta-remove-family {
-            width: 24px;
-            height: 24px;
-            border: none;
-            background: none;
-            color: rgba(255,255,255,0.4);
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: color 0.2s;
+            width: 24px; height: 24px; border: none; background: none;
+            color: rgba(255,255,255,0.35); font-size: 15px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; transition: color 0.2s;
         }
-
-        .cta-remove-family:hover {
-            color: #ff4444;
-        }
-
+        .cta-remove-family:hover { color: #ff6b6b; }
         .btn-signup {
             width: 100%;
-            padding: 15px;
-            background: #fff;
-            color: var(--blue);
+            padding: 14px;
+            background: var(--blue);
+            color: var(--navy);
             border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            border-radius: var(--radius-btn);
+            font-size: 0.98rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: -0.01em;
         }
-
-        .btn-signup:hover {
-            background: #f8f8f8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        }
-        .btn-signup:active {
-            transform: translateY(0);
-        }
-
+        .btn-signup:hover { opacity: 0.9; transform: translateY(-1px); }
         .fine-print {
-            font-size: 0.76rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.38);
+            margin-top: 14px;
             line-height: 1.5;
         }
-
-        .fine-print a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: underline;
+        .fine-print a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+        .signup-success { display: none; text-align: center; padding: 12px 0; }
+        .signup-success .check { font-size: 2.4rem; margin-bottom: 10px; }
+        .signup-success h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .signup-success p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
         }
 
-        .signup-success {
-            display: none;
-            text-align: center;
-            padding: 16px 0;
+        /* CTA divider */
+        .cta .form-divider {
+            color: rgba(255,255,255,0.3);
+        }
+        .cta .form-divider::before,
+        .cta .form-divider::after {
+            background: rgba(255,255,255,0.12);
         }
 
-        .signup-success .check { font-size: 2.5rem; margin-bottom: 10px; }
-        .signup-success h3 { font-size: 1.2rem; color: #fff; margin-bottom: 6px; }
-        .signup-success p { color: rgba(255,255,255,0.85); font-size: 0.92rem; line-height: 1.5; }
-
-        /* Footer */
+        /* ─── Footer ─── */
         footer {
-            background: var(--dark);
-            color: rgba(255,255,255,0.45);
-            padding: 36px 20px;
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 24px;
             text-align: center;
-            font-size: 0.83rem;
-            border-top: 1px solid rgba(255,255,255,0.06);
         }
-
-        footer a {
-            color: rgba(255,255,255,0.65);
+        .footer-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .footer-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 18px;
+        }
+        .footer-links {
+            margin-bottom: 14px;
+        }
+        .footer-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
             text-decoration: none;
             margin: 0 14px;
             transition: color 0.2s;
         }
-
-        footer a:hover { color: #fff; }
-        footer .footer-links { margin-bottom: 12px; }
-
-        @media (max-width: 600px) {
-            .hero { padding: 48px 20px 32px; }
-            .section-heading,
-            .how-it-works h2, .examples h2, .what-you-get h2, .cta h2, .privacy-promise h2 { font-size: 1.7rem; }
-            .example { padding: 20px 22px; }
-            .signup-box { padding: 28px 22px; }
-            .hero-input-row { flex-direction: column; }
-            .input-row { flex-direction: column; }
-            .steps::before { display: none; }
-            .feature-list { border-radius: 14px; }
-            .feature-item { padding: 13px 20px; }
-            .hero-family-member { flex-direction: column; }
-            .cta-family-member { flex-direction: column; }
-            .hero-family-member input { margin-bottom: 4px; }
-            .cta-family-member input { margin-bottom: 4px; }
+        .footer-links a:hover { color: rgba(255,255,255,0.85); }
+        .footer-copy {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
         }
 
-        @media (max-width: 380px) {
-            .hero { padding: 36px 16px 24px; }
+        /* ─── Responsive ─── */
+        @media (max-width: 680px) {
+            .nav-links { display: none; }
+            .hero { padding: 52px 20px 0; }
+            .hero-ctas { flex-direction: column; align-items: stretch; max-width: 320px; margin-left: auto; margin-right: auto; }
+            .hero-form-wrap { padding: 22px 20px 18px; }
+            .hero-input-row { flex-direction: column; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .input-row { flex-direction: column; }
+            .how, .features, .daily, .privacy, .social-proof, .cta { padding-top: 52px; padding-bottom: 48px; }
+            .signup-box { padding: 24px 20px; }
         }
     </style>
 </head>
 <body>
 
+<!-- Nav -->
+<nav class="nav">
+    <a href="/" class="nav-logo">Kinetic</a>
+    <div class="nav-links">
+        <a href="/features/">Features</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/#signup" class="nav-cta">Get started free</a>
+    </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero">
-    <img src="assets/kinetic-logo.png" alt="Kinetic" class="logo-img fade-up">
-    <h1 class="tagline fade-up">Born from family chaos. Built for family calm.</h1>
-    <div class="divider fade-up"></div>
-    <div class="hero-signup fade-up">
+    <span class="hero-eyebrow fade-up">From Chaos to Calm</span>
+    <h1 class="fade-up">Life moves fast.<br><em>We keep it calm.</em></h1>
+    <p class="hero-sub fade-up">Your family's energy, organized. Schedules, weather, school events, and everything you need — delivered every morning at 6:30 AM so your day moves with intention.</p>
+
+    <div class="hero-ctas fade-up">
+        <a href="#signup" class="btn-primary">Get started free</a>
+        <a href="#how-it-works" class="btn-ghost">See how it works</a>
+    </div>
+
+    <div class="hero-form-wrap fade-up" id="heroFormWrap">
+        <span class="hero-form-label">Or sign up right here</span>
         <div class="hero-fields" id="heroForm">
             <a href="https://app.kineticfam.com/auth/google/signup"
-               style="display:flex;align-items:center;justify-content:center;gap:10px;
-                      background:white;border:2px solid #dadce0;border-radius:8px;
-                      padding:12px 20px;text-decoration:none;color:#3c4043;
-                      font-weight:600;font-size:15px;width:100%;box-sizing:border-box;
-                      transition:box-shadow 0.15s;margin-bottom:4px;"
-               onmouseover="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.15)'"
-               onmouseout="this.style.boxShadow='none'">
-              <svg width="20" height="20" viewBox="0 0 24 24">
+               class="google-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -1020,14 +880,7 @@
               </svg>
               Sign up with Google
             </a>
-            <div style="display:flex;align-items:center;gap:10px;margin:10px 0;color:#888;font-size:13px;">
-              <div style="flex:1;height:1px;background:#ddd;"></div>
-              or
-              <div style="flex:1;height:1px;background:#ddd;"></div>
-            </div>
-            <div id="heroGoogleAuthBadge" class="google-auth-badge">
-                <span>✓ Signed in as <span id="heroGoogleEmail"></span></span>
-            </div>
+            <div class="form-divider"><span>or</span></div>
             <input type="email" id="heroEmailInput" placeholder="Your email address">
             <div class="hero-input-row">
                 <input type="text" id="heroLastNameInput" placeholder="Last name">
@@ -1035,171 +888,178 @@
             </div>
             <div class="hero-family-section">
                 <a href="#" class="hero-add-family" onclick="addHeroFamilyMember(event)">＋ Add a family member</a>
-                <div class="hero-family-helper">They'll receive the daily briefing and can add plans too.</div>
+                <div class="hero-family-helper">They'll receive the daily briefing too.</div>
                 <div class="hero-family-members" id="heroFamilyMembers"></div>
             </div>
             <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
-            <div id="heroSignupError" style="display:none; margin-top:10px; font-size:0.85rem; color:#c00; background:rgba(255,255,255,0.9); padding:8px 12px; border-radius:6px;"></div>
-            <div id="heroError" style="display:none; margin-top:10px; font-size:0.85rem; color:#555;"></div>
+            <div id="heroSignupError" style="display:none; margin-top:8px; font-size:0.82rem; color:#AFCBFF; background:rgba(0,0,0,0.2); padding:8px 12px; border-radius:6px;"></div>
         </div>
-        <div id="heroSuccess" style="display:none; margin-top:16px;">
-            <p style="font-size:1rem; color:#333; font-weight:600;">🎉 You're in!</p>
-            <p style="font-size:0.9rem; color:#555; line-height:1.6;">You're all set! Check your inbox for a welcome email with your Kinetic address.<br><br>Your first daily briefing arrives tomorrow morning at 6:30 AM. 🌅</p>
+        <div id="heroSuccess" style="display:none; margin-top:12px; text-align:center;">
+            <p style="font-size:1.5rem; margin-bottom:8px;">🎉</p>
+            <p style="font-family:'DM Serif Display',Georgia,serif; font-size:1.2rem; font-weight:400; color:white; margin-bottom:6px;">You're in!</p>
+            <p style="font-family:'Inter',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.7); line-height:1.6;">Your first briefing arrives tomorrow at 6:30 AM. 🌅</p>
         </div>
+    </div>
+
+    <!-- Soft wave transition to beige -->
+    <div class="hero-wave">
+        <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,64 L0,64 Z" fill="#F5F1EA"/>
+        </svg>
     </div>
 </section>
 
-<section class="examples">
-    <h2 class="fade-up">Your Schedule Is Ready Before Your Coffee.</h2>
-    <p class="section-sub fade-up">Kinetic delivers a private daily briefing designed for the rhythm of real family life. Simply email anything — school updates, sports schedules, reservations, travel plans — to your secure Kinetic address. Or add events directly from your personal dashboard. Either way, Kinetic understands the details, remembers the dates, and brings everything to you at exactly the right time.</p>
-    <p class="section-sub fade-up" style="margin-top: 12px;">Each morning, you'll receive a clear, calm summary of everything your household needs to know that day, straight to your normal, everyday email address. No calendar maintenance. No digging through inboxes. No mental load. Just one trusted briefing that keeps your family organized, informed, and effortlessly in sync — finally, a way technology simplifies your life instead of adding to it.</p>
-    <div class="example-list">
-        <div class="example fade-up stagger-1">
-            <div class="example-icon">📸</div>
-            <div class="example-text">
-                <h3>Snap a photo of the soccer schedule on your fridge</h3>
-                <p>Kinetic reads the image, pulls out every game date and time, and includes them in your daily briefing — that day and weeks ahead. Done.</p>
-            </div>
-        </div>
-        <div class="example fade-up stagger-2">
-            <div class="example-icon">📧</div>
-            <div class="example-text">
-                <h3>Forward a birthday party invite from another parent</h3>
-                <p>We'll grab the date, time, and location — and when that day comes, it'll be right there in your morning briefing. No copy-pasting required.</p>
-            </div>
-        </div>
-        <div class="example fade-up stagger-3">
-            <div class="example-icon">📄</div>
-            <div class="example-text">
-                <h3>Attach the school's annual calendar PDF</h3>
-                <p>Half days, teacher workdays, spring break — Kinetic reads the document and surfaces each date in your briefing as it approaches.</p>
-            </div>
-        </div>
-        <div class="example fade-up stagger-4">
-            <div class="example-icon">✈️</div>
-            <div class="example-text">
-                <h3>Forward a flight or hotel confirmation</h3>
-                <p>Kinetic reads the itinerary — departure time, arrival, confirmation number, check-in and check-out — and adds every leg to your briefing automatically. Works for flights, hotels, restaurants, car rentals, and event tickets too.</p>
-            </div>
-        </div>
-        <div class="example fade-up stagger-5">
-            <div class="example-icon">🏥</div>
-            <div class="example-text">
-                <h3>Forward any appointment confirmation</h3>
-                <p>Dentist, doctor, vet, haircut — forward the confirmation email and it appears in your briefing that morning. No copy-pasting, no calendar entry. Just forward and forget.</p>
-            </div>
-        </div>
-        <div class="example fade-up stagger-6">
-            <div class="example-icon">✏️</div>
-            <div class="example-text">
-                <h3>Or just type it</h3>
-                <p>"Dinner at Mom's, Saturday 6pm." That works too. Send a plain email, reply to your morning briefing, or add it straight from your dashboard — whichever is easiest.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- How It Works -->
+<section class="how" id="how-it-works">
+    <p class="section-label fade-up">How it works</p>
+    <h2 class="fade-up">Your day, <em>in motion.</em></h2>
+    <p class="section-sub fade-up">Three steps. No app. No calendar maintenance. Just one calm email every morning before the day gets going.</p>
 
-<section class="what-you-get">
-    <h2 class="fade-up">Every Morning at 6:30 AM</h2>
-    <p class="section-sub fade-up">One email with everything your family needs to start the day.</p>
-    <div class="feature-list fade-up">
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Today's schedule</strong> — what your family needs to know right now</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Next two weeks</strong> — so nothing sneaks up on you</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Local weather</strong> — highs, lows, rain chance, UV for your zip code</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Top headlines</strong> — 5 national stories + local news from your area</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Events near you</strong> — festivals, games, concerts within 30 miles</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Reminders</strong> — put "Reminder" in the subject line and it shows up for 7 days</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Birthdays</strong> — put "Birthday" in the subject line with a name and date, and we'll celebrate them every year</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>Daily inspiration</strong> — a fresh quote to start the morning right</span>
-        </div>
-        <div class="feature-item">
-            <span class="feature-check">✓</span>
-            <span><strong>National holidays</strong> — automatically included so you never miss one</span>
-        </div>
-    </div>
-</section>
-
-<section class="privacy-promise">
-    <div class="privacy-inner">
-        <h2 class="fade-up">Your Family's Privacy Is Non-Negotiable.</h2>
-        <p class="fade-up">We built Kinetic for our own family first — and privacy was the foundation.</p>
-        <div class="privacy-points">
-            <div class="privacy-point fade-up stagger-1">
-                <strong>No access to your personal email or calendar.</strong>
-                <span>Kinetic never connects to your accounts. It only processes the events you choose to send.</span>
-            </div>
-            <div class="privacy-point fade-up stagger-2">
-                <strong>Your emails are deleted immediately after processing.</strong>
-                <span>Once our system has organized your events, the original message is permanently removed. Nothing is stored.</span>
-            </div>
-            <div class="privacy-point fade-up stagger-3">
-                <strong>Your information is never sold, shared, or used beyond your daily briefing.</strong>
-                <span>No ads. No data brokers. No exceptions.</span>
-            </div>
-        </div>
-        <p class="privacy-closer fade-up">Built with the same discretion as an executive briefing for a CEO — <strong>because your family is the most important organization you run.</strong></p>
-        <a href="/privacy" class="privacy-link fade-up">Read our full privacy policy →</a>
-    </div>
-</section>
-
-<section class="how-it-works">
-    <h2 class="fade-up">How Kinetic Works</h2>
     <div class="steps">
         <div class="step fade-up stagger-1">
-            <div class="step-number">1</div>
-            <h3>Sign Up</h3>
-            <p>Enter your email, last name, and zip code. That's it — you'll get a welcome email with your dedicated Kinetic address in minutes.</p>
+            <span class="step-icon">🗓</span>
+            <h3>Connect your family's schedule</h3>
+            <p>Forward school newsletters, snap photos of the fridge schedule, attach PDFs — or type it directly. Kinetic reads it all and pulls out every date automatically.</p>
         </div>
         <div class="step fade-up stagger-2">
-            <div class="step-number">2</div>
-            <h3>Add Events — However You Like</h3>
-            <p>Forward emails, snap photos, attach PDFs, or type it straight into your dashboard. However you prefer — we'll pull out the details and add them to your morning briefing automatically.</p>
+            <span class="step-icon">☀️</span>
+            <h3>Wake up to your briefing</h3>
+            <p>Every morning at 6:30 AM, one email arrives with your family's schedule, local weather, school events, headlines, and anything coming up. Nothing to check. It just appears.</p>
         </div>
         <div class="step fade-up stagger-3">
-            <div class="step-number">3</div>
-            <h3>Wake Up to Kinetic</h3>
-            <p>Every morning at 6:30 AM, your family gets a clean daily briefing — today's schedule, weather, news, local events, and more. One email. Everything you need.</p>
+            <span class="step-icon">✨</span>
+            <h3>Move with intention</h3>
+            <p>Your family is still full of energy — now it has direction. Everyone knows what's happening. No one's scrambling. The day starts with calm confidence, not chaos.</p>
         </div>
     </div>
 </section>
 
+<!-- Features -->
+<section class="features">
+    <p class="section-label fade-up">What's included</p>
+    <h2 class="fade-up">Everything moving<br>in the right direction.</h2>
+    <p class="section-sub fade-up">Built for real families in motion — not for minimalists with nothing on the calendar.</p>
+
+    <div class="feature-grid">
+        <div class="feature-card fade-up stagger-1">
+            <span class="fc-icon">📅</span>
+            <h3>School calendars</h3>
+            <p>Holidays, breaks, early releases, and field trips — forward the school newsletter and we auto-import every date.</p>
+        </div>
+        <div class="feature-card fade-up stagger-2">
+            <span class="fc-icon">🌤</span>
+            <h3>Weather, every morning</h3>
+            <p>Drop-off temps, afternoon highs, rain chance, UV index — your local forecast so you can dress everyone right the first time.</p>
+        </div>
+        <div class="feature-card fade-up stagger-3">
+            <span class="fc-icon">⚽</span>
+            <h3>Sports & activities</h3>
+            <p>Team schedules, game days, practice times — forward the season schedule once and every game shows up in your briefing.</p>
+        </div>
+        <div class="feature-card fade-up stagger-4">
+            <span class="fc-icon">📧</span>
+            <h3>Forward anything</h3>
+            <p>Email a PDF, photo, invite, or confirmation and we'll extract the details. Flight info, doctor appointments, birthday parties — it all works.</p>
+        </div>
+        <div class="feature-card fade-up stagger-5">
+            <span class="fc-icon">👨‍👩‍👧</span>
+            <h3>Whole family</h3>
+            <p>Add everyone who should be in the loop. One shared briefing keeps the whole household moving together.</p>
+        </div>
+        <div class="feature-card fade-up stagger-6">
+            <span class="fc-icon">📱</span>
+            <h3>Optional text summaries</h3>
+            <p>Get a short SMS version each morning — no app needed, just your phone. Perfect when you're already out the door.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Daily briefing detail -->
+<section class="daily">
+    <p class="section-label fade-up">Every morning at 6:30 AM</p>
+    <h2 class="fade-up">One email. Everything you need.</h2>
+    <p class="section-sub fade-up">Your family briefing arrives before the day kicks in — so you're never catching up, only moving forward.</p>
+    <div class="daily-list fade-up">
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Today's schedule</strong> — what your family needs to know right now</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Next two weeks</strong> — so nothing sneaks up on you</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Local weather</strong> — highs, lows, rain chance, UV for your zip code</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Top headlines</strong> — 5 national stories + local news from your area</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Events near you</strong> — festivals, games, concerts within 30 miles</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Reminders</strong> — put "Reminder" in the subject line, it shows up for 7 days</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Birthdays</strong> — enter once, celebrated every year</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>National holidays</strong> — automatically included, never miss one</span>
+        </div>
+        <div class="daily-item">
+            <div class="daily-check">✓</div>
+            <span><strong>Daily inspiration</strong> — a fresh quote to send you out the door right</span>
+        </div>
+    </div>
+</section>
+
+<!-- Privacy Promise -->
+<section class="privacy">
+    <p class="section-label fade-up">Privacy</p>
+    <h2 class="fade-up">Your family's business<br>stays your family's business.</h2>
+    <p class="section-sub fade-up">We built Kinetic for our own family first. Privacy wasn't a feature — it was the foundation.</p>
+    <div class="privacy-grid">
+        <div class="privacy-point fade-up stagger-1">
+            <strong>No access to your personal email or calendar.</strong>
+            <span>Kinetic never connects to your accounts. It only processes what you choose to send.</span>
+        </div>
+        <div class="privacy-point fade-up stagger-2">
+            <strong>Your emails are deleted immediately after processing.</strong>
+            <span>We extract the dates and events, then the original message is permanently removed. Nothing stored.</span>
+        </div>
+        <div class="privacy-point fade-up stagger-3">
+            <strong>Never sold. Never shared. No exceptions.</strong>
+            <span>Your information powers your briefing and nothing else. No ads. No data brokers.</span>
+        </div>
+    </div>
+    <a href="/privacy/" class="privacy-link fade-up">Read our full privacy policy →</a>
+</section>
+
+<!-- Social Proof -->
+<section class="social-proof">
+    <div class="proof-quote fade-up">
+        <blockquote>"I used to be the only one who knew what was happening this week. Now everyone does."</blockquote>
+        <cite>— A Kinetic family, Fort Lauderdale</cite>
+    </div>
+    <p class="proof-tagline fade-up">Join families who've found their rhythm.</p>
+</section>
+
+<!-- CTA with form -->
 <section class="cta" id="signup">
-    <h2 class="fade-up">Ready to simplify your mornings?</h2>
-    <p class="subtitle fade-up">Three fields. That's all it takes.</p>
+    <h2 class="fade-up">Ready to feel <em>in control?</em></h2>
+    <p class="cta-sub fade-up">Get your family's first morning briefing tomorrow.</p>
+
     <div class="signup-box fade-up">
         <div id="signupForm">
             <a href="https://app.kineticfam.com/auth/google/signup"
-               style="display:flex;align-items:center;justify-content:center;gap:10px;
-                      background:white;border:2px solid #dadce0;border-radius:8px;
-                      padding:12px 20px;text-decoration:none;color:#3c4043;
-                      font-weight:600;font-size:15px;width:100%;box-sizing:border-box;
-                      transition:box-shadow 0.15s;"
-               onmouseover="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.15)'"
-               onmouseout="this.style.boxShadow='none'">
-              <svg width="20" height="20" viewBox="0 0 24 24">
+               class="google-btn" style="margin-bottom:4px;">
+              <svg width="18" height="18" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
@@ -1207,14 +1067,7 @@
               </svg>
               Sign up with Google
             </a>
-            <div style="display:flex;align-items:center;gap:10px;margin:12px 0;color:rgba(255,255,255,0.5);font-size:13px;">
-              <div style="flex:1;height:1px;background:rgba(255,255,255,0.2);"></div>
-              or
-              <div style="flex:1;height:1px;background:rgba(255,255,255,0.2);"></div>
-            </div>
-            <div id="ctaGoogleAuthBadge" class="google-auth-badge">
-                <span>✓ Signed in as <span id="ctaGoogleEmail"></span></span>
-            </div>
+            <div class="form-divider"><span>or</span></div>
             <div class="input-group">
                 <input type="email" id="emailInput" placeholder="Your email address" required>
             </div>
@@ -1224,147 +1077,35 @@
             </div>
             <div class="cta-family-section">
                 <a href="#" class="cta-add-family" onclick="addCtaFamilyMember(event)">＋ Add a family member</a>
-                <div class="cta-family-helper">They'll receive the daily briefing and can add plans too.</div>
+                <div class="cta-family-helper">They'll receive the daily briefing too.</div>
                 <div class="cta-family-members" id="ctaFamilyMembers"></div>
             </div>
-            <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Get Started — It's Free</button>
-            <div id="signupError" style="display:none; margin-top:10px; font-size:0.85rem; color:rgba(255,255,255,0.9);"></div>
-            <p class="fine-print">Your first daily briefing arrives tomorrow morning.<br>By signing up, you agree to our <a href="/privacy">Privacy Policy</a>.</p>
+            <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Start for free →</button>
+            <div id="signupError" style="display:none; margin-top:10px; font-size:0.82rem; color:rgba(255,255,255,0.8);"></div>
+            <p class="fine-print">Your first briefing arrives tomorrow morning at 6:30 AM.<br>By signing up, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
         </div>
         <div class="signup-success" id="signupSuccess">
             <div class="check">🎉</div>
-            <h3>You're in!</h3>
-            <p>You're all set! Check your inbox for a welcome email.<br><br><strong style="color:rgba(255,255,255,0.95);">Your first daily briefing arrives tomorrow morning at 6:30 AM. 🌅</strong></p>
+            <h3>You're in.</h3>
+            <p>Check your inbox for a welcome email.<br><br><strong style="color:rgba(255,255,255,0.9);">Your first briefing arrives tomorrow at 6:30 AM. 🌅</strong></p>
         </div>
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
+    <div class="footer-logo">Kinetic</div>
+    <div class="footer-tagline">From Chaos to Calm</div>
     <div class="footer-links">
-        <a href="/privacy">Privacy</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
         <a href="mailto:admin@kineticfam.com">Contact</a>
     </div>
-    <p>&copy; 2026 Kinetic. Designed for families on the move.</p>
+    <p class="footer-copy">© 2025 Kinetic Harmony LLC</p>
 </footer>
 
 <script>
-// Google Sign-In Configuration
-// Track which form the user is interacting with
-var lastGoogleFormContext = 'hero';
-
-window.onload = function () {
-    // Watch scroll position to determine which form is in view
-    var ctaSection = document.getElementById('signup');
-    if (ctaSection) {
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) lastGoogleFormContext = 'cta';
-                else lastGoogleFormContext = 'hero';
-            });
-        }, { threshold: 0.3 });
-        observer.observe(ctaSection);
-    }
-
-    google.accounts.id.initialize({
-        client_id: '343498042087-e99iib35ns1nf8vmiv71g97rch5h8fil.apps.googleusercontent.com',
-        callback: function(response) {
-            if (lastGoogleFormContext === 'cta') {
-                handleCtaGoogleSignin(response);
-            } else {
-                handleHeroGoogleSignin(response);
-            }
-        },
-        auto_select: false,
-        cancel_on_tap_outside: true
-    });
-    
-    // Render Google Sign-In buttons
-    google.accounts.id.renderButton(
-        document.getElementById("heroGoogleSignin"),
-        {
-            type: 'standard',
-            theme: 'outline',
-            size: 'large',
-            text: 'signup_with',
-            width: 400
-        }
-    );
-    
-    google.accounts.id.renderButton(
-        document.getElementById("ctaGoogleSignin"),
-        {
-            type: 'standard',
-            theme: 'filled_blue',
-            size: 'large',
-            text: 'signup_with',
-            width: 400
-        }
-    );
-};
-
-// Google Sign-In state
-var heroGoogleAuth = null;
-var ctaGoogleAuth = null;
-
-function parseJWT(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-    
-    return JSON.parse(jsonPayload);
-}
-
-function handleHeroGoogleSignin(response) {
-    var payload = parseJWT(response.credential);
-    heroGoogleAuth = {
-        email: payload.email,
-        firstName: payload.given_name || '',
-        lastName: payload.family_name || ''
-    };
-    
-    // Auto-fill fields
-    document.getElementById('heroEmailInput').value = heroGoogleAuth.email;
-    document.getElementById('heroLastNameInput').value = heroGoogleAuth.lastName;
-    
-    // Show badge
-    document.getElementById('heroGoogleEmail').textContent = heroGoogleAuth.email;
-    document.getElementById('heroGoogleAuthBadge').style.display = 'flex';
-    
-    // Update button text
-    document.getElementById('heroSignupButton').textContent = 'Complete Signup';
-    
-    // Hide Google Sign-In button
-    document.getElementById('heroGoogleSignin').style.display = 'none';
-    document.querySelector('#heroForm .form-divider').style.display = 'none';
-}
-
-function handleCtaGoogleSignin(response) {
-    var payload = parseJWT(response.credential);
-    ctaGoogleAuth = {
-        email: payload.email,
-        firstName: payload.given_name || '',
-        lastName: payload.family_name || ''
-    };
-    
-    // Auto-fill fields
-    document.getElementById('emailInput').value = ctaGoogleAuth.email;
-    document.getElementById('lastNameInput').value = ctaGoogleAuth.lastName;
-    
-    // Show badge
-    document.getElementById('ctaGoogleEmail').textContent = ctaGoogleAuth.email;
-    document.getElementById('ctaGoogleAuthBadge').style.display = 'flex';
-    
-    // Update button text
-    document.getElementById('ctaSignupButton').textContent = 'Complete Signup';
-    
-    // Hide Google Sign-In button
-    document.getElementById('ctaGoogleSignin').style.display = 'none';
-    document.querySelector('#signupForm .form-divider').style.display = 'none';
-}
-
-// --- Scroll animation observer (CSS-only animations triggered by IntersectionObserver) ---
+// ─── Scroll animations ───
 (function() {
     var els = document.querySelectorAll('.fade-up');
     if ('IntersectionObserver' in window) {
@@ -1372,91 +1113,60 @@ function handleCtaGoogleSignin(response) {
             entries.forEach(function(e) {
                 if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
             });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
         els.forEach(function(el) { obs.observe(el); });
     } else {
         els.forEach(function(el) { el.classList.add('visible'); });
     }
 })();
-</script>
 
-<script>
-// --- Family member functionality ---
+// ─── Family member helpers ───
 function addHeroFamilyMember(event) {
     event.preventDefault();
     var container = document.getElementById('heroFamilyMembers');
-    var memberDiv = document.createElement('div');
-    memberDiv.className = 'hero-family-member';
-    memberDiv.innerHTML = 
-        '<input type="email" placeholder="Family member email" class="hero-family-email">' +
-        '<button type="button" class="hero-remove-family" onclick="removeHeroFamilyMember(this)">✕</button>';
-    container.appendChild(memberDiv);
-}
-
-function removeHeroFamilyMember(button) {
-    button.parentElement.remove();
+    var div = document.createElement('div');
+    div.className = 'hero-family-member';
+    div.innerHTML = '<input type="email" placeholder="Family member email" class="hero-family-email">' +
+        '<button type="button" class="hero-remove-family" onclick="this.parentElement.remove()">✕</button>';
+    container.appendChild(div);
 }
 
 function addCtaFamilyMember(event) {
     event.preventDefault();
     var container = document.getElementById('ctaFamilyMembers');
-    var memberDiv = document.createElement('div');
-    memberDiv.className = 'cta-family-member';
-    memberDiv.innerHTML = 
-        '<input type="email" placeholder="Family member email" class="cta-family-email">' +
-        '<button type="button" class="cta-remove-family" onclick="removeCtaFamilyMember(this)">✕</button>';
-    container.appendChild(memberDiv);
-}
-
-function removeCtaFamilyMember(button) {
-    button.parentElement.remove();
+    var div = document.createElement('div');
+    div.className = 'cta-family-member';
+    div.innerHTML = '<input type="email" placeholder="Family member email" class="cta-family-email">' +
+        '<button type="button" class="cta-remove-family" onclick="this.parentElement.remove()">✕</button>';
+    container.appendChild(div);
 }
 
 function getAdditionalEmails(formType) {
-    var className = formType === 'hero' ? 'hero-family-email' : 'cta-family-email';
-    var inputs = document.querySelectorAll('.' + className);
+    var cls = formType === 'hero' ? 'hero-family-email' : 'cta-family-email';
     var emails = [];
-    inputs.forEach(function(input) {
-        var email = input.value.trim();
-        if (email && email.includes('@')) {
-            emails.push(email);
-        }
+    document.querySelectorAll('.' + cls).forEach(function(input) {
+        var v = input.value.trim();
+        if (v && v.includes('@')) emails.push(v);
     });
     return emails;
 }
 
-// --- Kinetic Signup: 3-layer reliability ---
-// Layer 1: POST to Apps Script (no-cors, text/plain to avoid CORS preflight)
-// Layer 2: GET fallback with query params (if POST fails)
-// Layer 3: mailto fallback (if both JS methods fail)
-
+// ─── Signup logic ───
 var APP_SIGNUP_URL = 'https://app.kineticfam.com/auth/signup';
 
 function validateFields(email, lastName, zip) {
-    if (!email || !email.includes('@')) return false;
-    if (!lastName || lastName.trim().length < 2) return false;
-    if (!zip || !/^\d{5}$/.test(zip.trim())) return false;
-    return true;
+    return email && email.includes('@') && lastName && lastName.trim().length >= 2 && zip && /^\d{5}$/.test(zip.trim());
 }
 
-function submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth) {
-    // POST directly to app.kineticfam.com — returns token for auto-login into wizard
+function submitSignup(email, lastName, zip, additionalEmails) {
     return fetch(APP_SIGNUP_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            last_name: lastName.trim(),
-            zip_code: zip.trim(),
-            email: email.trim(),
-            family_members: additionalEmails || []
-        })
+        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), family_members: additionalEmails || [] })
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
-        if (data.status === 'error') {
-            throw new Error(data.message || 'Signup failed');
-        }
-        // If server returned auto-login token, redirect straight into wizard
+        if (data.status === 'error') throw new Error(data.message || 'Signup failed');
         if (data.token && data.redirect) {
             window.location.href = 'https://app.kineticfam.com/auth/magic-link/verify?token=' +
                 encodeURIComponent(data.token) + '&next=' + encodeURIComponent(data.redirect);
@@ -1466,56 +1176,39 @@ function submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth) {
     });
 }
 
-function showError(formId, email, lastName, zip, additionalEmails) {
-    // Layer 3: mailto fallback
-    var bodyText = 'Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip;
-    if (additionalEmails && additionalEmails.length > 0) {
-        bodyText += '\nAdditional family emails: ' + additionalEmails.join(', ');
-    }
-    var mailto = 'mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body=' + encodeURIComponent(bodyText);
-    var errorDiv = document.getElementById(formId + 'Error');
-    if (errorDiv) {
-        errorDiv.innerHTML = 'Having trouble? <a href="' + mailto + '" style="color:#fff;text-decoration:underline;">Click here to sign up via email</a>.';
-        errorDiv.style.display = 'block';
-    }
-}
-
 function handleSignup() {
     var email = document.getElementById('emailInput').value;
     var lastName = document.getElementById('lastNameInput').value;
     var zip = document.getElementById('zipInput').value;
     var additionalEmails = getAdditionalEmails('cta');
-    var isGoogleAuth = ctaGoogleAuth !== null;
 
-    // Reset error styles
     ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
     if (!validateFields(email, lastName, zip)) {
-        if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff4444';
-        if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff4444';
-        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff4444';
+        if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff6b6b';
+        if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff6b6b';
+        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff6b6b';
         return;
     }
 
-    // Disable button during submission
-    var btn = document.querySelector('#signupForm .btn-signup');
-    if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
+    var btn = document.getElementById('ctaSignupButton');
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
 
-    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function(result) {
-        if (result === '__redirecting__') return; // auto-login redirect in progress
+    submitSignup(email, lastName, zip, additionalEmails).then(function(result) {
+        if (result === '__redirecting__') return;
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
     }).catch(function(err) {
-        if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
-        // Show inline error if message available
+        if (btn) { btn.disabled = false; btn.textContent = 'Start for free →'; }
         var errorDiv = document.getElementById('signupError');
-        if (errorDiv && err && err.message && err.message !== 'Signup failed') {
-            errorDiv.textContent = err.message;
+        if (errorDiv) {
+            var bodyText = 'Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip;
+            errorDiv.innerHTML = (err && err.message && err.message !== 'Signup failed')
+                ? err.message
+                : 'Having trouble? <a href="mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body=' + encodeURIComponent(bodyText) + '" style="color:var(--blue);">Email us to sign up</a>.';
             errorDiv.style.display = 'block';
-        } else {
-            showError('signup', email, lastName, zip, additionalEmails);
         }
     });
 }
@@ -1525,58 +1218,46 @@ function handleHeroSignup() {
     var lastName = document.getElementById('heroLastNameInput').value;
     var zip = document.getElementById('heroZipInput').value;
     var additionalEmails = getAdditionalEmails('hero');
-    var isGoogleAuth = heroGoogleAuth !== null;
 
     ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
     if (!validateFields(email, lastName, zip)) {
-        if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff4444';
-        if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff4444';
-        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff4444';
+        if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff6b6b';
+        if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff6b6b';
+        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff6b6b';
         return;
     }
 
-    var btn = document.querySelector('#heroForm .btn-hero-signup');
-    if (btn) { btn.disabled = true; btn.textContent = 'Signing up...'; }
+    var btn = document.getElementById('heroSignupButton');
+    if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
 
-    submitSignup(email, lastName, zip, additionalEmails, isGoogleAuth).then(function(result) {
-        if (result === '__redirecting__') return; // auto-login redirect in progress
+    submitSignup(email, lastName, zip, additionalEmails).then(function(result) {
+        if (result === '__redirecting__') return;
         document.getElementById('heroForm').style.display = 'none';
         document.getElementById('heroSuccess').style.display = 'block';
     }).catch(function(err) {
-        if (btn) { btn.disabled = false; btn.textContent = isGoogleAuth ? 'Complete Signup' : 'Get Started — It\'s Free'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
         var errorDiv = document.getElementById('heroSignupError');
-        if (errorDiv && err && err.message && err.message !== 'Signup failed') {
-            errorDiv.textContent = err.message;
+        if (errorDiv) {
+            errorDiv.textContent = (err && err.message && err.message !== 'Signup failed') ? err.message : 'Something went wrong. Try the form below or email admin@kineticfam.com.';
             errorDiv.style.display = 'block';
-        } else {
-            showError('hero', email, lastName, zip, additionalEmails);
         }
     });
 }
 
-// Enter key support for all inputs
+// Enter key support
 ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
-    document.getElementById(id).addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') handleSignup();
-    });
+    document.getElementById(id).addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSignup(); });
 });
 ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
-    document.getElementById(id).addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') handleHeroSignup();
-    });
+    document.getElementById(id).addEventListener('keypress', function(e) { if (e.key === 'Enter') handleHeroSignup(); });
 });
-
-// Add enter key support for family member emails
 document.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
-        if (e.target.classList.contains('hero-family-email')) {
-            handleHeroSignup();
-        } else if (e.target.classList.contains('cta-family-email')) {
-            handleSignup();
-        }
+        if (e.target.classList.contains('hero-family-email')) handleHeroSignup();
+        else if (e.target.classList.contains('cta-family-email')) handleSignup();
     }
 });
 </script>

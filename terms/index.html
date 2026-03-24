@@ -5,63 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service — Kinetic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #fafafa;
-            color: #333;
+            background: var(--beige);
+            color: #4A4A4A;
+            -webkit-font-smoothing: antialiased;
         }
 
         header {
-            background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #FF6F00 100%);
-            padding: 40px 20px;
-            text-align: center;
+            background: var(--navy);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-
-        header a { text-decoration: none; }
-
-        header .logo-img {
-            max-width: 240px;
-            width: 60%;
-            height: auto;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        .nav-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            letter-spacing: -0.02em;
+            text-decoration: none;
         }
+        .nav-home {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-home:hover { color: white; }
 
         .content {
             max-width: 720px;
             margin: 0 auto;
-            padding: 48px 24px 80px;
+            padding: 52px 24px 80px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1565C0;
-            margin-bottom: 8px;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .updated {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.83rem;
+            color: var(--gray);
+            margin-bottom: 32px;
         }
 
         .intro {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.75;
+            margin-bottom: 32px;
         }
 
         h2 {
-            font-size: 1.3rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
             font-weight: 600;
-            color: #333;
+            color: var(--navy);
             margin-top: 36px;
             margin-bottom: 12px;
         }
 
         p, li {
-            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
             line-height: 1.8;
-            color: #444;
+            color: #4A4A4A;
             margin-bottom: 10px;
         }
 
@@ -70,65 +104,80 @@
             margin-bottom: 16px;
         }
 
+        a { color: var(--navy); font-weight: 500; }
+        a:hover { text-decoration: underline; }
+
         .highlight-box {
-            background: #E3F2FD;
-            border-left: 4px solid #1565C0;
-            border-radius: 8px;
+            background: white;
+            border-left: 3px solid var(--blue);
+            border-radius: 0 12px 12px 0;
             padding: 16px 20px;
             margin: 24px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
         }
 
         .highlight-box p {
             margin: 0;
-            font-weight: 500;
-            color: #1565C0;
+            font-weight: 600;
+            color: var(--navy);
         }
 
         .sms-box {
-            background: #FFF8E1;
-            border-left: 4px solid #FF6F00;
-            border-radius: 8px;
+            background: white;
+            border: 1px solid rgba(46,58,89,0.1);
+            border-left: 3px solid var(--sage);
+            border-radius: 0 12px 12px 0;
             padding: 20px 24px;
             margin: 32px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
         }
 
         .sms-box h2 {
             margin-top: 0;
-            color: #E65100;
+            color: var(--navy);
         }
 
         .sms-box p, .sms-box li {
-            color: #555;
-        }
-
-        .updated {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 32px;
+            color: #4A4A4A;
         }
 
         footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 28px 24px;
             text-align: center;
-            padding: 24px;
-            font-size: 0.85rem;
-            color: #999;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
         }
-
-        footer a { color: #1565C0; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        footer a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            margin: 0 14px;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: white; }
+        .footer-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+        .footer-links { margin-bottom: 10px; }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.7rem; }
-            .content { padding: 32px 16px 60px; }
+            h1 { font-size: 1.8rem; }
+            .content { padding: 36px 18px 60px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="/">
-        <img class="logo-img" src="/assets/kinetic-logo.png" alt="Kinetic" onerror="this.style.display='none'">
-    </a>
+    <a href="/" class="nav-logo">Kinetic</a>
+    <a href="/" class="nav-home">← Home</a>
 </header>
 
 <div class="content">
@@ -148,7 +197,7 @@
 
     <h2>1. What Kinetic Is</h2>
     <p>
-        Kinetic is a daily family newsletter service. Each morning, we send a personalized briefing to your family
+        Kinetic is a daily family briefing service. Each morning, we send a personalized briefing to your family
         covering your schedule, local weather, school events, sports, and more. You sign up at kineticfam.com,
         provide your family's information, and we handle the rest.
     </p>
@@ -194,7 +243,7 @@
             <li><strong>No sharing:</strong> Your mobile number will never be shared with third parties for their marketing purposes.</li>
         </ul>
         <p style="margin-top:12px;">
-            For full details on how we handle your data, see our <a href="/privacy/" style="color:#E65100;font-weight:600;">Privacy Policy</a>.
+            For full details on how we handle your data, see our <a href="/privacy/">Privacy Policy</a>.
         </p>
     </div>
 
@@ -241,11 +290,14 @@
 </div>
 
 <footer>
-    <a href="/">Kinetic</a> &nbsp;·&nbsp;
-    <a href="/privacy/">Privacy Policy</a> &nbsp;·&nbsp;
-    Terms of Service
-    <br><br>
-    © 2025 Kinetic Harmony LLC · Fort Lauderdale, FL
+    <div class="footer-tagline">From Chaos to Calm</div>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="mailto:admin@kineticfam.com">Contact</a>
+    </div>
+    <p>© 2025 Kinetic Harmony LLC · Fort Lauderdale, FL</p>
 </footer>
 
 </body>

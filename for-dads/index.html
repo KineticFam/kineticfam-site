@@ -21,26 +21,25 @@
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --blue: #1565C0;
-      --blue-light: #1976D2;
-      --orange: #FF6F00;
-      --dark: #0f1623;
-      --gray-50: #f7f8fc;
-      --gray-100: #eef1f6;
-      --gray-200: #dde2ec;
-      --text: #1a1f36;
-      --text-secondary: #5e6278;
-    }
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
+        }
     body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: var(--text); }
-    h1, h2, h3 { font-family: 'Outfit', 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'DM Sans', 'Inter', sans-serif; }
 
     .nav { background: white; border-bottom: 1px solid var(--gray-200); padding: 0 24px; }
     .nav-inner { max-width: 1000px; margin: 0 auto; height: 64px; display: flex; align-items: center; gap: 16px; }
-    .nav-logo { font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .nav-logo { font-family: 'DM Sans', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--blue); text-decoration: none; }
     .nav-logo span { color: var(--orange); }
     .nav-spacer { flex: 1; }
     .nav-cta { background: var(--blue); color: white; font-size: 0.88rem; font-weight: 600; padding: 8px 18px; border-radius: 10px; text-decoration: none; }
@@ -91,7 +90,7 @@
     /* Scenario section */
     .scenario { background: var(--dark); padding: 80px 24px; }
     .scenario-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-    .scenario h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 40px; }
+    .scenario h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 40px; }
     .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     @media (max-width: 600px) { .scenario-grid { grid-template-columns: 1fr; } }
     .scenario-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 24px; text-align: left; }
@@ -121,7 +120,7 @@
 
     /* Quote */
     .quote-section { padding: 80px 24px; text-align: center; }
-    .quote-section blockquote { font-family: 'Outfit', sans-serif; font-size: clamp(1.3rem, 3.5vw, 1.8rem); font-weight: 700; color: var(--dark); max-width: 700px; margin: 0 auto 20px; line-height: 1.35; font-style: italic; }
+    .quote-section blockquote { font-family: 'DM Sans', sans-serif; font-size: clamp(1.3rem, 3.5vw, 1.8rem); font-weight: 700; color: var(--dark); max-width: 700px; margin: 0 auto 20px; line-height: 1.35; font-style: italic; }
     .quote-section .attribution { color: var(--text-secondary); font-size: 0.9rem; }
 
     /* CTA */
@@ -145,13 +144,14 @@
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Kinetic<span>.</span></a>
-    <div class="nav-spacer"></div>
-    <a href="/pricing/" style="font-size:0.9rem;color:var(--text-secondary);text-decoration:none;margin-right:8px;">Pricing</a>
-    <a href="/" class="nav-cta">Get Started Free</a>
-  </div>
+<nav style="background:#2E3A59;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
+    <a href="/" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:white;letter-spacing:-0.02em;text-decoration:none;">Kinetic</a>
+    <div style="display:flex;align-items:center;gap:24px;">
+        <a href="/features/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Features</a>
+        <a href="/pricing/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Pricing</a>
+        <a href="/about/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">About</a>
+        <a href="/#signup" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#2E3A59;background:#AFCBFF;padding:8px 18px;border-radius:8px;text-decoration:none;">Get started free</a>
+    </div>
 </nav>
 
 <section class="hero">
@@ -259,16 +259,15 @@
   </div>
 </div>
 
-<footer class="footer">
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/for-moms/">For Moms</a>
-    <a href="/features/">Features</a>
-    <a href="/blog/">Blog</a>
-    <a href="/privacy/">Privacy</a>
-  </div>
-  <div class="footer-copy">© 2026 Kinetic Harmony LLC · Fort Lauderdale, FL</div>
+<footer style="background:#2E3A59;color:rgba(255,255,255,0.5);padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:white;letter-spacing:-0.02em;margin-bottom:4px;">Kinetic</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#AFCBFF;margin-bottom:14px;">From Chaos to Calm</div>
+    <div style="margin-bottom:12px;">
+        <a href="/privacy/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Privacy</a>
+        <a href="/terms/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Terms</a>
+        <a href="mailto:admin@kineticfam.com" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Contact</a>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">&#169; 2025 Kinetic Harmony LLC</p>
 </footer>
 
 </body>

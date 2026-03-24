@@ -5,67 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy — Kinetic</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
+        }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #fafafa;
-            color: #333;
+            background: var(--beige);
+            color: #4A4A4A;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Nav */
         header {
-            background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #FF6F00 100%);
-            padding: 40px 20px;
-            text-align: center;
+            background: var(--navy);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-
-        header a {
+        .nav-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            letter-spacing: -0.02em;
             text-decoration: none;
         }
-
-        header .logo-img {
-            max-width: 240px;
-            width: 60%;
-            height: auto;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        .nav-home {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
         }
+        .nav-home:hover { color: white; }
 
         .content {
             max-width: 720px;
             margin: 0 auto;
-            padding: 48px 24px 80px;
+            padding: 52px 24px 80px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1565C0;
-            margin-bottom: 8px;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         .intro {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.75;
             margin-bottom: 40px;
         }
 
         h2 {
-            font-size: 1.3rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #333;
+            color: var(--navy);
             margin-top: 36px;
             margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 8px;
+            border-bottom: 1.5px solid rgba(46,58,89,0.1);
         }
 
         p {
-            font-size: 0.98rem;
-            color: #555;
-            line-height: 1.75;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            color: #4A4A4A;
+            line-height: 1.78;
             margin-bottom: 12px;
         }
 
@@ -76,118 +102,126 @@
         }
 
         ul li {
-            font-size: 0.98rem;
-            color: #555;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            color: #4A4A4A;
             line-height: 1.75;
             padding-left: 24px;
             position: relative;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         ul li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #1565C0;
+            color: var(--navy);
             font-weight: 700;
+            font-size: 0.8rem;
         }
 
+        a { color: var(--navy); font-weight: 500; }
+        a:hover { text-decoration: underline; }
+
         .highlight-box {
-            background: #f0f7ff;
-            border-left: 4px solid #1565C0;
+            background: white;
+            border-left: 3px solid var(--sage);
             border-radius: 0 12px 12px 0;
-            padding: 20px 24px;
+            padding: 18px 22px;
             margin: 24px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
         }
 
         .highlight-box p {
-            color: #333;
-            font-weight: 500;
+            color: var(--navy);
+            font-weight: 600;
             margin-bottom: 0;
         }
 
         .heart-section {
             text-align: center;
-            margin-top: 48px;
+            margin-top: 52px;
             padding: 32px 24px;
-            background: #fff;
+            background: white;
             border-radius: 16px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 16px rgba(46,58,89,0.07);
         }
 
         .heart-section .heart {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 12px;
         }
 
         .heart-section p {
-            font-size: 1.05rem;
-            color: #444;
-            font-weight: 500;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--navy);
         }
 
         .heart-section .small {
-            font-size: 0.88rem;
-            color: #888;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.84rem;
+            color: var(--gray);
             font-style: italic;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .contact-box {
-            background: #fafafa;
-            border: 1px solid #e8e8e8;
+            background: white;
+            border: 1px solid rgba(46,58,89,0.1);
             border-radius: 12px;
             padding: 20px 24px;
             margin-top: 24px;
             text-align: center;
         }
 
-        .contact-box a {
-            color: #1565C0;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-box a:hover {
-            text-decoration: underline;
+        .contact-box p {
+            font-size: 0.92rem;
+            color: var(--gray);
         }
 
         footer {
-            background: #1a1a2e;
-            color: rgba(255,255,255,0.7);
-            padding: 32px 20px;
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 28px 24px;
             text-align: center;
-            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
         }
-
         footer a {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255,255,255,0.65);
             text-decoration: none;
-            margin: 0 16px;
+            margin: 0 14px;
+            transition: color 0.2s;
         }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        footer .footer-links {
+        footer a:hover { color: white; }
+        .footer-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--blue);
             margin-bottom: 12px;
         }
+        .footer-links { margin-bottom: 10px; }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.7rem; }
-            .content { padding: 32px 18px 60px; }
+            h1 { font-size: 1.8rem; }
+            .content { padding: 36px 18px 60px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="/"><img src="/assets/kinetic-logo.png" alt="Kinetic" class="logo-img"></a>
+    <a href="/" class="nav-logo">Kinetic</a>
+    <a href="/" class="nav-home">← Home</a>
 </header>
 
 <div class="content">
-    <h1>Your Family's Privacy 💙</h1>
+    <h1>Your Family's Privacy</h1>
     <p class="intro">At Kinetic, your family's trust is everything. Here's how we protect your information — and why you can feel confident using Kinetic every day.</p>
 
     <h2>What We Collect</h2>
@@ -219,7 +253,7 @@
     </ul>
 
     <h2>How We Use Your Information</h2>
-    <p>Your information is used for <strong>one purpose</strong>: delivering your personalized Kinetic Daily newsletter each morning. That means:</p>
+    <p>Your information is used for <strong>one purpose</strong>: delivering your personalized Kinetic daily briefing each morning. That means:</p>
     <ul>
         <li>Pulling weather for your zip code</li>
         <li>Showing your family's schedule</li>
@@ -259,12 +293,14 @@
 </div>
 
 <footer>
+    <div class="footer-tagline">From Chaos to Calm</div>
     <div class="footer-links">
         <a href="/">Home</a>
-        <a href="/privacy">Privacy</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
         <a href="mailto:admin@kineticfam.com">Contact</a>
     </div>
-    <p>&copy; 2026 Kinetic. Designed for families on the move.</p>
+    <p>© 2025 Kinetic Harmony LLC</p>
 </footer>
 
 </body>
