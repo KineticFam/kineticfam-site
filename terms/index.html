@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Kinetic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #fafafa;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1565C0 0%, #1976D2 40%, #FF6F00 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header a { text-decoration: none; }
+
+        header .logo-img {
+            max-width: 240px;
+            width: 60%;
+            height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1565C0;
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+
+        p, li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: #E3F2FD;
+            border-left: 4px solid #1565C0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+            color: #1565C0;
+        }
+
+        .sms-box {
+            background: #FFF8E1;
+            border-left: 4px solid #FF6F00;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 32px 0;
+        }
+
+        .sms-box h2 {
+            margin-top: 0;
+            color: #E65100;
+        }
+
+        .sms-box p, .sms-box li {
+            color: #555;
+        }
+
+        .updated {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 32px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        footer a { color: #1565C0; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.7rem; }
+            .content { padding: 32px 16px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/">
+        <img class="logo-img" src="/assets/kinetic-logo.png" alt="Kinetic" onerror="this.style.display='none'">
+    </a>
+</header>
+
+<div class="content">
+
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: March 24, 2025</p>
+
+    <p class="intro">
+        Welcome to Kinetic, a daily family briefing service operated by Kinetic Harmony LLC.
+        By signing up and using Kinetic, you agree to these terms. We've written them in plain English —
+        no legalese, no tricks.
+    </p>
+
+    <div class="highlight-box">
+        <p>📋 Short version: Use Kinetic for your family. Be honest with us. We'll be honest with you. Don't abuse the service. That's pretty much it.</p>
+    </div>
+
+    <h2>1. What Kinetic Is</h2>
+    <p>
+        Kinetic is a daily family newsletter service. Each morning, we send a personalized briefing to your family
+        covering your schedule, local weather, school events, sports, and more. You sign up at kineticfam.com,
+        provide your family's information, and we handle the rest.
+    </p>
+
+    <h2>2. Your Account</h2>
+    <ul>
+        <li>You must provide a valid email address to use Kinetic.</li>
+        <li>You are responsible for the accuracy of the information you provide (zip code, school, kids' names, etc.).</li>
+        <li>One account is intended for one household. You may add family members to share a briefing.</li>
+        <li>You must be 18 or older to create an account.</li>
+    </ul>
+
+    <h2>3. Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+        <li>Use Kinetic for any commercial or resale purpose</li>
+        <li>Attempt to reverse-engineer, scrape, or automate access to the service</li>
+        <li>Submit false, misleading, or harmful information</li>
+        <li>Use Kinetic in any way that violates applicable law</li>
+    </ul>
+
+    <h2>4. Email Communications</h2>
+    <p>
+        By creating an account, you consent to receive your daily morning briefing email from Kinetic.
+        You can unsubscribe at any time by clicking the unsubscribe link in any email or by emailing
+        <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.
+    </p>
+
+    <!-- SMS SECTION — required for Twilio/RCS registration -->
+    <div class="sms-box">
+        <h2>📱 SMS &amp; Text Message Terms</h2>
+        <p>
+            Kinetic offers an optional SMS summary service. By providing your mobile phone number and
+            opting in to text messages, you agree to the following:
+        </p>
+        <ul>
+            <li><strong>What you'll receive:</strong> A daily morning summary text message with your family's schedule highlights. Message frequency: approximately 1 message per day.</li>
+            <li><strong>How to opt in:</strong> You opt in by entering your mobile number in your Kinetic account settings and confirming via a verification text.</li>
+            <li><strong>How to opt out:</strong> Reply <strong>STOP</strong> to any text message at any time to unsubscribe immediately. You will receive one confirmation text and no further messages.</li>
+            <li><strong>Help:</strong> Reply <strong>HELP</strong> to any message or email <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> for assistance.</li>
+            <li><strong>Message &amp; data rates:</strong> Standard message and data rates may apply depending on your mobile carrier and plan.</li>
+            <li><strong>Carriers:</strong> Kinetic is compatible with all major US carriers. Carrier is not liable for delayed or undelivered messages.</li>
+            <li><strong>No sharing:</strong> Your mobile number will never be shared with third parties for their marketing purposes.</li>
+        </ul>
+        <p style="margin-top:12px;">
+            For full details on how we handle your data, see our <a href="/privacy/" style="color:#E65100;font-weight:600;">Privacy Policy</a>.
+        </p>
+    </div>
+
+    <h2>5. Intellectual Property</h2>
+    <p>
+        The Kinetic name, logo, and all content we create is owned by Kinetic Harmony LLC.
+        Content you submit (like event details you forward to us) remains yours — you grant us
+        a limited license to process it to deliver your briefing.
+    </p>
+
+    <h2>6. Disclaimers</h2>
+    <p>
+        Kinetic is provided "as is." We do our best to deliver accurate, timely briefings, but we can't
+        guarantee 100% accuracy of weather data, sports scores, or school information sourced from
+        third parties. We are not responsible for decisions made based on information in your briefing.
+    </p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>
+        Kinetic Harmony LLC's liability to you is limited to the amount you've paid us in the past
+        12 months (or $10, whichever is greater). We are not liable for indirect, incidental, or
+        consequential damages.
+    </p>
+
+    <h2>8. Changes to These Terms</h2>
+    <p>
+        We may update these terms occasionally. If we make significant changes, we'll notify you
+        by email. Continued use of Kinetic after changes means you accept the new terms.
+    </p>
+
+    <h2>9. Governing Law</h2>
+    <p>
+        These terms are governed by the laws of the State of Florida. Any disputes will be
+        resolved in the courts of Broward County, Florida.
+    </p>
+
+    <h2>10. Contact Us</h2>
+    <p>
+        Questions about these terms? Email us at
+        <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> —
+        we're a small team and we actually read our mail.
+    </p>
+
+</div>
+
+<footer>
+    <a href="/">Kinetic</a> &nbsp;·&nbsp;
+    <a href="/privacy/">Privacy Policy</a> &nbsp;·&nbsp;
+    Terms of Service
+    <br><br>
+    © 2025 Kinetic Harmony LLC · Fort Lauderdale, FL
+</footer>
+
+</body>
+</html>
