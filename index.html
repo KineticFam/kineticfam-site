@@ -377,16 +377,18 @@
 
         /* Hero wave */
         .hero-wave {
-            margin-top: 56px;
             display: block;
             line-height: 0;
+            background: var(--navy);
+            margin: 0;
+            padding: 0;
         }
-        .hero-wave svg { width: 100%; display: block; }
+        .hero-wave svg { width: 100%; display: block; height: 80px; }
 
         /* ─── How it works ─── */
         .how {
             background: var(--beige);
-            padding: 72px 24px 64px;
+            padding: 48px 24px 64px;
             text-align: center;
         }
         .section-label {
@@ -904,13 +906,15 @@
         </div>
     </div>
 
-    <!-- Soft wave transition to beige -->
-    <div class="hero-wave">
-        <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,64 L0,64 Z" fill="#F5F1EA"/>
-        </svg>
-    </div>
+    <!-- Soft wave transition — sits at bottom of hero -->
 </section>
+
+<!-- Wave bridge — navy bg so it flows seamlessly from hero -->
+<div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1380,20 1440,40 L1440,80 L0,80 Z" fill="#F5F1EA"/>
+    </svg>
+</div>
 
 <!-- How It Works -->
 <section class="how" id="how-it-works">
