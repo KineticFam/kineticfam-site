@@ -1,382 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Kinetic | AI Family Morning Briefing — Built by Parents, for Parents</title>
-  <meta name="description" content="Kinetic was built by a parent who was tired of holding the entire family schedule in their head. Here's the story behind the daily family morning briefing." />
-  <link rel="canonical" href="https://kineticfam.com/about/" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Kinetic Harmony LLC",
-    "url": "https://kineticfam.com",
-    "description": "Kinetic delivers an AI-powered daily morning briefing for families — schedule, weather, local events, and news every morning at 6:30 AM.",
-    "foundingDate": "2025",
-    "contactPoint": {"@type": "ContactPoint", "email": "admin@kineticfam.com", "contactType": "customer support"}
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } section { display: block; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Kinetic | Built by Parents, for Parents</title>
+    <meta name="description" content="Kinetic was built by a parent who was tired of holding the entire family schedule in their head. Here's the story behind the daily family morning briefing." />
+    <link rel="canonical" href="https://kineticfam.com/about/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy:   #2E3A59;
+            --blue:   #AFCBFF;
+            --sage:   #CFE8D5;
+            --beige:  #F5F1EA;
+            --gray:   #4A5568;
+            --gray-lt:#7A7A7A;
+            --border: #E8E8E8;
+            --white:  #FFFFFF;
+            --radius: 14px;
+            --radius-btn: 8px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            -webkit-font-smoothing: antialiased;
+        }
 
-    :root {
-      --navy:  #2E3A59;
-      --blue:  #AFCBFF;
-      --sage:  #CFE8D5;
-      --beige: #F5F1EA;
-      --gray:  #4A5568;
-      --gray2: #7A7A7A;
-      --white: #FFFFFF;
-      --border: #E8E8E8;
-    }
+        /* ── Nav ── */
+        nav {
+            background: var(--navy);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo span { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 20px; color: white; letter-spacing: -0.02em; }
+        .nav-links { display: flex; align-items: center; gap: 24px; }
+        .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); text-decoration: none; }
+        .nav-links a:hover { color: white; }
+        .nav-cta { background: var(--blue); color: var(--navy) !important; font-weight: 600 !important; padding: 8px 18px; border-radius: var(--radius-btn); }
+        @media (max-width: 600px) { .nav-links { display: none; } }
 
-    section, div { margin: 0; } body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      color: var(--gray);
-      background: #fff;
-      overflow-x: hidden;
-    }
+        /* ── Hero ── */
+        .hero { background: var(--navy); padding: 72px 24px 56px; text-align: center; }
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--blue); margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400; color: white; line-height: 1.2;
+            margin-bottom: 20px; max-width: 700px;
+            margin-left: auto; margin-right: auto;
+        }
+        .hero h1 em { font-style: italic; color: var(--blue); }
+        .hero p {
+            font-size: 1.05rem; color: rgba(255,255,255,0.7);
+            max-width: 560px; margin: 0 auto 32px; line-height: 1.7;
+        }
+        .hero-wave { background: var(--navy); line-height: 0; margin: 0; padding: 0; }
+        .hero-wave svg { width: 100%; display: block; height: 60px; }
 
-    /* ── Nav ── */
-    nav {
-      background: var(--navy);
-      padding: 0 32px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: white; }
-    .nav-links a.nav-cta {
-      font-weight: 600;
-      color: var(--navy);
-      background: var(--blue);
-      padding: 8px 18px;
-      border-radius: 8px;
-      transition: opacity 0.2s;
-    }
-    .nav-links a.nav-cta:hover { opacity: 0.88; }
+        /* ── Story ── */
+        .story-section { background: var(--beige); padding: 72px 24px; }
+        .story-inner { max-width: 680px; margin: 0 auto; }
+        .story-inner h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 44px;
+            margin-bottom: 16px;
+        }
+        .story-inner h2:first-child { margin-top: 0; }
+        .story-inner p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .story-inner a { color: var(--navy); font-weight: 600; }
 
-    /* ── Hero ── */
-    .hero { margin-bottom: 0;
-      background: var(--navy);
-      padding: 80px 24px 0;
-      text-align: center;
-      color: white;
-    }
-    .hero-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 16px;
-    }
-    .hero h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: white;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.75);
-      max-width: 560px;
-      margin: 0 auto 48px;
-    }
+        /* ── Values ── */
+        .values-section { background: white; padding: 72px 24px; }
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px; font-weight: 600;
+            letter-spacing: 0.09em; text-transform: uppercase;
+            color: var(--gray-lt); text-align: center; margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400; color: var(--navy);
+            text-align: center; margin-bottom: 48px; line-height: 1.2;
+        }
+        .section-title em { font-style: italic; }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .value-card {
+            background: var(--beige);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .value-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+        .value-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px; font-weight: 700;
+            color: var(--navy); margin-bottom: 8px;
+        }
+        .value-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
 
-    /* ── Wave ── */
-    .hero-wave { margin-top: 0;
-      background: var(--navy);
-      line-height: 0;
-      margin: 0;
-      padding: 0;
-    }
-    .hero-wave svg {
-      width: 100%;
-      display: block;
-      height: 60px;
-    }
+        /* ── Who we are ── */
+        .who-section { background: var(--beige); padding: 72px 24px; }
+        .who-inner { max-width: 680px; margin: 0 auto; }
+        .who-inner h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.25rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 16px;
+        }
+        .who-inner p { font-size: 1.05rem; color: var(--gray); line-height: 1.85; margin-bottom: 16px; }
+        .who-inner a { color: var(--navy); font-weight: 600; }
 
-    /* ── Story section ── */
-    .story-section {
-      background: var(--beige);
-      padding: 80px 24px 88px;
-    }
-    .story-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .story-inner h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 48px;
-      margin-bottom: 16px;
-    }
-    .story-inner h2:first-child { margin-top: 0; }
-    .story-inner p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--gray);
-      margin-bottom: 24px;
-    }
-    .story-inner p:last-child { margin-bottom: 0; }
+        /* ── CTA ── */
+        .cta-section { background: var(--navy); padding: 80px 24px; text-align: center; }
+        .cta-section h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400; color: white;
+            margin-bottom: 14px; line-height: 1.2;
+        }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 32px; line-height: 1.7; }
+        .cta-btn {
+            display: inline-block; background: var(--blue); color: var(--navy);
+            font-family: 'DM Sans', sans-serif; font-weight: 700;
+            font-size: 15px; padding: 14px 28px;
+            border-radius: var(--radius-btn); text-decoration: none;
+        }
 
-    /* ── Values section ── */
-    .values-section {
-      background: white;
-      padding: 88px 24px;
-    }
-    .values-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .values-section h2 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 400;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 52px;
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 720px) {
-      .values-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
-    }
-    .value-card {
-      background: var(--beige);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 32px 26px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    .value-emoji {
-      font-size: 1.8rem;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .value-card h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .value-card p {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: var(--gray);
-    }
-
-    /* ── Who We Are ── */
-    .who-section {
-      background: var(--beige);
-      padding: 80px 24px;
-    }
-    .who-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .who-section h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 20px;
-    }
-    .who-section p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--gray);
-      margin-bottom: 20px;
-    }
-    .who-section a {
-      color: var(--navy);
-      font-weight: 600;
-      text-decoration: none;
-      border-bottom: 1px solid var(--blue);
-      transition: opacity 0.2s;
-    }
-    .who-section a:hover { opacity: 0.75; }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--navy);
-      padding: 88px 24px;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 400;
-      color: white;
-      margin-bottom: 14px;
-    }
-    .cta-section p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 36px;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: var(--blue);
-      color: var(--navy);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 16px 36px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--navy);
-      padding: 32px 24px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    footer a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.2s;
-    }
-    footer a:hover { color: rgba(255,255,255,0.75); }
-  </style>
+        /* ── Footer ── */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 24px; text-align: center;
+        }
+        footer a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: rgba(255,255,255,0.7); }
+    </style>
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
-  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-    <img src="/assets/kinetic-mark.png" alt="" style="height:30px;width:auto;">
-    <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:white;letter-spacing:-0.02em;">Kinetic</span>
-  </a>
-  <div class="nav-links">
-    <a href="/features/">Features</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/about/">About</a>
-    <a href="/#signup" class="nav-cta">Get started free</a>
-  </div>
+    <a href="/" class="nav-logo">
+        <img src="/assets/kinetic-mark.png" alt="" style="height:30px;width:auto;">
+        <span>Kinetic</span>
+    </a>
+    <div class="nav-links">
+        <a href="/features/">Features</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/#signup" class="nav-cta">Get started free</a>
+    </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
-  <p class="hero-eyebrow">Our story</p>
-  <h1>Born from family chaos.</h1>
-  <p>Kinetic was built by a parent who got tired of being the only one who knew what was happening this week.</p>
+    <p class="hero-eyebrow">Our story</p>
+    <h1>Born from family chaos.<br><em>Built for family calm.</em></h1>
+    <p>Kinetic was built by a parent who got tired of being the only one who knew what was happening this week.</p>
 </section>
-
-<!-- Wave -->
 <div class="hero-wave">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1380,15 1440,30 L1440,60 L0,60 Z" fill="#F5F1EA"/>
-  </svg>
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1380,15 1440,30 L1440,60 L0,60 Z" fill="#F5F1EA"/>
+    </svg>
 </div>
 
-<!-- Story section -->
+<!-- Story -->
 <section class="story-section">
-  <div class="story-inner">
-    <h2>The Problem We Solved First for Ourselves</h2>
-    <p>Every family has that one person who holds the schedule. Not because they volunteered — because someone had to. They're the one who knows about the field trip on Thursday, the dentist appointment that got moved, the birthday party nobody else remembered to put in the calendar. They carry it all, quietly, in their head.</p>
-    <p>That's not a personality trait. It's a systems problem. And systems problems have solutions.</p>
-    <p>Kinetic started as a personal project — a way to automatically compile the family schedule and deliver it every morning before the chaos started. Forward the school newsletter. Snap a photo of the soccer schedule on the fridge. Attach the camp confirmation PDF. Kinetic reads it all, pulls out the relevant dates, and delivers a clean morning briefing at 6:30 AM.</p>
-    <p>No app to remember to open. No shared calendar that one person updates and the other ignores. Just one email every morning with everything your family needs to know that day.</p>
+    <div class="story-inner">
+        <h2>The Problem We Solved First for Ourselves</h2>
+        <p>Every family has that one person who holds the schedule. Not because they volunteered — because someone had to. They're the one who knows about the field trip on Thursday, the dentist appointment that got moved, the birthday party nobody else remembered to put in the calendar. They carry it all, quietly, in their head.</p>
+        <p>That's not a personality trait. It's a systems problem. And systems problems have solutions.</p>
+        <p>Kinetic started as a personal project — a way to automatically compile the family schedule and deliver it every morning before the chaos started. Forward the school newsletter. Snap a photo of the soccer schedule on the fridge. Attach the camp confirmation PDF. Kinetic reads it all, pulls out the relevant dates, and delivers a clean morning briefing at 6:30 AM.</p>
+        <p>No app to remember to open. No shared calendar that one person updates and the other ignores. Just one email every morning with everything your family needs to know that day.</p>
 
-    <h2>What We Believe</h2>
-    <p>Technology should simplify family life, not add to it. Most family organization tools are really just another thing to manage — another app, another login, another notification stream. We built Kinetic to work the opposite way: it comes to you, not the other way around.</p>
-    <p>We also believe your family's schedule is private. Kinetic never connects to your personal email or calendar accounts. It only knows what you choose to send it. Your data is used exclusively to generate your daily briefing — it's never sold, shared, or used to train AI models.</p>
-  </div>
+        <h2>What We Believe</h2>
+        <p>Technology should simplify family life, not add to it. Most family organization tools are really just another thing to manage — another app, another login, another notification stream. We built Kinetic to work the opposite way: it comes to you, not the other way around.</p>
+        <p>We also believe your family's schedule is private. Kinetic never connects to your personal email or calendar accounts. It only knows what you choose to send it. Your data is used exclusively to generate your daily briefing — it's never sold, shared, or used to train AI models.</p>
+    </div>
 </section>
 
-<!-- Values section -->
+<!-- Values -->
 <section class="values-section">
-  <div class="values-inner">
-    <h2>What we stand for.</h2>
+    <p class="section-label">What we stand for</p>
+    <h2 class="section-title">Built around what <em>matters.</em></h2>
     <div class="values-grid">
-      <div class="value-card">
-        <span class="value-emoji">🔒</span>
-        <h3>Privacy first</h3>
-        <p>Your family's schedule is private. We never connect to your personal accounts. You control what we know.</p>
-      </div>
-      <div class="value-card">
-        <span class="value-emoji">💌</span>
-        <h3>No app needed</h3>
-        <p>Kinetic comes to you — one email every morning. No login, no notifications, no new thing to manage.</p>
-      </div>
-      <div class="value-card">
-        <span class="value-emoji">🏡</span>
-        <h3>Built for real families</h3>
-        <p>Not a productivity tool. An emotional regulation system for modern families who just want to feel in control.</p>
-      </div>
+        <div class="value-card">
+            <span class="value-icon">🔒</span>
+            <h3>Privacy first</h3>
+            <p>Your family's schedule is private. We never connect to your personal accounts. You control what we know.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">💌</span>
+            <h3>No app needed</h3>
+            <p>Kinetic comes to you — one email every morning. No login, no notifications, no new thing to manage.</p>
+        </div>
+        <div class="value-card">
+            <span class="value-icon">🏡</span>
+            <h3>Built for real families</h3>
+            <p>Not a productivity tool. An emotional regulation system for modern families who just want to feel in control.</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Who We Are -->
 <section class="who-section">
-  <div class="who-inner">
-    <h2>Who We Are</h2>
-    <p>Kinetic is built by <strong>Kinetic Harmony LLC</strong>, based in Fort Lauderdale, Florida. We're a small team that cares deeply about building something genuinely useful for families — not venture-backed growth-at-all-costs, but a sustainable product that earns its place in your morning.</p>
-    <p>Questions? Reach us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</p>
-  </div>
+    <div class="who-inner">
+        <h2>Who We Are</h2>
+        <p>Kinetic is built by <strong>Kinetic Harmony LLC</strong>, based in Fort Lauderdale, Florida. We're a small team that cares deeply about building something genuinely useful for families — not venture-backed growth-at-all-costs, but a sustainable product that earns its place in your morning.</p>
+        <p>Questions? Reach us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</p>
+    </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>Ready to find your family's rhythm?</h2>
-  <p>Join families who start every day with calm intention.</p>
-  <a href="/#signup" class="cta-btn">Get started free →</a>
+    <h2>Ready to find your family's rhythm?</h2>
+    <p>Join families who start every day with calm intention.</p>
+    <a href="/#signup" class="cta-btn">Get started free →</a>
 </section>
 
-<!-- Footer -->
 <footer>
-  <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
-    <img src="/assets/kinetic-mark.png" alt="" style="height:28px;width:auto;opacity:0.8;">
-    <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:rgba(255,255,255,0.85);letter-spacing:-0.02em;">Kinetic</span>
-  </div>
-  <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:10px;">From Chaos to Calm</p>
-  <div><a href="/privacy/">Privacy</a> <a href="/terms/">Terms</a> <a href="/">Home</a></div>
-  <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.25);">© 2025 Kinetic Harmony LLC · Fort Lauderdale, FL</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px;">
+        <img src="/assets/kinetic-mark.png" alt="" style="height:28px;width:auto;opacity:0.8;">
+        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:rgba(255,255,255,0.85);letter-spacing:-0.02em;">Kinetic</span>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;margin-bottom:10px;">From Chaos to Calm</p>
+    <div><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/">Home</a></div>
+    <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.25);">© 2025 Kinetic Harmony LLC · Fort Lauderdale, FL</p>
 </footer>
 
 </body>
