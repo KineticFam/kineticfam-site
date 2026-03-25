@@ -73,7 +73,14 @@
             font-size: 1.05rem;
             color: var(--gray);
             line-height: 1.75;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 0.82rem;
+            color: var(--gray);
             margin-bottom: 40px;
+            font-style: italic;
         }
 
         h2 {
@@ -131,11 +138,34 @@
             margin: 24px 0;
             box-shadow: 0 2px 12px rgba(46,58,89,0.06);
         }
-
         .highlight-box p {
             color: var(--navy);
             font-weight: 600;
             margin-bottom: 0;
+        }
+
+        /* COPPA callout — slightly distinct from the sage highlight box */
+        .coppa-box {
+            background: #EFF4FF;
+            border-left: 3px solid var(--blue);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 24px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
+        }
+        .coppa-box p {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .coppa-box p:last-child { margin-bottom: 0; }
+        .coppa-box .coppa-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--navy);
+            opacity: 0.55;
+            margin-bottom: 6px;
         }
 
         .heart-section {
@@ -146,19 +176,13 @@
             border-radius: 16px;
             box-shadow: 0 2px 16px rgba(46,58,89,0.07);
         }
-
-        .heart-section .heart {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-        }
-
+        .heart-section .heart { font-size: 2.2rem; margin-bottom: 12px; }
         .heart-section p {
             font-family: 'DM Serif Display', Georgia, serif;
             font-size: 1.1rem;
             font-weight: 400;
             color: var(--navy);
         }
-
         .heart-section .small {
             font-family: 'Inter', sans-serif;
             font-size: 0.84rem;
@@ -175,11 +199,7 @@
             margin-top: 24px;
             text-align: center;
         }
-
-        .contact-box p {
-            font-size: 0.92rem;
-            color: var(--gray);
-        }
+        .contact-box p { font-size: 0.92rem; color: var(--gray); }
 
         footer {
             background: var(--navy);
@@ -277,6 +297,7 @@
 <div class="content">
     <h1>Your Family's Privacy</h1>
     <p class="intro">At Kinetic, your family's trust is everything. Here's how we protect your information — and why you can feel confident using Kinetic every day.</p>
+    <p class="last-updated">Last updated: March 2026</p>
 
     <h2>What We Collect</h2>
     <p>When you sign up, we ask for just the basics:</p>
@@ -319,10 +340,31 @@
         <p>We never sell, share, or rent your information to anyone. Period.</p>
     </div>
 
+    <h2>Children's Privacy (COPPA)</h2>
+
+    <div class="coppa-box">
+        <p class="coppa-label">Children's Online Privacy Protection Act</p>
+        <p>Kinetic is a parent-controlled service. <strong>We do not knowingly collect personal information directly from children under 13.</strong> All accounts are created and managed by parents or legal guardians, who control everything about how their family's information is used.</p>
+    </div>
+
+    <p>Because Kinetic is built for families, some information you add to your account naturally relates to your children — their names, their school, their sports schedules, and their upcoming events. Here's exactly how we handle that:</p>
+
+    <ul>
+        <li><strong>All children's data flows through you.</strong> A parent or guardian creates the account and adds any information about children. Children never sign up directly, and we never collect information from a child without a parent's knowledge and consent.</li>
+        <li><strong>We collect only what's necessary.</strong> We store children's names and schedule information only to the extent needed to personalize and deliver your family's morning briefing. Nothing more.</li>
+        <li><strong>No behavioral advertising — ever.</strong> We do not use any information about your children (or anyone in your family) for advertising purposes, and we never will.</li>
+        <li><strong>No sharing with third parties.</strong> Information about your children is never sold, rented, or disclosed to any third party for any commercial purpose.</li>
+        <li><strong>Emails are never permanently stored.</strong> When you forward a school PDF or send us schedule information, the original email is automatically deleted after we extract the relevant dates and events. We keep the extracted events — not your emails.</li>
+        <li><strong>You can review or delete your children's data at any time.</strong> Log in to your dashboard at <a href="https://app.kineticfam.com">app.kineticfam.com</a> to view, edit, or remove any event or family member. To delete your account and all associated data entirely, visit Account → Delete Account, or email us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+        <li><strong>We will respond to parental data requests within 30 days.</strong> If you want to review what information we hold about your child, request corrections, or ask us to stop collecting it, contact us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+    </ul>
+
+    <p>If we ever discover that we have inadvertently collected personal information directly from a child under 13 without parental consent, we will delete that information immediately. Please contact us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> if you have any concerns.</p>
+
     <h2>How We Protect Your Data</h2>
     <ul>
-        <li>All calendar and email data is stored securely within Google Workspace, protected by Google's enterprise-grade security</li>
-        <li>Access to family data is strictly limited to the Kinetic system — no third parties</li>
+        <li>All data is stored securely and access is strictly limited to the Kinetic system — no third parties</li>
+        <li>All connections to Kinetic are encrypted in transit (HTTPS)</li>
         <li>We regularly review our security practices to make sure your information stays safe</li>
         <li>Authorized sender verification means strangers can't add events to your calendar, even if they guess your Kinetic email address</li>
         <li>Emails you send to your Kinetic address are <strong>automatically deleted after processing</strong> — we extract the dates and events, then the original email is permanently removed. Your personal emails are never stored.</li>
@@ -330,13 +372,23 @@
 
     <h2>You're Always in Control</h2>
     <ul>
-        <li><strong>Add family members</strong> anytime by letting us know</li>
-        <li><strong>Remove family members</strong> — just send us a quick email</li>
-        <li><strong>Cancel anytime</strong> — we'll delete your calendar and all associated data. No questions asked.</li>
+        <li><strong>View your data</strong> anytime at <a href="https://app.kineticfam.com">app.kineticfam.com</a></li>
+        <li><strong>Edit or delete any event</strong> directly from your dashboard</li>
+        <li><strong>Add or remove family members</strong> anytime from your account settings</li>
+        <li><strong>Request a copy of your data</strong> by emailing <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> — we'll send it within 30 days</li>
+        <li><strong>Delete your account</strong> at any time from Account Settings — we'll permanently remove your family's data. No waiting period, no questions asked.</li>
+        <li><strong>Unsubscribe</strong> from any email using the link in the footer, or by emailing us directly</li>
     </ul>
 
+    <h2>Data Retention</h2>
+    <p>We keep your account data for as long as your account is active. If you delete your account, we permanently remove all associated data — including your family's name, email addresses, schedule events, and any other information we hold — within 30 days of your request.</p>
+    <p>Inbound emails sent to your Kinetic address are deleted immediately after processing. We never archive or retain the original content of emails you send us.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we make material changes to this privacy policy — particularly anything affecting how children's information is handled — we'll notify you by email before those changes take effect. The date at the top of this page always reflects when it was last updated.</p>
+
     <div class="contact-box">
-        <p>Questions? We're real people.<br>Just reply to any Kinetic email or reach out to <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a></p>
+        <p>Questions about your family's privacy?<br>We're real people. Reach us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a><br><span style="font-size:0.85em;">We respond to all privacy inquiries within 30 days.</span></p>
     </div>
 
     <div class="heart-section">
@@ -354,9 +406,8 @@
         <a href="/terms/">Terms</a>
         <a href="mailto:admin@kineticfam.com">Contact</a>
     </div>
-    <p>© 2025 Kinetic Harmony LLC</p>
+    <p>© 2026 Kinetic Harmony LLC</p>
 </footer>
-
 
 <script>
 function toggleMobileNav() {
