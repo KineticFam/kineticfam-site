@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; } section { display: block; }
 
     :root {
       --navy:  #2E3A59;
@@ -37,7 +37,7 @@
       --border: #E8E8E8;
     }
 
-    body {
+    section, div { margin: 0; } body {
       font-family: 'Inter', -apple-system, sans-serif;
       color: var(--gray);
       background: #fff;
@@ -95,7 +95,7 @@
     .nav-links a.nav-cta:hover { opacity: 0.88; }
 
     /* ── Hero ── */
-    .hero {
+    .hero { margin-bottom: 0;
       background: var(--navy);
       padding: 80px 24px 0;
       text-align: center;
@@ -131,7 +131,7 @@
     }
 
     /* ── Wave ── */
-    .hero-wave {
+    .hero-wave { margin-top: 0;
       background: var(--navy);
       line-height: 0;
       margin: 0;
