@@ -1,116 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kinetic Features | AI Family Morning Briefing — What's Included</title>
-    <meta name="description" content="Explore every Kinetic feature: AI schedule extraction, daily morning briefing, weather, local news, sports scores, school calendars, and more for your family." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — Kinetic | Everything Your Family Needs</title>
+    <meta name="description" content="Explore every Kinetic feature: school calendars, weather, sports schedules, smart email forwarding, and your family's daily morning briefing — all in one email." />
     <link rel="canonical" href="https://kineticfam.com/features/" />
-    <meta property="og:title" content="Kinetic Features | AI Family Morning Briefing">
-    <meta property="og:description" content="Every morning at 6:30 AM, Kinetic delivers your family's schedule, weather, news, local events, and reminders — assembled automatically from what you forward.">
-    <meta property="og:url" content="https://kineticfam.com/features/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>*{{margin:0;padding:0;box-sizing:border-box;}}:root {
-            --navy:  #2E3A59;
-            --blue:  #AFCBFF;
-            --sage:  #CFE8D5;
-            --beige: #F5F1EA;
-            --gray:  #7A7A7A;
-            --white: #FFFFFF;
-        }}body{{font-family:'Inter',-apple-system,sans-serif;background:#fff;color:#1a1f36;}}h1,h2,h3{{font-family:'DM Sans','Inter',sans-serif;}}
-    .hero{{background:linear-gradient(135deg, var(--navy) 0%, #3D4F6E 100%) 100%);padding:64px 24px;text-align:center;color:#fff;}}
-    .hero h1{{font-size:2.2rem;margin-bottom:14px;max-width:800px;margin-left:auto;margin-right:auto;}}
-    .hero p{{font-size:1.15rem;opacity:0.9;max-width:620px;margin:16px auto 0;}}
-    .content{{max-width:860px;margin:0 auto;padding:56px 24px;}}
-    .content h2{{font-size:1.5rem;margin:44px 0 16px;color:var(--dark);}}
-    .content h3{{font-size:1.15rem;margin:28px 0 10px;color:var(--dark);}}
-    .content p{{line-height:1.8;margin-bottom:18px;font-size:1.05rem;color:#333;}}
-    .content ul{{margin:0 0 20px 28px;}}.content ul li{{line-height:1.75;margin-bottom:8px;font-size:1.05rem;color:#333;}}
-    .content a{{color:var(--blue);}}
-    .feature-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin:24px 0 40px;}}
-    .feature-card{{background:#f0f4ff;border-radius:14px;padding:24px;}}
-    .feature-card .icon{{font-size:1.8rem;margin-bottom:10px;}}
-    .feature-card h3{{font-size:1rem;margin-bottom:8px;margin-top:0;color:var(--dark);}}
-    .feature-card p{{font-size:0.9rem;color:#555;margin:0;line-height:1.6;}}
-    .cta-box{{background:linear-gradient(135deg, var(--navy) 0%, #3D4F6E 100%));border-radius:16px;padding:40px;text-align:center;color:#fff;margin:48px 0;}}
-    .cta-box h2{{font-size:1.6rem;margin-bottom:12px;}}
-    .cta-box p{{opacity:0.9;margin-bottom:24px;font-size:1.05rem;}}
-    .cta-btn{{display:inline-block;background:#fff;color:var(--blue);padding:14px 40px;border-radius:40px;font-weight:700;text-decoration:none;font-size:1.05rem;}}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy:   #2E3A59;
+            --blue:   #AFCBFF;
+            --sage:   #CFE8D5;
+            --beige:  #F5F1EA;
+            --gray:   #4A5568;
+            --gray-lt:#7A7A7A;
+            --border: #E8E8E8;
+            --white:  #FFFFFF;
+            --radius: 14px;
+            --radius-btn: 8px;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Nav ── */
+        nav {
+            background: var(--navy);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo span {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .nav-links a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+        }
+        .nav-links a:hover { color: white; }
+        .nav-cta {
+            background: var(--blue);
+            color: var(--navy) !important;
+            font-weight: 600 !important;
+            padding: 8px 18px;
+            border-radius: var(--radius-btn);
+        }
+        @media (max-width: 600px) { .nav-links { display: none; } }
+
+        /* ── Hero ── */
+        .hero {
+            background: var(--navy);
+            padding: 72px 24px 56px;
+            text-align: center;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 em { font-style: italic; color: var(--blue); }
+        .hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero-wave {
+            background: var(--navy);
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        .hero-wave svg { width: 100%; display: block; height: 60px; }
+
+        /* ── Feature sections ── */
+        .features-grid {
+            background: var(--beige);
+            padding: 72px 24px;
+        }
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--gray-lt);
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 48px;
+            line-height: 1.2;
+        }
+        .section-title em { font-style: italic; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+        }
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .feature-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ── How forwarding works ── */
+        .forwarding {
+            background: white;
+            padding: 72px 24px;
+        }
+        .forwarding-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .forwarding h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .forwarding .sub {
+            font-size: 1rem;
+            color: var(--gray-lt);
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .forward-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .forward-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--beige);
+            border-radius: 12px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+        }
+        .forward-item .fi-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .forward-item strong {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 3px;
+        }
+        .forward-item span {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ── CTA ── */
+        .cta {
+            background: var(--navy);
+            padding: 72px 24px;
+            text-align: center;
+        }
+        .cta h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400;
+            color: white;
+            margin-bottom: 14px;
+        }
+        .cta p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--blue);
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 28px;
+            border-radius: var(--radius-btn);
+            text-decoration: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .footer-logo span {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: -0.02em;
+        }
+        footer p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        footer a {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover { color: rgba(255,255,255,0.7); }
     </style>
 </head>
 <body>
-<nav style="background:#2E3A59;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;">
-    <a href="/" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:white;letter-spacing:-0.02em;text-decoration:none;">Kinetic</a>
-    <div style="display:flex;align-items:center;gap:24px;">
-        <a href="/features/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Features</a>
-        <a href="/pricing/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">Pricing</a>
-        <a href="/about/" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;">About</a>
-        <a href="/#signup" style="font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:#2E3A59;background:#AFCBFF;padding:8px 18px;border-radius:8px;text-decoration:none;">Get started free</a>
+
+<!-- Nav -->
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="/assets/kinetic-mark.png" alt="" style="height:30px;width:30px;object-fit:contain;">
+        <span>Kinetic</span>
+    </a>
+    <div class="nav-links">
+        <a href="/features/">Features</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/about/">About</a>
+        <a href="/#signup" class="nav-cta">Get started free</a>
     </div>
 </nav>
-<div class="hero">
-    <h1>Everything Your Family Needs. One Email. Every Morning.</h1>
-    <p>Here's what Kinetic puts in your family's 6:30 AM morning briefing — and how each piece gets there automatically.</p>
+
+<!-- Hero -->
+<section class="hero">
+    <span class="hero-eyebrow">What's included</span>
+    <h1>Everything your family needs.<br><em>Nothing you don't.</em></h1>
+    <p>One morning email, assembled automatically from everything going on in your family's life — delivered before the day gets going.</p>
+</section>
+<div class="hero-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1380,15 1440,30 L1440,60 L0,60 Z" fill="#F5F1EA"/>
+    </svg>
 </div>
-<div class="content">
 
-    <h2>📧 Smart Email Forwarding</h2>
-    <p>Your Kinetic address is the hub for everything. Forward any email — school newsletter, sports schedule, dentist confirmation, birthday invite — and Kinetic reads it, extracts the relevant dates and details, and adds them to your family's picture automatically. No copy-pasting. No manual calendar entries.</p>
-    <ul>
-        <li>Forward school newsletters → Kinetic extracts every date and event</li>
-        <li>Forward appointment confirmations → reminder appears in your briefing</li>
-        <li>Forward sports schedules → upcoming games appear before each one</li>
-        <li>Forward birthday party invites → date saved, surfaces when it's approaching</li>
-    </ul>
-
-    <h2>📸 Photo & PDF Extraction</h2>
-    <p>Got a paper schedule? A PDF the coach sent? A photo of the fridge calendar? Attach it to an email to your Kinetic address. Kinetic's AI reads images and documents and pulls out every date and event — no manual transcription required.</p>
-
-    <h2>📅 Today's Family Schedule</h2>
-    <p>Every morning, Kinetic compiles every event for every family member happening that day into one clean view. No switching between calendars. No asking "wait, what time is that thing?" The answer is in the briefing, before anyone asks.</p>
-
-    <h2>📆 Two-Week Lookahead</h2>
-    <p>Upcoming events aren't just shown on the day they happen — they surface in your briefing as they approach, with enough lead time to actually prepare. Birthday gift needed Friday? You'll see it Monday. Permission slip due next week? It's in Tuesday's briefing.</p>
-
-    <h2>🌤️ Local Weather</h2>
-    <p>Current conditions, today's high and low, rain probability, and UV index — for your specific zip code. Automatically included every morning so you know what to pack before you leave the house.</p>
-
-    <h2>📰 Daily Headlines</h2>
-    <p>Five top national stories and local news from your area. Enough to stay informed without spending 20 minutes on your phone before the kids wake up.</p>
-
-    <h2>🎉 Events Near You</h2>
-    <p>Kinetic automatically surfaces family-friendly events within 30 miles of your home — festivals, concerts, museum events, sports games, community activities. Discover what's happening this weekend without having to go looking.</p>
-
-    <h2>🔔 Custom Reminders</h2>
-    <p>Put "Reminder" in the subject line of any email to your Kinetic address and it appears in your morning briefing for seven days. Perfect for things that don't quite fit on a calendar: "Pick up dry cleaning," "Call the pediatrician," "Return library books."</p>
-
-    <h2>🎂 Annual Birthdays</h2>
-    <p>Forward a birthday email or put "Birthday" in the subject line with a name and date. Kinetic remembers it every year and surfaces it a week before so you actually have time to do something about it.</p>
-
-    <h2>🏈 Sports Schedules</h2>
-    <p>Forward ticket confirmations, team schedule emails, or any sports-related message — Kinetic adds upcoming games to your morning briefing. Works for every major league: NFL, NBA, MLB, NHL, college football, college basketball, WNBA, MLS, and more.</p>
-
-    <h2>🏫 School Calendar Integration</h2>
-    <p>Forward the district calendar PDF at the start of the school year. Kinetic reads every date — holidays, early releases, teacher workdays, breaks — and surfaces each one in your morning briefing as it approaches. Works with any school in any district.</p>
-
-    <h2>🔒 Privacy First</h2>
-    <p>Kinetic never connects to your personal email, calendar, or any other account. It only knows what you send it. Your family's information is used exclusively to generate your morning briefing — never sold, shared, or used to train AI models.</p>
-
-    <div class="cta-box">
-        <h2>Try All of This Free</h2>
-        <p>Three fields. Thirty seconds. Your first briefing arrives tomorrow morning.</p>
-        <a href="/" class="cta-btn">Get Started →</a>
+<!-- Features Grid -->
+<section class="features-grid">
+    <p class="section-label">Core features</p>
+    <h2 class="section-title">Built for the way families <em>actually</em> work.</h2>
+    <div class="grid">
+        <div class="feature-card">
+            <span class="feature-icon">📅</span>
+            <h3>School Calendars</h3>
+            <p>Holidays, breaks, early releases, and teacher workdays — auto-imported from your school's website or forwarded PDF.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🌤</span>
+            <h3>Weather, Every Morning</h3>
+            <p>Dropoff, pickup, and evening temperatures with rain probability — so you never forget an umbrella or a jacket.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">⚽</span>
+            <h3>Sports & Activities</h3>
+            <p>Team schedules, game days, and practice times. Forward the season schedule once and every game shows up automatically.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📰</span>
+            <h3>Morning News</h3>
+            <p>A short, curated briefing on what's happening in the world — enough to stay informed, not enough to overwhelm.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🎉</span>
+            <h3>Events Near You</h3>
+            <p>Concerts, games, shows, and local happenings in your area — so weekends don't slip by without something to look forward to.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">👨‍👩‍👧</span>
+            <h3>Whole Family</h3>
+            <p>Add your partner, grandparents, or anyone else — each person gets the same briefing so the whole family stays in sync.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <h3>Morning Text</h3>
+            <p>Prefer a quick text over email? Get a short SMS summary every morning. No app, no login — just a message that arrives.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🔔</span>
+            <h3>Reminders</h3>
+            <p>Put "Reminder" in the subject of any email you send us — it'll appear in your briefing every day until the date passes.</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>Privacy First</h3>
+            <p>Your family's information is never sold, shared, or used for ads. Emails you forward are processed and deleted. That's it.</p>
+        </div>
     </div>
-</div>
-<footer style="background:#2E3A59;color:rgba(255,255,255,0.5);padding:28px 24px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
-    <div style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;color:white;letter-spacing:-0.02em;margin-bottom:4px;">Kinetic</div>
-    <div style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#AFCBFF;margin-bottom:14px;">From Chaos to Calm</div>
-    <div style="margin-bottom:12px;">
-        <a href="/privacy/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Privacy</a>
-        <a href="/terms/" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Terms</a>
-        <a href="mailto:admin@kineticfam.com" style="font-family:'Inter',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;margin:0 14px;">Contact</a>
+</section>
+
+<!-- Forwarding Section -->
+<section class="forwarding">
+    <div class="forwarding-inner">
+        <p class="section-label" style="text-align:center;margin-bottom:14px;">Smart email forwarding</p>
+        <h2>Forward it. We'll figure it out.</h2>
+        <p class="sub">The easiest way to add things to your briefing is to forward emails you already receive. We read them so you don't have to.</p>
+        <div class="forward-list">
+            <div class="forward-item">
+                <span class="fi-icon">📄</span>
+                <div><strong>School calendar PDF</strong><span>Forward the annual calendar from your school — we'll extract every holiday, break, and early release automatically.</span></div>
+            </div>
+            <div class="forward-item">
+                <span class="fi-icon">📸</span>
+                <div><strong>Photo of a paper schedule</strong><span>Snap a photo of anything on the fridge or in a backpack — we'll read it and pull out the dates.</span></div>
+            </div>
+            <div class="forward-item">
+                <span class="fi-icon">✈️</span>
+                <div><strong>Flight confirmation</strong><span>Forward your booking — departure time, arrival, and confirmation number saved automatically.</span></div>
+            </div>
+            <div class="forward-item">
+                <span class="fi-icon">🎭</span>
+                <div><strong>Event tickets</strong><span>Concert, game, or show — forward the confirmation and it shows up in your briefing with venue and seat info.</span></div>
+            </div>
+            <div class="forward-item">
+                <span class="fi-icon">✏️</span>
+                <div><strong>Just type it</strong><span>"Soccer Tuesday at 5pm" or "dentist Thursday March 28 at 2pm" — reply to any briefing and we'll add it right away.</span></div>
+            </div>
+        </div>
     </div>
-    <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">&#169; 2025 Kinetic Harmony LLC</p>
-</footer></body></html>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Ready to find your family's rhythm?</h2>
+    <p>Join families who start every day with calm intention — not scrambling to remember what's happening.</p>
+    <a href="/#signup" class="btn-primary">Get started free →</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logo">
+        <img src="/assets/kinetic-mark.png" alt="" style="height:28px;width:28px;object-fit:contain;opacity:0.7;">
+        <span>Kinetic</span>
+    </div>
+    <p>From Chaos to Calm</p>
+    <div>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/">Home</a>
+    </div>
+    <p style="margin-top:16px;">© 2025 Kinetic Harmony LLC · Fort Lauderdale, FL</p>
+</footer>
+
+</body>
+</html>
