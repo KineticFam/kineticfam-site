@@ -833,6 +833,49 @@
             color: rgba(255,255,255,0.3);
         }
 
+        /* ─── SMS Consent ─── */
+        .sms-consent {
+            margin-top: 8px;
+            margin-bottom: 2px;
+        }
+        .sms-consent-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .sms-consent-check {
+            flex-shrink: 0;
+            width: 17px;
+            height: 17px;
+            margin-top: 2px;
+            accent-color: var(--blue);
+            cursor: pointer;
+        }
+        .sms-consent-label span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.55;
+        }
+        .sms-consent-label span strong {
+            color: rgba(255,255,255,0.75);
+            font-weight: 600;
+        }
+        .sms-consent-label span a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: underline;
+        }
+        .sms-consent-label span a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+        .sms-consent-error {
+            font-size: 0.75rem;
+            color: #AFCBFF;
+            margin-top: 4px;
+            display: none;
+        }
+
         /* ─── Responsive ─── */
         @media (max-width: 680px) {
             .nav-links { display: none; }
@@ -959,17 +1002,21 @@
                 <input type="text" id="heroLastNameInput" placeholder="Last name">
                 <input type="text" id="heroZipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
             </div>
+            <input type="tel" id="heroPhoneInput" placeholder="Mobile number (for SMS briefing)" inputmode="tel" style="width:100%;padding:13px 16px;background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.15);border-radius:var(--radius-btn);font-size:0.93rem;font-family:'Inter',sans-serif;color:white;outline:none;transition:border-color 0.2s,background 0.2s;" onfocus="this.style.borderColor='var(--blue)';this.style.background='rgba(175,203,255,0.09)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.09)'">
             <div class="hero-family-section">
                 <a href="#" class="hero-add-family" onclick="addHeroFamilyMember(event)">＋ Add a family member</a>
                 <div class="hero-family-helper">They'll receive the daily briefing too.</div>
                 <div class="hero-family-members" id="heroFamilyMembers"></div>
             </div>
+            <div class="sms-consent" id="heroSmsConsent">
+                <label class="sms-consent-label">
+                    <input type="checkbox" class="sms-consent-check" id="heroSmsCheck">
+                    <span>By checking this box, you agree to receive daily SMS briefings from <strong>Kinetic Harmony LLC</strong>. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
+                </label>
+                <div class="sms-consent-error" id="heroSmsConsentError">Please check the box above to receive your SMS briefing.</div>
+            </div>
             <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
             <div id="heroSignupError" style="display:none; margin-top:8px; font-size:0.82rem; color:#AFCBFF; background:rgba(0,0,0,0.2); padding:8px 12px; border-radius:6px;"></div>
-            <p style="font-size:0.75rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-top:10px;font-family:'Inter',sans-serif;">
-              By signing up, you agree to receive a daily SMS briefing from Kinetic Harmony LLC. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong style="color:rgba(255,255,255,0.6);">STOP</strong> to unsubscribe, <strong style="color:rgba(255,255,255,0.6);">HELP</strong> for help.
-              <a href="/privacy/" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Privacy Policy</a> &amp; <a href="/terms/" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Terms</a>.
-            </p>
         </div>
         <div id="heroSuccess" style="display:none; margin-top:12px; text-align:center;">
             <p style="font-size:1.5rem; margin-bottom:8px;">🎉</p>
@@ -1154,16 +1201,24 @@
                 <input type="text" id="lastNameInput" placeholder="Last name" required>
                 <input type="text" id="zipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required>
             </div>
+            <div class="input-group">
+                <input type="tel" id="phoneInput" placeholder="Mobile number (for SMS briefing)" inputmode="tel" style="width:100%;padding:13px 16px;background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.15);border-radius:var(--radius-btn);font-size:0.93rem;font-family:'Inter',sans-serif;color:white;outline:none;transition:border-color 0.2s,background 0.2s;" onfocus="this.style.borderColor='var(--blue)';this.style.background='rgba(175,203,255,0.09)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.09)'">
+            </div>
             <div class="cta-family-section">
                 <a href="#" class="cta-add-family" onclick="addCtaFamilyMember(event)">＋ Add a family member</a>
                 <div class="cta-family-helper">They'll receive the daily briefing too.</div>
                 <div class="cta-family-members" id="ctaFamilyMembers"></div>
             </div>
+            <div class="sms-consent" id="ctaSmsConsent">
+                <label class="sms-consent-label">
+                    <input type="checkbox" class="sms-consent-check" id="ctaSmsCheck">
+                    <span>By checking this box, you agree to receive daily SMS briefings from <strong>Kinetic Harmony LLC</strong>. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
+                </label>
+                <div class="sms-consent-error" id="ctaSmsConsentError">Please check the box above to receive your SMS briefing.</div>
+            </div>
             <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Start for free →</button>
             <div id="signupError" style="display:none; margin-top:10px; font-size:0.82rem; color:rgba(255,255,255,0.8);"></div>
-            <p class="fine-print">Your first briefing arrives tomorrow morning at 6:30 AM.<br>
-              By signing up, you agree to receive a daily SMS briefing from Kinetic Harmony LLC. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe, <strong>HELP</strong> for help.
-              <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</p>
+            <p class="fine-print">Your first briefing arrives tomorrow morning at 6:30 AM.</p>
         </div>
         <div class="signup-success" id="signupSuccess">
             <div class="check">🎉</div>
@@ -1242,11 +1297,22 @@ function validateFields(email, lastName, zip) {
     return email && email.includes('@') && lastName && lastName.trim().length >= 2 && zip && /^\d{5}$/.test(zip.trim());
 }
 
-function submitSignup(email, lastName, zip, additionalEmails) {
+function validateSmsConsent(checkboxId, errorId) {
+    var cb = document.getElementById(checkboxId);
+    var err = document.getElementById(errorId);
+    if (cb && !cb.checked) {
+        if (err) err.style.display = 'block';
+        return false;
+    }
+    if (err) err.style.display = 'none';
+    return true;
+}
+
+function submitSignup(email, lastName, zip, additionalEmails, phone) {
     return fetch(APP_SIGNUP_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), family_members: additionalEmails || [] })
+        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), phone: (phone || '').trim(), sms_consent: true, family_members: additionalEmails || [] })
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -1264,23 +1330,27 @@ function handleSignup() {
     var email = document.getElementById('emailInput').value;
     var lastName = document.getElementById('lastNameInput').value;
     var zip = document.getElementById('zipInput').value;
+    var phone = document.getElementById('phoneInput').value;
     var additionalEmails = getAdditionalEmails('cta');
 
     ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
-    if (!validateFields(email, lastName, zip)) {
+    var fieldsOk = validateFields(email, lastName, zip);
+    var consentOk = validateSmsConsent('ctaSmsCheck', 'ctaSmsConsentError');
+
+    if (!fieldsOk) {
         if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff6b6b';
         if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff6b6b';
         if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff6b6b';
-        return;
     }
+    if (!fieldsOk || !consentOk) return;
 
     var btn = document.getElementById('ctaSignupButton');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
 
-    submitSignup(email, lastName, zip, additionalEmails).then(function(result) {
+    submitSignup(email, lastName, zip, additionalEmails, phone).then(function(result) {
         if (result === '__redirecting__') return;
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
@@ -1301,23 +1371,27 @@ function handleHeroSignup() {
     var email = document.getElementById('heroEmailInput').value;
     var lastName = document.getElementById('heroLastNameInput').value;
     var zip = document.getElementById('heroZipInput').value;
+    var phone = document.getElementById('heroPhoneInput').value;
     var additionalEmails = getAdditionalEmails('hero');
 
     ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
-    if (!validateFields(email, lastName, zip)) {
+    var fieldsOk = validateFields(email, lastName, zip);
+    var consentOk = validateSmsConsent('heroSmsCheck', 'heroSmsConsentError');
+
+    if (!fieldsOk) {
         if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff6b6b';
         if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff6b6b';
         if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff6b6b';
-        return;
     }
+    if (!fieldsOk || !consentOk) return;
 
     var btn = document.getElementById('heroSignupButton');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
 
-    submitSignup(email, lastName, zip, additionalEmails).then(function(result) {
+    submitSignup(email, lastName, zip, additionalEmails, phone).then(function(result) {
         if (result === '__redirecting__') return;
         document.getElementById('heroForm').style.display = 'none';
         document.getElementById('heroSuccess').style.display = 'block';
