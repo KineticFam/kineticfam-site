@@ -869,11 +869,12 @@
         .sms-consent-label span a:hover {
             color: rgba(255,255,255,0.8);
         }
-        .sms-consent-error {
-            font-size: 0.75rem;
-            color: #AFCBFF;
-            margin-top: 4px;
-            display: none;
+        .sms-consent-optional-note {
+            font-size: 0.74rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 3px;
+            line-height: 1.4;
+            padding-left: 27px;
         }
 
         /* ─── Responsive ─── */
@@ -1011,9 +1012,9 @@
             <div class="sms-consent" id="heroSmsConsent">
                 <label class="sms-consent-label">
                     <input type="checkbox" class="sms-consent-check" id="heroSmsCheck">
-                    <span>By checking this box, you agree to receive daily SMS briefings from <strong>Kinetic Harmony LLC</strong>. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
+                    <span>Yes, send me optional daily text message briefings from <strong>Kinetic Family</strong> (a service of Kinetic Harmony LLC). Up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to cancel, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
                 </label>
-                <div class="sms-consent-error" id="heroSmsConsentError">Please check the box above to receive your SMS briefing.</div>
+                <div class="sms-consent-optional-note">Consent not required to use the Kinetic Family service. SMS is optional.</div>
             </div>
             <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
             <div id="heroSignupError" style="display:none; margin-top:8px; font-size:0.82rem; color:#AFCBFF; background:rgba(0,0,0,0.2); padding:8px 12px; border-radius:6px;"></div>
@@ -1254,9 +1255,9 @@
             <div class="sms-consent" id="ctaSmsConsent">
                 <label class="sms-consent-label">
                     <input type="checkbox" class="sms-consent-check" id="ctaSmsCheck">
-                    <span>By checking this box, you agree to receive daily SMS briefings from <strong>Kinetic Harmony LLC</strong>. Message frequency: up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
+                    <span>Yes, send me optional daily text message briefings from <strong>Kinetic Family</strong> (a service of Kinetic Harmony LLC). Up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to cancel, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
                 </label>
-                <div class="sms-consent-error" id="ctaSmsConsentError">Please check the box above to receive your SMS briefing.</div>
+                <div class="sms-consent-optional-note">Consent not required to use the Kinetic Family service. SMS is optional.</div>
             </div>
             <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Start for free →</button>
             <div id="signupError" style="display:none; margin-top:10px; font-size:0.82rem; color:rgba(255,255,255,0.8);"></div>
@@ -1274,15 +1275,17 @@
 <footer>
     <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;">
         <img src="/assets/kinetic-mark.png" alt="" style="height:28px;width:auto;opacity:0.8;">
-        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:rgba(255,255,255,0.85);letter-spacing:-0.02em;">Kinetic</span>
+        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:rgba(255,255,255,0.85);letter-spacing:-0.02em;">Kinetic Family</span>
     </div>
     <div class="footer-tagline">From Chaos to Calm</div>
+    <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:16px;">Kinetic Family is a service operated by <strong style="color:rgba(255,255,255,0.5);font-weight:600;">Kinetic Harmony LLC</strong> · Fort Lauderdale, FL</p>
     <div class="footer-links">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
-        <a href="mailto:admin@kineticfam.com">Contact</a>
+        <a href="/about/">About</a>
+        <a href="mailto:support@kineticfam.com">Contact</a>
     </div>
-    <p class="footer-copy">© 2025 Kinetic Harmony LLC</p>
+    <p class="footer-copy">© 2026 Kinetic Harmony LLC · <a href="mailto:support@kineticfam.com" style="color:rgba(255,255,255,0.35);text-decoration:none;">support@kineticfam.com</a></p>
 </footer>
 
 <script>
@@ -1339,22 +1342,17 @@ function validateFields(email, lastName, zip) {
     return email && email.includes('@') && lastName && lastName.trim().length >= 2 && zip && /^\d{5}$/.test(zip.trim());
 }
 
-function validateSmsConsent(checkboxId, errorId) {
+function getSmsConsent(checkboxId) {
     var cb = document.getElementById(checkboxId);
-    var err = document.getElementById(errorId);
-    if (cb && !cb.checked) {
-        if (err) err.style.display = 'block';
-        return false;
-    }
-    if (err) err.style.display = 'none';
-    return true;
+    return cb ? cb.checked : false;
 }
 
 function submitSignup(email, lastName, zip, additionalEmails, phone) {
+    var hasPhone = phone && phone.trim().length > 0;
     return fetch(APP_SIGNUP_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), phone: (phone || '').trim(), sms_consent: true, family_members: additionalEmails || [] })
+        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), phone: (phone || '').trim(), sms_consent: hasPhone, family_members: additionalEmails || [] })
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -1374,20 +1372,23 @@ function handleSignup() {
     var zip = document.getElementById('zipInput').value;
     var phone = document.getElementById('phoneInput').value;
     var additionalEmails = getAdditionalEmails('cta');
+    var smsConsent = getSmsConsent('ctaSmsCheck');
 
     ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
     var fieldsOk = validateFields(email, lastName, zip);
-    var consentOk = validateSmsConsent('ctaSmsCheck', 'ctaSmsConsentError');
 
     if (!fieldsOk) {
         if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff6b6b';
         if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff6b6b';
         if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff6b6b';
+        return;
     }
-    if (!fieldsOk || !consentOk) return;
+
+    // If phone provided but SMS not opted in, clear phone before submit
+    if (!smsConsent) phone = '';
 
     var btn = document.getElementById('ctaSignupButton');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
@@ -1415,20 +1416,23 @@ function handleHeroSignup() {
     var zip = document.getElementById('heroZipInput').value;
     var phone = document.getElementById('heroPhoneInput').value;
     var additionalEmails = getAdditionalEmails('hero');
+    var smsConsent = getSmsConsent('heroSmsCheck');
 
     ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
         document.getElementById(id).style.borderColor = '';
     });
 
     var fieldsOk = validateFields(email, lastName, zip);
-    var consentOk = validateSmsConsent('heroSmsCheck', 'heroSmsConsentError');
 
     if (!fieldsOk) {
         if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff6b6b';
         if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff6b6b';
         if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff6b6b';
+        return;
     }
-    if (!fieldsOk || !consentOk) return;
+
+    // If phone provided but SMS not opted in, clear phone before submit
+    if (!smsConsent) phone = '';
 
     var btn = document.getElementById('heroSignupButton');
     if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
