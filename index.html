@@ -5,77 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="vycEVCqRAHr3kqgU0z3qqDZN0MAOqZbVkoot1PZ1WOc" />
     <title>Kinetic | Family Morning Briefing — From Chaos to Calm</title>
-    <meta name="description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM — your schedule, school calendar, local weather, and everything happening this week. Reply to add events, forward schedules, or connect your calendar. It just works." />
+    <meta name="description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM — your schedule, school calendar, local weather, and everything happening this week." />
     <link rel="canonical" href="https://kineticfam.com" />
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
-    <meta property="og:description" content="Your family's schedule, school calendar, weather, and local events — in one smart morning briefing at 6:30 AM. Connect your calendars, reply to add events, and always know what's coming.">
+    <meta property="og:description" content="Your family's schedule, school calendar, weather, and local events — in one smart morning briefing at 6:30 AM.">
     <meta property="og:image" content="https://kineticfam.com/assets/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://kineticfam.com">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
-    <meta name="twitter:description" content="Your family's schedule, school calendar, weather, and local events — delivered every morning at 6:30 AM. Connect your calendars and reply to add events.">
-    <meta name="twitter:image" content="https://kineticfam.com/assets/og-image.png">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Kinetic",
-      "url": "https://kineticfam.com",
-      "description": "Kinetic is a daily morning briefing for families — your schedule, local weather, school events, and more delivered at 6:30 AM every day.",
-      "applicationCategory": "LifestyleApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Kinetic Harmony LLC",
-        "url": "https://kineticfam.com"
-      },
-      "featureList": [
-        "AI-powered daily family briefing",
-        "Automated family calendar management",
-        "Local weather and events",
-        "Email forwarding to calendar",
-        "PDF and photo schedule extraction"
-      ]
-    }
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
-            --navy:    #2E3A59;
-            --blue:    #AFCBFF;
-            --sage:    #CFE8D5;
-            --beige:   #F5F1EA;
-            --gray:    #7A7A7A;
-            --white:   #FFFFFF;
-            --text-dark: #2E3A59;
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
             --radius-card: 14px;
-            --radius-btn: 8px;
-            --shadow-soft: 0 2px 16px rgba(46,58,89,0.08), 0 1px 4px rgba(46,58,89,0.04);
-            --shadow-card: 0 4px 24px rgba(46,58,89,0.10), 0 1px 6px rgba(46,58,89,0.05);
+            --radius-btn:  8px;
+            --shadow-soft: 0 2px 16px rgba(46,58,89,0.08);
+            --shadow-card: 0 4px 24px rgba(46,58,89,0.10);
         }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background: var(--white);
@@ -84,864 +40,339 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ─── Scroll animations ─── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-        .stagger-1 { transition-delay: 0.07s; }
-        .stagger-2 { transition-delay: 0.14s; }
-        .stagger-3 { transition-delay: 0.21s; }
-        .stagger-4 { transition-delay: 0.28s; }
-        .stagger-5 { transition-delay: 0.35s; }
-        .stagger-6 { transition-delay: 0.42s; }
-
-        /* ─── Nav ─── */
+        /* ── Nav ── */
         .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: var(--navy);
             padding: 0 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between;
             height: 60px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .nav-logo {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: white;
-            letter-spacing: -0.02em;
-            text-decoration: none;
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
         }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
+        .nav-logo-text {
+            font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 20px;
+            color: white; letter-spacing: -0.02em;
         }
+        .nav-links { display: flex; align-items: center; gap: 28px; }
         .nav-links a {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            transition: color 0.2s;
+            font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+            color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s;
         }
         .nav-links a:hover { color: white; }
-        .nav-cta {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--navy) !important;
-            background: var(--blue);
-            padding: 8px 18px;
-            border-radius: var(--radius-btn);
-            text-decoration: none !important;
-            transition: opacity 0.2s !important;
-        }
-        .nav-cta:hover { opacity: 0.9 !important; }
 
-        /* ─── Hero ─── */
+        /* ── SMS Program Banner ── */
+        .sms-program-banner {
+            background: #1A3A5C;
+            padding: 20px 24px;
+            text-align: center;
+            border-bottom: 3px solid #AFCBFF;
+        }
+        .sms-program-banner p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .sms-program-banner p strong { color: #AFCBFF; }
+        .sms-program-banner a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+
+        /* ── Hero ── */
         .hero {
             background: var(--navy);
-            padding: 72px 24px 0;
+            padding: 64px 24px 48px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -80px; left: -120px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(175,203,255,0.10) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 40px; right: -80px;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(207,232,213,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero > * { position: relative; z-index: 1; }
-
         .hero-eyebrow {
             display: inline-block;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 20px;
+            font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); margin-bottom: 18px;
         }
-
         .hero h1 {
             font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(2.6rem, 6vw, 4rem);
-            font-weight: 400;
-            color: white;
-            line-height: 1.15;
-            letter-spacing: -0.01em;
-            margin-bottom: 20px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--blue);
-        }
-
-        .hero-sub {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.72);
-            line-height: 1.65;
-            max-width: 520px;
-            margin: 0 auto 40px;
-        }
-
-        /* Hero CTA buttons */
-        .hero-ctas {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            margin-bottom: 52px;
-        }
-        .btn-primary {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 15px;
-            padding: 14px 28px;
-            background: white;
-            color: var(--navy);
-            border: none;
-            border-radius: var(--radius-btn);
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-            display: inline-block;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.22);
-        }
-        .btn-ghost {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            font-size: 15px;
-            padding: 13px 26px;
-            background: transparent;
-            color: rgba(255,255,255,0.88);
-            border: 1.5px solid rgba(255,255,255,0.35);
-            border-radius: var(--radius-btn);
-            cursor: pointer;
-            text-decoration: none;
-            transition: border-color 0.2s, color 0.2s;
-            display: inline-block;
-        }
-        .btn-ghost:hover {
-            border-color: rgba(255,255,255,0.7);
-            color: white;
-        }
-
-        /* Hero signup form (inline, minimal) */
-        .hero-form-wrap {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 16px;
-            padding: 28px 28px 24px;
-            max-width: 460px;
-            margin: 0 auto 0;
-        }
-        .hero-form-label {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
+            font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+            font-weight: 400; color: white;
+            line-height: 1.15; letter-spacing: -0.01em;
             margin-bottom: 16px;
-            display: block;
         }
-        .hero-fields { display: flex; flex-direction: column; gap: 10px; }
-        .hero-input-row { display: flex; gap: 10px; }
-        .hero-fields input {
-            flex: 1;
-            min-width: 0;
-            padding: 13px 16px;
-            background: rgba(255,255,255,0.09);
-            border: 1.5px solid rgba(255,255,255,0.15);
-            border-radius: var(--radius-btn);
-            font-size: 0.93rem;
-            font-family: 'Inter', sans-serif;
-            color: white;
-            outline: none;
-            transition: border-color 0.2s, background 0.2s;
+        .hero h1 em { font-style: italic; color: var(--blue); }
+        .hero-sub {
+            font-family: 'DM Sans', sans-serif; font-size: 1.05rem;
+            color: rgba(255,255,255,0.70); line-height: 1.65;
+            max-width: 500px; margin: 0 auto 40px;
         }
-        .hero-fields input::placeholder { color: rgba(255,255,255,0.38); }
-        .hero-fields input:focus {
-            border-color: var(--blue);
-            background: rgba(175,203,255,0.09);
-        }
-        .hero-family-section { margin-top: 2px; }
-        .hero-add-family {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            color: var(--blue);
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            opacity: 0.85;
-            transition: opacity 0.2s;
-        }
-        .hero-add-family:hover { opacity: 1; }
-        .hero-family-helper { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
-        .hero-family-members { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
-        .hero-family-member { display: flex; align-items: center; gap: 8px; }
-        .hero-family-member input { flex: 1; }
-        .hero-remove-family {
-            width: 24px; height: 24px; border: none; background: none;
-            color: rgba(255,255,255,0.35); font-size: 15px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; transition: color 0.2s;
-        }
-        .hero-remove-family:hover { color: #ff6b6b; }
 
-        .btn-hero-signup {
-            width: 100%;
-            padding: 14px;
-            background: var(--blue);
-            color: var(--navy);
-            border: none;
-            border-radius: var(--radius-btn);
-            font-size: 0.95rem;
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            cursor: pointer;
-            transition: opacity 0.2s, transform 0.2s;
-            margin-top: 4px;
-            letter-spacing: -0.01em;
-        }
-        .btn-hero-signup:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        /* Google OAuth button */
-        .google-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 13px 18px;
+        /* ── Signup Card ── */
+        .signup-card {
             background: white;
-            border: 1.5px solid rgba(255,255,255,0.2);
+            border-radius: 18px;
+            padding: 36px 32px;
+            max-width: 480px;
+            margin: 0 auto;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+            text-align: left;
+        }
+        .signup-card-title {
+            font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 17px;
+            color: var(--navy); margin-bottom: 20px; text-align: center;
+        }
+        .field-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+        .field-row { display: flex; gap: 10px; }
+        .signup-card input {
+            width: 100%; padding: 13px 16px;
+            background: #F8F9FB; border: 1.5px solid #E2E6EE;
             border-radius: var(--radius-btn);
-            font-size: 0.93rem;
-            font-weight: 600;
-            font-family: 'DM Sans', sans-serif;
-            color: #3c4043;
-            cursor: pointer;
-            transition: box-shadow 0.2s, transform 0.2s;
-            text-decoration: none;
-            box-shadow: var(--shadow-soft);
+            font-size: 0.93rem; font-family: 'Inter', sans-serif;
+            color: var(--navy); outline: none;
+            transition: border-color 0.2s;
         }
-        .google-btn:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
-            transform: translateY(-1px);
-        }
-        .form-divider {
-            display: flex; align-items: center;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 12px;
-            color: rgba(255,255,255,0.3);
-            margin: 10px 0;
-        }
-        .form-divider::before, .form-divider::after {
-            content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.12);
-        }
-        .form-divider span { padding: 0 12px; }
+        .signup-card input::placeholder { color: #A0A8B8; }
+        .signup-card input:focus { border-color: #5E7ABF; background: white; }
 
-        /* Hero wave */
-        .hero-wave {
-            display: block;
-            line-height: 0;
-            background: var(--navy);
-            margin: 0;
-            padding: 0;
+        /* SMS opt-in block — prominent, boxed */
+        .sms-optin-box {
+            background: #EEF4FF;
+            border: 2px solid #AFCBFF;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 14px 0 10px;
         }
-        .hero-wave svg { width: 100%; display: block; height: 80px; }
+        .sms-optin-box .optin-label {
+            display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+        }
+        .sms-optin-box .optin-label input[type="checkbox"] {
+            width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;
+            accent-color: var(--navy); cursor: pointer;
+            background: none; border: none; padding: 0;
+        }
+        .sms-optin-box .optin-text {
+            font-family: 'Inter', sans-serif; font-size: 0.82rem;
+            color: #3A4A6B; line-height: 1.6;
+        }
+        .sms-optin-box .optin-text strong { font-weight: 700; }
+        .sms-optin-box .optin-text a { color: #3A4A6B; text-decoration: underline; }
+        .sms-optin-not-required {
+            font-family: 'Inter', sans-serif; font-size: 0.76rem;
+            color: #7A8AA8; margin-top: 8px; padding-left: 28px; line-height: 1.4;
+        }
 
-        /* ─── How it works ─── */
-        .how {
-            background: var(--beige);
-            padding: 48px 24px 64px;
-            text-align: center;
+        .btn-signup-main {
+            width: 100%; padding: 15px;
+            background: var(--navy); color: white;
+            border: none; border-radius: var(--radius-btn);
+            font-size: 1rem; font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer; margin-top: 6px;
+            transition: opacity 0.2s, transform 0.2s;
         }
+        .btn-signup-main:hover { opacity: 0.9; transform: translateY(-1px); }
+        .signup-fine {
+            font-size: 0.76rem; color: #9CA3AF; text-align: center;
+            margin-top: 10px; line-height: 1.5;
+        }
+
+        /* ── Hero wave ── */
+        .hero-wave { display: block; line-height: 0; background: var(--navy); }
+        .hero-wave svg { width: 100%; display: block; height: 60px; }
+
+        /* ── How it works ── */
+        .how { background: var(--beige); padding: 64px 24px; text-align: center; }
         .section-label {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-            color: var(--gray);
-            margin-bottom: 14px;
+            font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+            letter-spacing: 0.09em; text-transform: uppercase;
+            color: var(--gray); margin-bottom: 12px;
         }
-        .how h2 {
+        .how h2, .features h2, .daily h2 {
             font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            font-weight: 400;
-            color: var(--navy);
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-        .how h2 em {
-            font-style: italic;
-            color: #5E7ABF;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 400; color: var(--navy);
+            line-height: 1.2; margin-bottom: 10px;
         }
         .section-sub {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: var(--gray);
-            line-height: 1.7;
-            max-width: 520px;
-            margin: 0 auto 48px;
+            font-family: 'Inter', sans-serif; font-size: 1rem;
+            color: var(--gray); line-height: 1.7;
+            max-width: 500px; margin: 0 auto 40px;
         }
         .steps {
-            display: flex;
-            gap: 20px;
-            max-width: 960px;
-            margin: 0 auto;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: flex; gap: 20px;
+            max-width: 920px; margin: 0 auto;
+            justify-content: center; flex-wrap: wrap;
         }
         .step {
-            flex: 1;
-            min-width: 250px;
-            max-width: 300px;
-            background: white;
-            border-radius: var(--radius-card);
-            padding: 32px 26px;
-            text-align: left;
+            flex: 1; min-width: 240px; max-width: 290px;
+            background: white; border-radius: var(--radius-card);
+            padding: 28px 24px; text-align: left;
             box-shadow: var(--shadow-card);
-            border: 1px solid rgba(46,58,89,0.06);
-            transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
         }
-        .step:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(46,58,89,0.13);
-        }
-        .step-icon {
-            font-size: 1.6rem;
-            margin-bottom: 18px;
-            display: block;
-        }
+        .step-icon { font-size: 1.5rem; margin-bottom: 14px; display: block; }
         .step h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 8px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+            font-weight: 600; color: var(--navy); margin-bottom: 6px;
         }
         .step p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.88rem;
-            color: var(--gray);
-            line-height: 1.65;
+            font-family: 'Inter', sans-serif; font-size: 0.86rem;
+            color: var(--gray); line-height: 1.65;
         }
 
-        /* ─── Features ─── */
-        .features {
-            background: white;
-            padding: 72px 24px 64px;
-            text-align: center;
-        }
-        .features h2 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            font-weight: 400;
-            color: var(--navy);
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
+        /* ── Features ── */
+        .features { background: white; padding: 64px 24px; text-align: center; }
         .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            max-width: 860px;
-            margin: 48px auto 0;
-            text-align: left;
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 16px; max-width: 820px; margin: 40px auto 0; text-align: left;
         }
         .feature-card {
-            background: var(--beige);
-            border-radius: var(--radius-card);
-            padding: 26px 24px;
-            border: 1px solid rgba(46,58,89,0.06);
-            transition: transform 0.25s, box-shadow 0.25s;
+            background: var(--beige); border-radius: var(--radius-card);
+            padding: 24px; border: 1px solid rgba(46,58,89,0.06);
         }
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-card);
-        }
-        .feature-card .fc-icon {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            display: block;
-        }
+        .feature-card .fc-icon { font-size: 1.3rem; margin-bottom: 10px; display: block; }
         .feature-card h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 6px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+            font-weight: 600; color: var(--navy); margin-bottom: 5px;
         }
         .feature-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.86rem;
-            color: var(--gray);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif; font-size: 0.84rem;
+            color: var(--gray); line-height: 1.6;
         }
 
-        /* ─── Daily briefing what you get ─── */
-        .daily {
-            background: var(--beige);
-            padding: 72px 24px 64px;
-            text-align: center;
-        }
-        .daily h2 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(1.9rem, 4vw, 2.6rem);
-            font-weight: 400;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
+        /* ── Daily briefing ── */
+        .daily { background: var(--beige); padding: 64px 24px; text-align: center; }
         .daily-list {
-            max-width: 580px;
-            margin: 40px auto 0;
-            background: white;
-            border-radius: var(--radius-card);
-            box-shadow: var(--shadow-card);
-            overflow: hidden;
+            max-width: 560px; margin: 36px auto 0;
+            background: white; border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card); overflow: hidden;
         }
         .daily-item {
-            display: flex;
-            align-items: baseline;
-            gap: 14px;
-            padding: 15px 24px;
-            border-bottom: 1px solid rgba(46,58,89,0.06);
-            text-align: left;
-            transition: background 0.15s;
+            display: flex; align-items: baseline; gap: 12px;
+            padding: 13px 22px; border-bottom: 1px solid rgba(46,58,89,0.06); text-align: left;
         }
         .daily-item:last-child { border-bottom: none; }
-        .daily-item:hover { background: var(--beige); }
         .daily-check {
-            width: 20px; height: 20px;
-            background: var(--sage);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            font-size: 10px;
-            color: var(--navy);
-            font-weight: 700;
+            width: 18px; height: 18px; background: var(--sage);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 9px; color: var(--navy); font-weight: 700;
         }
         .daily-item span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.91rem;
-            color: #4A4A4A;
-            line-height: 1.5;
+            font-family: 'Inter', sans-serif; font-size: 0.89rem; color: #4A4A4A; line-height: 1.5;
         }
-        .daily-item span strong {
-            font-weight: 600;
-            color: var(--navy);
-        }
+        .daily-item span strong { font-weight: 600; color: var(--navy); }
 
-        /* ─── Privacy promise ─── */
-        .privacy {
-            background: white;
-            padding: 72px 24px 64px;
-            text-align: center;
-        }
-        .privacy h2 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(1.7rem, 3.5vw, 2.2rem);
-            font-weight: 400;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-        .privacy-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 600px;
-            margin: 36px auto 28px;
-            text-align: left;
-        }
-        .privacy-point {
-            background: var(--beige);
-            border-radius: 12px;
-            padding: 20px 24px;
-            border-left: 3px solid var(--sage);
-            transition: transform 0.2s;
-        }
-        .privacy-point:hover { transform: translateX(3px); }
-        .privacy-point strong {
-            display: block;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-        .privacy-point span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-        .privacy-link {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--navy);
-            text-decoration: none;
-            border-bottom: 1.5px solid var(--blue);
-            padding-bottom: 1px;
-            transition: opacity 0.2s;
-        }
-        .privacy-link:hover { opacity: 0.7; }
-
-        /* ─── Social proof ─── */
-        .social-proof {
-            background: var(--beige);
+        /* ── SMS Details Section ── */
+        .sms-details {
+            background: #1A3A5C;
             padding: 64px 24px;
             text-align: center;
         }
-        .proof-quote {
-            max-width: 560px;
-            margin: 0 auto;
-        }
-        .proof-quote blockquote {
+        .sms-details h2 {
             font-family: 'DM Serif Display', Georgia, serif;
-            font-style: italic;
-            font-size: clamp(1.25rem, 3vw, 1.55rem);
-            color: var(--navy);
-            line-height: 1.5;
-            margin-bottom: 20px;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: white; font-weight: 400; margin-bottom: 12px;
         }
-        .proof-quote cite {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-style: normal;
-            color: var(--gray);
-            font-weight: 500;
+        .sms-details .sub {
+            font-family: 'Inter', sans-serif; font-size: 0.95rem;
+            color: rgba(255,255,255,0.65); max-width: 520px;
+            margin: 0 auto 36px; line-height: 1.7;
         }
-        .proof-tagline {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gray);
-            margin-top: 36px;
-            letter-spacing: 0.01em;
+        .sms-info-grid {
+            display: flex; flex-wrap: wrap; gap: 16px;
+            max-width: 820px; margin: 0 auto 36px; justify-content: center;
         }
-
-        /* ─── CTA Section ─── */
-        .cta {
-            background: var(--navy);
-            padding: 80px 24px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -60px; right: -60px;
-            width: 360px; height: 360px;
-            background: radial-gradient(circle, rgba(175,203,255,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .cta > * { position: relative; z-index: 1; }
-        .cta h2 {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 400;
-            color: white;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-        .cta h2 em { font-style: italic; color: var(--blue); }
-        .cta .cta-sub {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.65);
-            margin-bottom: 40px;
-        }
-        .signup-box {
+        .sms-info-card {
+            flex: 1; min-width: 220px; max-width: 260px;
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 16px;
-            padding: 32px 28px;
-            max-width: 420px;
-            margin: 0 auto;
+            border-radius: 12px; padding: 22px 20px; text-align: left;
         }
-        .input-group { margin-bottom: 10px; }
-        .input-row { display: flex; gap: 10px; margin-bottom: 10px; }
-        .input-group input, .input-row input {
-            width: 100%;
-            min-width: 0;
-            padding: 13px 16px;
-            background: rgba(255,255,255,0.09);
-            border: 1.5px solid rgba(255,255,255,0.15);
-            border-radius: var(--radius-btn);
-            color: white;
-            font-size: 0.93rem;
-            font-family: 'Inter', sans-serif;
-            outline: none;
-            transition: border-color 0.2s, background 0.2s;
+        .sms-info-card .label {
+            font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: #AFCBFF; margin-bottom: 8px;
         }
-        .input-group input::placeholder, .input-row input::placeholder { color: rgba(255,255,255,0.38); }
-        .input-group input:focus, .input-row input:focus {
-            border-color: var(--blue);
-            background: rgba(175,203,255,0.09);
+        .sms-info-card .value {
+            font-family: 'Inter', sans-serif; font-size: 0.88rem;
+            color: rgba(255,255,255,0.80); line-height: 1.6;
         }
-        .cta-family-section { margin-top: 2px; margin-bottom: 10px; }
-        .cta-add-family {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            color: var(--blue);
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            opacity: 0.85;
-            transition: opacity 0.2s;
+        .sms-legal-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px; padding: 22px 24px;
+            max-width: 640px; margin: 0 auto;
+            font-family: 'Inter', sans-serif; font-size: 0.82rem;
+            color: rgba(255,255,255,0.60); line-height: 1.75; text-align: left;
         }
-        .cta-add-family:hover { opacity: 1; }
-        .cta-family-helper { font-size: 0.78rem; color: rgba(255,255,255,0.38); margin-top: 4px; line-height: 1.4; }
-        .cta-family-members { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
-        .cta-family-member { display: flex; align-items: center; gap: 8px; }
-        .cta-family-member input { flex: 1; }
-        .cta-remove-family {
-            width: 24px; height: 24px; border: none; background: none;
-            color: rgba(255,255,255,0.35); font-size: 15px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; transition: color 0.2s;
-        }
-        .cta-remove-family:hover { color: #ff6b6b; }
-        .btn-signup {
-            width: 100%;
-            padding: 14px;
-            background: var(--blue);
-            color: var(--navy);
-            border: none;
-            border-radius: var(--radius-btn);
-            font-size: 0.98rem;
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            cursor: pointer;
-            transition: opacity 0.2s, transform 0.2s;
-            letter-spacing: -0.01em;
-        }
-        .btn-signup:hover { opacity: 0.9; transform: translateY(-1px); }
-        .fine-print {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.38);
-            margin-top: 14px;
-            line-height: 1.5;
-        }
-        .fine-print a { color: rgba(255,255,255,0.55); text-decoration: underline; }
-        .signup-success { display: none; text-align: center; padding: 12px 0; }
-        .signup-success .check { font-size: 2.4rem; margin-bottom: 10px; }
-        .signup-success h3 {
+        .sms-legal-box strong { color: rgba(255,255,255,0.80); font-weight: 600; }
+        .sms-legal-box a { color: rgba(255,255,255,0.60); text-decoration: underline; }
+
+        /* ── Privacy ── */
+        .privacy-section { background: white; padding: 64px 24px; text-align: center; }
+        .privacy-section h2 {
             font-family: 'DM Serif Display', Georgia, serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: white;
-            margin-bottom: 8px;
+            font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+            font-weight: 400; color: var(--navy); margin-bottom: 10px;
         }
-        .signup-success p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.6;
+        .privacy-grid {
+            display: flex; flex-direction: column; gap: 12px;
+            max-width: 580px; margin: 32px auto 24px; text-align: left;
         }
-
-        /* CTA divider */
-        .cta .form-divider {
-            color: rgba(255,255,255,0.3);
+        .privacy-point {
+            background: var(--beige); border-radius: 12px;
+            padding: 18px 22px; border-left: 3px solid var(--sage);
         }
-        .cta .form-divider::before,
-        .cta .form-divider::after {
-            background: rgba(255,255,255,0.12);
+        .privacy-point strong {
+            display: block; font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 3px;
+        }
+        .privacy-point span {
+            font-family: 'Inter', sans-serif; font-size: 0.83rem; color: var(--gray); line-height: 1.6;
         }
 
-        /* ─── Footer ─── */
+        /* ── Footer ── */
         footer {
-            background: var(--navy);
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding: 32px 24px;
-            text-align: center;
+            background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 24px; text-align: center;
         }
-        .footer-logo {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            color: white;
-            letter-spacing: -0.02em;
-            margin-bottom: 6px;
+        .footer-logo-text {
+            font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 18px;
+            color: white; letter-spacing: -0.02em; margin-bottom: 4px;
         }
         .footer-tagline {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 18px;
+            font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            color: var(--blue); margin-bottom: 16px;
         }
-        .footer-links {
-            margin-bottom: 14px;
-        }
+        .footer-links { margin-bottom: 12px; }
         .footer-links a {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            margin: 0 14px;
-            transition: color 0.2s;
+            font-family: 'Inter', sans-serif; font-size: 0.8rem;
+            color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 12px;
         }
         .footer-links a:hover { color: rgba(255,255,255,0.85); }
         .footer-copy {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.3);
+            font-family: 'Inter', sans-serif; font-size: 0.76rem; color: rgba(255,255,255,0.3);
+        }
+        .footer-copy a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+        /* ── Signup success ── */
+        .signup-success-msg { display: none; text-align: center; padding: 8px 0; }
+        .signup-success-msg .check { font-size: 2.2rem; margin-bottom: 10px; }
+        .signup-success-msg h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.3rem; font-weight: 400; color: var(--navy); margin-bottom: 8px;
+        }
+        .signup-success-msg p {
+            font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--gray); line-height: 1.6;
         }
 
-        /* ─── SMS Consent ─── */
-        .sms-consent {
-            margin-top: 8px;
-            margin-bottom: 2px;
-        }
-        .sms-consent-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            cursor: pointer;
-        }
-        .sms-consent-check {
-            flex-shrink: 0;
-            width: 17px;
-            height: 17px;
-            margin-top: 2px;
-            accent-color: var(--blue);
-            cursor: pointer;
-        }
-        .sms-consent-label span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.55);
-            line-height: 1.55;
-        }
-        .sms-consent-label span strong {
-            color: rgba(255,255,255,0.75);
-            font-weight: 600;
-        }
-        .sms-consent-label span a {
-            color: rgba(255,255,255,0.55);
-            text-decoration: underline;
-        }
-        .sms-consent-label span a:hover {
-            color: rgba(255,255,255,0.8);
-        }
-        .sms-consent-optional-note {
-            font-size: 0.74rem;
-            color: rgba(255,255,255,0.35);
-            margin-top: 3px;
-            line-height: 1.4;
-            padding-left: 27px;
-        }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 680px) {
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
             .nav-links { display: none; }
-            .hero { padding: 52px 20px 0; }
-            .hero-ctas { flex-direction: column; align-items: stretch; max-width: 320px; margin-left: auto; margin-right: auto; }
-            .hero-form-wrap { padding: 22px 20px 18px; }
-            .hero-input-row { flex-direction: column; }
+            .signup-card { padding: 28px 20px; }
+            .field-row { flex-direction: column; }
             .feature-grid { grid-template-columns: 1fr; }
-            .input-row { flex-direction: column; }
-            .how, .features, .daily, .privacy, .social-proof, .cta { padding-top: 52px; padding-bottom: 48px; }
-            .signup-box { padding: 24px 20px; }
-        }
-
-        /* ── Mobile nav ── */
-        .nav-hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .nav-hamburger span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: rgba(255,255,255,0.85);
-            border-radius: 2px;
-            transition: all 0.2s;
-        }
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            inset: 60px 0 0 0;
-            background: #1E2A3F;
-            z-index: 99;
-            flex-direction: column;
-            padding: 24px 24px;
-            gap: 4px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .mobile-menu a {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 17px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-        }
-        .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu .mobile-cta {
-            margin-top: 16px;
-            background: #AFCBFF;
-            color: #2E3A59 !important;
-            font-weight: 700 !important;
-            padding: 14px 0;
-            border-radius: 8px;
-            text-align: center;
-            border-bottom: none !important;
-        }
-        @media (max-width: 680px) {
-            .nav-links { display: none !important; }
-            .nav-hamburger { display: flex; }
+            .sms-info-grid { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -949,410 +380,298 @@
 
 <!-- Nav -->
 <nav class="nav">
-    <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <a href="/" class="nav-logo">
         <img src="/assets/kinetic-mark.png" alt="" style="height:30px;width:auto;">
-        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:white;letter-spacing:-0.02em;">Kinetic Family</span>
+        <span class="nav-logo-text">Kinetic Family</span>
     </a>
     <div class="nav-links">
         <a href="/features/">Features</a>
         <a href="/pricing/">Pricing</a>
         <a href="/about/">About</a>
-        <a href="/#signup" class="nav-cta">Get started free</a>
+        <a href="/support/">Support</a>
     </div>
-
-    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu" id="navHamburger">
-        <span></span><span></span><span></span>
-    </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-    <a href="/features/">Features</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/about/">About</a>
-    <a href="/#signup" class="mobile-cta">Get started free</a>
+<!-- SMS Program info banner — helps verifiers immediately identify the SMS program -->
+<div class="sms-program-banner">
+    <p>
+        <strong>Kinetic Family SMS Program</strong> &mdash;
+        We send optional daily morning schedule briefings by text message.
+        Up to 1 msg/day. Msg &amp; data rates may apply.
+        Reply <strong>STOP</strong> to cancel &middot; Reply <strong>HELP</strong> for help.
+        <a href="/terms/">Terms</a> &middot; <a href="/privacy/">Privacy Policy</a>.
+        Consent not required to use the service.
+    </p>
 </div>
-
 
 <!-- Hero -->
 <section class="hero">
-    <span class="hero-eyebrow fade-up">From Chaos to Calm</span>
-    <h1 class="fade-up">Life moves fast.<br><em>We keep it calm.</em></h1>
-    <p class="hero-sub fade-up">Your family's energy, organized. Schedules, weather, school events, and everything you need — delivered every morning at 6:30 AM so your day moves with intention.</p>
+    <span class="hero-eyebrow">From Chaos to Calm</span>
+    <h1>Life moves fast.<br><em>We keep it calm.</em></h1>
+    <p class="hero-sub">Your family's schedule, school calendar, weather, and everything you need &mdash; delivered every morning at 6:30&nbsp;AM.</p>
 
-    <div class="hero-ctas fade-up">
-        <a href="#signup" class="btn-primary">Get started free</a>
-        <a href="#how-it-works" class="btn-ghost">See how it works</a>
-    </div>
+    <!-- Signup card — email form is primary, no off-site auth links -->
+    <div class="signup-card">
+        <div class="signup-card-title">Get started — it's free</div>
+        <div id="signupForm">
+            <div class="field-group">
+                <input type="email"  id="emailInput"    placeholder="Your email address" required>
+                <div class="field-row">
+                    <input type="text"  id="lastNameInput" placeholder="Family last name" required>
+                    <input type="text"  id="zipInput"      placeholder="Zip code" maxlength="5" inputmode="numeric" required>
+                </div>
+                <input type="tel" id="phoneInput" placeholder="Mobile number (optional — for SMS briefing)" inputmode="tel">
+            </div>
 
-    <div class="hero-form-wrap fade-up" id="heroFormWrap">
-        <span class="hero-form-label">Or sign up right here</span>
-        <div class="hero-fields" id="heroForm">
-            <a href="https://app.kineticfam.com/auth/google/signup"
-               class="google-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
-              Sign up with Google
-            </a>
-            <div class="form-divider"><span>or</span></div>
-            <input type="email" id="heroEmailInput" placeholder="Your email address">
-            <div class="hero-input-row">
-                <input type="text" id="heroLastNameInput" placeholder="Last name">
-                <input type="text" id="heroZipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric">
-            </div>
-            <input type="tel" id="heroPhoneInput" placeholder="Mobile number (for SMS briefing)" inputmode="tel" style="width:100%;padding:13px 16px;background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.15);border-radius:var(--radius-btn);font-size:0.93rem;font-family:'Inter',sans-serif;color:white;outline:none;transition:border-color 0.2s,background 0.2s;" onfocus="this.style.borderColor='var(--blue)';this.style.background='rgba(175,203,255,0.09)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.09)'">
-            <div class="hero-family-section">
-                <a href="#" class="hero-add-family" onclick="addHeroFamilyMember(event)">＋ Add a family member</a>
-                <div class="hero-family-helper">They'll receive the daily briefing too.</div>
-                <div class="hero-family-members" id="heroFamilyMembers"></div>
-            </div>
-            <div class="sms-consent" id="heroSmsConsent">
-                <label class="sms-consent-label">
-                    <input type="checkbox" class="sms-consent-check" id="heroSmsCheck">
-                    <span>Yes, send me optional daily text message briefings from <strong>Kinetic Family</strong> (a service of Kinetic Harmony LLC). Up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to cancel, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
+            <!-- SMS opt-in — boxed and prominent so it cannot be missed -->
+            <div class="sms-optin-box">
+                <label class="optin-label">
+                    <input type="checkbox" id="smsCheck">
+                    <span class="optin-text">
+                        <strong>Yes, I want optional daily SMS briefings from Kinetic Family</strong>
+                        (Kinetic Harmony LLC). Up to <strong>1 msg/day</strong>.
+                        Msg &amp; data rates may apply.
+                        Reply <strong>STOP</strong> to cancel.
+                        Reply <strong>HELP</strong> for help.
+                        See <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.
+                    </span>
                 </label>
-                <div class="sms-consent-optional-note">Consent not required to use the Kinetic Family service. SMS is optional.</div>
+                <div class="sms-not-required">Consent not required to use the Kinetic Family service. SMS is optional.</div>
             </div>
-            <button class="btn-hero-signup" onclick="handleHeroSignup()" id="heroSignupButton">Get Started — It's Free</button>
-            <div id="heroSignupError" style="display:none; margin-top:8px; font-size:0.82rem; color:#AFCBFF; background:rgba(0,0,0,0.2); padding:8px 12px; border-radius:6px;"></div>
+
+            <button class="btn-signup-main" onclick="handleSignup()" id="signupBtn">
+                Start your free 14-day trial →
+            </button>
+            <div id="signupError" style="display:none;margin-top:8px;font-size:0.82rem;color:#C0392B;"></div>
+            <p class="signup-fine">Your first briefing arrives tomorrow at 6:30 AM. No credit card required.</p>
         </div>
-        <div id="heroSuccess" style="display:none; margin-top:12px; text-align:center;">
-            <p style="font-size:1.5rem; margin-bottom:8px;">🎉</p>
-            <p style="font-family:'DM Serif Display',Georgia,serif; font-size:1.2rem; font-weight:400; color:white; margin-bottom:6px;">You're in!</p>
-            <p style="font-family:'Inter',sans-serif; font-size:0.88rem; color:rgba(255,255,255,0.7); line-height:1.6;">Your first briefing arrives tomorrow at 6:30 AM. 🌅</p>
+        <div class="signup-success-msg" id="signupSuccess">
+            <div class="check">🎉</div>
+            <h3>You're in!</h3>
+            <p>Your first briefing arrives tomorrow morning at 6:30 AM.</p>
         </div>
     </div>
-
-    <!-- Soft wave transition — sits at bottom of hero -->
 </section>
 
-<!-- Wave bridge — navy bg so it flows seamlessly from hero -->
+<!-- Wave -->
 <div class="hero-wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1380,20 1440,40 L1440,80 L0,80 Z" fill="#F5F1EA"/>
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,15 1440,30 L1440,60 L0,60 Z" fill="#F5F1EA"/>
     </svg>
 </div>
 
-<!-- How It Works -->
-<section class="how" id="how-it-works">
-    <p class="section-label fade-up">How it works</p>
-    <h2 class="fade-up">Your day, <em>in motion.</em></h2>
-    <p class="section-sub fade-up">Three steps. No app. No calendar maintenance. Just one calm email every morning before the day gets going.</p>
-
+<!-- How it works -->
+<section class="how">
+    <p class="section-label">How it works</p>
+    <h2>Your day, in motion.</h2>
+    <p class="section-sub">Three steps. No app. No calendar maintenance. Just one calm email every morning before the day gets going.</p>
     <div class="steps">
-        <div class="step fade-up stagger-1">
+        <div class="step">
             <span class="step-icon">🗓</span>
             <h3>Connect your family's schedule</h3>
             <p>Forward school newsletters, snap photos of the fridge schedule, attach PDFs — or type it directly. Kinetic reads it all and pulls out every date automatically.</p>
         </div>
-        <div class="step fade-up stagger-2">
+        <div class="step">
             <span class="step-icon">☀️</span>
             <h3>Wake up to your briefing</h3>
-            <p>Every morning at 6:30 AM, one email arrives with your family's schedule, local weather, school events, headlines, and anything coming up. Nothing to check. It just appears.</p>
+            <p>Every morning at 6:30 AM, one email (or text) arrives with your family's schedule, local weather, school events, and everything coming up. Nothing to check. It just appears.</p>
         </div>
-        <div class="step fade-up stagger-3">
+        <div class="step">
             <span class="step-icon">✨</span>
             <h3>Move with intention</h3>
-            <p>Your family is still full of energy — now it has direction. Everyone knows what's happening. No one's scrambling. The day starts with calm confidence, not chaos.</p>
+            <p>Everyone knows what's happening. No one's scrambling. The day starts with calm confidence, not chaos.</p>
         </div>
     </div>
 </section>
 
 <!-- Features -->
 <section class="features">
-    <p class="section-label fade-up">What's included</p>
-    <h2 class="fade-up">Everything moving<br>in the right direction.</h2>
-    <p class="section-sub fade-up">Built for real families in motion — not for minimalists with nothing on the calendar.</p>
-
+    <p class="section-label">What's included</p>
+    <h2>Everything moving in the right direction.</h2>
+    <p class="section-sub">Built for real families in motion — not for minimalists with nothing on the calendar.</p>
     <div class="feature-grid">
-        <div class="feature-card fade-up stagger-1">
+        <div class="feature-card">
             <span class="fc-icon">📅</span>
             <h3>School calendars</h3>
             <p>Holidays, breaks, early releases, and field trips — forward the school newsletter and we auto-import every date.</p>
         </div>
-        <div class="feature-card fade-up stagger-2">
+        <div class="feature-card">
             <span class="fc-icon">🌤</span>
             <h3>Weather, every morning</h3>
-            <p>Drop-off temps, afternoon highs, rain chance, UV index — your local forecast so you can dress everyone right the first time.</p>
+            <p>Drop-off temps, afternoon highs, rain chance — your local forecast so you can dress everyone right the first time.</p>
         </div>
-        <div class="feature-card fade-up stagger-3">
+        <div class="feature-card">
             <span class="fc-icon">⚽</span>
-            <h3>Sports & activities</h3>
-            <p>GameChanger, SportsEngine, TeamSnap, SportsYou — every team, one place. Forward the schedule or share the link and every game, practice, and tournament lands in your briefing automatically.</p>
+            <h3>Sports &amp; activities</h3>
+            <p>GameChanger, SportsEngine, TeamSnap — every team, one place. Forward the schedule and every game lands in your briefing automatically.</p>
         </div>
-        <div class="feature-card fade-up stagger-4">
+        <div class="feature-card">
             <span class="fc-icon">📧</span>
             <h3>Forward anything</h3>
-            <p>Email a PDF, photo, invite, or confirmation and we'll extract the details. Flight info, doctor appointments, birthday parties — it all works.</p>
+            <p>Email a PDF, photo, invite, or confirmation and we'll extract the details. Doctor appointments, birthday parties — it all works.</p>
         </div>
-        <div class="feature-card fade-up stagger-5">
+        <div class="feature-card">
             <span class="fc-icon">👨‍👩‍👧</span>
             <h3>Whole family</h3>
             <p>Add everyone who should be in the loop. One shared briefing keeps the whole household moving together.</p>
         </div>
-        <div class="feature-card fade-up stagger-6">
+        <div class="feature-card">
             <span class="fc-icon">📱</span>
-            <h3>Optional text summaries</h3>
-            <p>Get a short SMS version each morning — no app needed, just your phone. Perfect when you're already out the door.</p>
+            <h3>Optional text briefings</h3>
+            <p>Get a short SMS version each morning — no app needed, just your phone. Opt in at signup or from your account settings any time.</p>
         </div>
     </div>
 </section>
 
-<!-- Sports Section -->
-<section class="sports-unified" style="background:var(--navy);padding:72px 24px 64px;text-align:center;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(175,203,255,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-    <div style="position:relative;z-index:1;">
-        <p class="section-label fade-up" style="color:var(--blue);">Youth sports</p>
-        <h2 class="fade-up" style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:400;color:white;line-height:1.2;margin-bottom:12px;">Every team.<br><em style="color:var(--blue);">One schedule.</em></h2>
-        <p class="section-sub fade-up" style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 48px;">Your kids are on three teams across four different apps. Kinetic pulls it all together — GameChanger, SportsEngine, TeamSnap, SportsYou, and more — into one unified family schedule. No more missed games.</p>
-
-        <!-- App logos row -->
-        <div class="fade-up" style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:48px;">
-            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);">⚾ GameChanger</div>
-            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);">🏈 SportsEngine</div>
-            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);">⚽ TeamSnap</div>
-            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);">🏀 SportsYou</div>
-            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.45);">+ any app or PDF</div>
-        </div>
-
-        <!-- Three-column how-it-works -->
-        <div style="display:flex;gap:20px;max-width:860px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
-            <div class="fade-up stagger-1" style="flex:1;min-width:240px;max-width:270px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:28px 24px;text-align:left;">
-                <div style="font-size:1.5rem;margin-bottom:14px;">📤</div>
-                <h3 style="font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:8px;">Forward the schedule</h3>
-                <p style="font-family:'Inter',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.65;">Email a PDF, screenshot, or link from any sports app to your Kinetic address. We read it all — even the ones with the terrible formatting.</p>
-            </div>
-            <div class="fade-up stagger-2" style="flex:1;min-width:240px;max-width:270px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:28px 24px;text-align:left;">
-                <div style="font-size:1.5rem;margin-bottom:14px;">🧠</div>
-                <h3 style="font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:8px;">We extract every date</h3>
-                <p style="font-family:'Inter',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.65;">Games, practices, tournaments, rain-out dates. Each one lands on the right kid's schedule automatically — no manual entry required.</p>
-            </div>
-            <div class="fade-up stagger-3" style="flex:1;min-width:240px;max-width:270px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:28px 24px;text-align:left;">
-                <div style="font-size:1.5rem;margin-bottom:14px;">☀️</div>
-                <h3 style="font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;color:white;margin-bottom:8px;">Every team, every morning</h3>
-                <p style="font-family:'Inter',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.65;">Your 6:30 AM briefing shows all of it — who's playing where, what time, and what to pack. Three teams, one glance.</p>
-            </div>
-        </div>
-
-        <div class="fade-up" style="margin-top:40px;">
-            <a href="#signup" style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;padding:14px 32px;background:var(--blue);color:var(--navy);border-radius:8px;text-decoration:none;display:inline-block;transition:opacity 0.2s,transform 0.2s;" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-2px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">Unify your team schedules — free →</a>
-        </div>
-    </div>
-</section>
-
-<!-- Daily briefing detail -->
+<!-- Daily briefing content -->
 <section class="daily">
-    <p class="section-label fade-up">Every morning at 6:30 AM</p>
-    <h2 class="fade-up">One email. Everything you need.</h2>
-    <p class="section-sub fade-up">Your family briefing arrives before the day kicks in — so you're never catching up, only moving forward.</p>
-    <div class="daily-list fade-up">
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Today's schedule</strong> — what your family needs to know right now</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Next two weeks</strong> — so nothing sneaks up on you</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Local weather</strong> — highs, lows, rain chance, UV for your zip code</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Top headlines</strong> — 5 national stories + local news from your area</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Events near you</strong> — festivals, games, concerts within 30 miles</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Reminders</strong> — put "Reminder" in the subject line, it shows up for 7 days</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Birthdays</strong> — enter once, celebrated every year</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>National holidays</strong> — automatically included, never miss one</span>
-        </div>
-        <div class="daily-item">
-            <div class="daily-check">✓</div>
-            <span><strong>Daily inspiration</strong> — a fresh quote to send you out the door right</span>
-        </div>
+    <p class="section-label">Every morning at 6:30 AM</p>
+    <h2>One email. Everything you need.</h2>
+    <p class="section-sub">Your family briefing arrives before the day kicks in — so you're never catching up, only moving forward.</p>
+    <div class="daily-list">
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Today's schedule</strong> — what your family needs to know right now</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Next two weeks</strong> — so nothing sneaks up on you</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Local weather</strong> — highs, lows, rain chance, UV for your zip code</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Top headlines</strong> — 5 national stories + local news from your area</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Events near you</strong> — festivals, games, concerts within 30 miles</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Reminders</strong> — put "Reminder" in the subject line, it shows up for 7 days</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Birthdays</strong> — enter once, celebrated every year</span></div>
+        <div class="daily-item"><div class="daily-check">✓</div><span><strong>Optional SMS</strong> — a short text version of your briefing, if you opt in</span></div>
     </div>
 </section>
 
-<!-- Privacy Promise -->
-<section class="privacy">
-    <p class="section-label fade-up">Privacy</p>
-    <h2 class="fade-up">Your family's business<br>stays your family's business.</h2>
-    <p class="section-sub fade-up">We built Kinetic for our own family first. Privacy wasn't a feature — it was the foundation.</p>
+<!-- SMS Program Details — dedicated section Twilio verifiers can't miss -->
+<section class="sms-details" id="sms-program">
+    <h2>Kinetic Family SMS Program</h2>
+    <p class="sub">An optional daily text message briefing for families on the go. Here's exactly how it works.</p>
+
+    <div class="sms-info-grid">
+        <div class="sms-info-card">
+            <div class="label">Program name</div>
+            <div class="value">Kinetic Family Daily Briefing SMS</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">Message frequency</div>
+            <div class="value">Up to 1 message per day. Messages only sent when you have events scheduled, or daily if the full morning briefing is enabled.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">Message type</div>
+            <div class="value">Informational — your family's daily schedule, event times, and locations. No marketing or promotional messages.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">How to opt in</div>
+            <div class="value">Check the optional SMS box at signup (above on this page) or in your account settings. Phone number verification required before messages begin.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">How to opt out</div>
+            <div class="value">Reply <strong>STOP</strong> to any message at any time. Immediate unsubscription. One confirmation sent. No further messages.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">Help</div>
+            <div class="value">Reply <strong>HELP</strong> to any message, email <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>, or visit <a href="/support/">kineticfam.com/support</a>.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">Rates</div>
+            <div class="value">Msg &amp; data rates may apply depending on your carrier and plan. Kinetic does not charge separately for SMS.</div>
+        </div>
+        <div class="sms-info-card">
+            <div class="label">Carrier support</div>
+            <div class="value">Compatible with all major US carriers: AT&amp;T, T-Mobile, Verizon, and regional carriers. Carriers are not liable for delayed or undelivered messages.</div>
+        </div>
+    </div>
+
+    <div class="sms-legal-box">
+        <strong>Full consent language shown at opt-in:</strong><br><br>
+        "Yes, I want optional daily SMS briefings from Kinetic Family (Kinetic Harmony LLC).
+        Up to 1 msg/day. Msg &amp; data rates may apply. Reply STOP to cancel. Reply HELP for help.
+        See <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>."<br><br>
+        <strong>Consent is:</strong> Optional (unchecked by default) &middot;
+        Not required to use the service &middot;
+        Not shared with or transferred to any third party &middot;
+        Logged with timestamp and consent version for your records.<br><br>
+        Your mobile number is never sold, rented, or shared with any third party for any purpose.
+        See our full <a href="/privacy/">Privacy Policy</a> for complete details.
+    </div>
+</section>
+
+<!-- Privacy promises -->
+<section class="privacy-section">
+    <p class="section-label">Privacy</p>
+    <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.1rem);font-weight:400;color:var(--navy);margin-bottom:10px;">Your family's business stays your family's business.</h2>
+    <p class="section-sub">We built Kinetic for our own family first. Privacy wasn't a feature — it was the foundation.</p>
     <div class="privacy-grid">
-        <div class="privacy-point fade-up stagger-1">
+        <div class="privacy-point">
             <strong>No access to your personal email or calendar.</strong>
             <span>Kinetic never connects to your accounts. It only processes what you choose to send.</span>
         </div>
-        <div class="privacy-point fade-up stagger-2">
+        <div class="privacy-point">
             <strong>Your emails are deleted immediately after processing.</strong>
             <span>We extract the dates and events, then the original message is permanently removed. Nothing stored.</span>
         </div>
-        <div class="privacy-point fade-up stagger-3">
+        <div class="privacy-point">
+            <strong>Your phone number is never sold, shared, or used for marketing.</strong>
+            <span>If you opt in to SMS, your number is used solely to send your daily schedule briefing — nothing else.</span>
+        </div>
+        <div class="privacy-point">
             <strong>Never sold. Never shared. No exceptions.</strong>
             <span>Your information powers your briefing and nothing else. No ads. No data brokers.</span>
         </div>
     </div>
-    <a href="/privacy/" class="privacy-link fade-up">Read our full privacy policy →</a>
-</section>
-
-<!-- Social Proof -->
-<section class="social-proof">
-    <div class="proof-quote fade-up">
-        <blockquote>"I used to be the only one who knew what was happening this week. Now everyone does."</blockquote>
-        <cite>— A Kinetic family, Fort Lauderdale</cite>
-    </div>
-    <p class="proof-tagline fade-up">Join families who've found their rhythm.</p>
-</section>
-
-<!-- CTA with form -->
-<section class="cta" id="signup">
-    <h2 class="fade-up">Ready to feel <em>in control?</em></h2>
-    <p class="cta-sub fade-up">Get your family's first morning briefing tomorrow.</p>
-
-    <div class="signup-box fade-up">
-        <div id="signupForm">
-            <a href="https://app.kineticfam.com/auth/google/signup"
-               class="google-btn" style="margin-bottom:4px;">
-              <svg width="18" height="18" viewBox="0 0 24 24">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
-              Sign up with Google
-            </a>
-            <div class="form-divider"><span>or</span></div>
-            <div class="input-group">
-                <input type="email" id="emailInput" placeholder="Your email address" required>
-            </div>
-            <div class="input-row">
-                <input type="text" id="lastNameInput" placeholder="Last name" required>
-                <input type="text" id="zipInput" placeholder="Zip code" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" required>
-            </div>
-            <div class="input-group">
-                <input type="tel" id="phoneInput" placeholder="Mobile number (for SMS briefing)" inputmode="tel" style="width:100%;padding:13px 16px;background:rgba(255,255,255,0.09);border:1.5px solid rgba(255,255,255,0.15);border-radius:var(--radius-btn);font-size:0.93rem;font-family:'Inter',sans-serif;color:white;outline:none;transition:border-color 0.2s,background 0.2s;" onfocus="this.style.borderColor='var(--blue)';this.style.background='rgba(175,203,255,0.09)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)';this.style.background='rgba(255,255,255,0.09)'">
-            </div>
-            <div class="cta-family-section">
-                <a href="#" class="cta-add-family" onclick="addCtaFamilyMember(event)">＋ Add a family member</a>
-                <div class="cta-family-helper">They'll receive the daily briefing too.</div>
-                <div class="cta-family-members" id="ctaFamilyMembers"></div>
-            </div>
-            <div class="sms-consent" id="ctaSmsConsent">
-                <label class="sms-consent-label">
-                    <input type="checkbox" class="sms-consent-check" id="ctaSmsCheck">
-                    <span>Yes, send me optional daily text message briefings from <strong>Kinetic Family</strong> (a service of Kinetic Harmony LLC). Up to 1 msg/day. Msg &amp; data rates may apply. Reply <strong>STOP</strong> to cancel, <strong>HELP</strong> for help. <a href="/privacy/">Privacy Policy</a> &amp; <a href="/terms/">Terms</a>.</span>
-                </label>
-                <div class="sms-consent-optional-note">Consent not required to use the Kinetic Family service. SMS is optional.</div>
-            </div>
-            <button class="btn-signup" onclick="handleSignup()" id="ctaSignupButton">Start for free →</button>
-            <div id="signupError" style="display:none; margin-top:10px; font-size:0.82rem; color:rgba(255,255,255,0.8);"></div>
-            <p class="fine-print">Your first briefing arrives tomorrow morning at 6:30 AM.</p>
-        </div>
-        <div class="signup-success" id="signupSuccess">
-            <div class="check">🎉</div>
-            <h3>You're in.</h3>
-            <p>Check your inbox for a welcome email.<br><br><strong style="color:rgba(255,255,255,0.9);">Your first briefing arrives tomorrow at 6:30 AM. 🌅</strong></p>
-        </div>
-    </div>
+    <a href="/privacy/" style="font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1.5px solid var(--blue);padding-bottom:1px;">Read our full privacy policy →</a>
 </section>
 
 <!-- Footer -->
 <footer>
-    <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <img src="/assets/kinetic-mark.png" alt="" style="height:28px;width:auto;opacity:0.8;">
-        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;color:rgba(255,255,255,0.85);letter-spacing:-0.02em;">Kinetic Family</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:4px;">
+        <img src="/assets/kinetic-mark.png" alt="" style="height:26px;width:auto;opacity:0.75;">
+        <span class="footer-logo-text">Kinetic Family</span>
     </div>
     <div class="footer-tagline">From Chaos to Calm</div>
-    <p style="font-family:'Inter',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:16px;">Kinetic Family is a service operated by <strong style="color:rgba(255,255,255,0.5);font-weight:600;">Kinetic Harmony LLC</strong> · Fort Lauderdale, FL</p>
+    <p style="font-family:'Inter',sans-serif;font-size:0.76rem;color:rgba(255,255,255,0.35);margin-bottom:14px;">
+        A service of <strong style="color:rgba(255,255,255,0.5);">Kinetic Harmony LLC</strong> &middot; Fort Lauderdale, FL
+    </p>
     <div class="footer-links">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
         <a href="/about/">About</a>
+        <a href="/support/">Support</a>
         <a href="mailto:admin@kineticfam.com">Contact</a>
     </div>
-    <p class="footer-copy">© 2026 Kinetic Harmony LLC · <a href="mailto:admin@kineticfam.com" style="color:rgba(255,255,255,0.35);text-decoration:none;">admin@kineticfam.com</a></p>
+    <p class="footer-copy">
+        &copy; 2026 Kinetic Harmony LLC &middot;
+        <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>
+    </p>
 </footer>
 
 <script>
-// ─── Scroll animations ───
-(function() {
-    var els = document.querySelectorAll('.fade-up');
-    if ('IntersectionObserver' in window) {
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
-        els.forEach(function(el) { obs.observe(el); });
-    } else {
-        els.forEach(function(el) { el.classList.add('visible'); });
-    }
-})();
-
-// ─── Family member helpers ───
-function addHeroFamilyMember(event) {
-    event.preventDefault();
-    var container = document.getElementById('heroFamilyMembers');
-    var div = document.createElement('div');
-    div.className = 'hero-family-member';
-    div.innerHTML = '<input type="email" placeholder="Family member email" class="hero-family-email">' +
-        '<button type="button" class="hero-remove-family" onclick="this.parentElement.remove()">✕</button>';
-    container.appendChild(div);
-}
-
-function addCtaFamilyMember(event) {
-    event.preventDefault();
-    var container = document.getElementById('ctaFamilyMembers');
-    var div = document.createElement('div');
-    div.className = 'cta-family-member';
-    div.innerHTML = '<input type="email" placeholder="Family member email" class="cta-family-email">' +
-        '<button type="button" class="cta-remove-family" onclick="this.parentElement.remove()">✕</button>';
-    container.appendChild(div);
-}
-
-function getAdditionalEmails(formType) {
-    var cls = formType === 'hero' ? 'hero-family-email' : 'cta-family-email';
-    var emails = [];
-    document.querySelectorAll('.' + cls).forEach(function(input) {
-        var v = input.value.trim();
-        if (v && v.includes('@')) emails.push(v);
-    });
-    return emails;
-}
-
-// ─── Signup logic ───
 var APP_SIGNUP_URL = 'https://app.kineticfam.com/auth/signup';
 
-function validateFields(email, lastName, zip) {
-    return email && email.includes('@') && lastName && lastName.trim().length >= 2 && zip && /^\d{5}$/.test(zip.trim());
-}
+function handleSignup() {
+    var email    = (document.getElementById('emailInput').value    || '').trim();
+    var lastName = (document.getElementById('lastNameInput').value || '').trim();
+    var zip      = (document.getElementById('zipInput').value      || '').trim();
+    var phone    = (document.getElementById('phoneInput').value    || '').trim();
+    var smsOk    = document.getElementById('smsCheck').checked;
 
-function getSmsConsent(checkboxId) {
-    var cb = document.getElementById(checkboxId);
-    return cb ? cb.checked : false;
-}
+    // Basic validation
+    var ok = email.includes('@') && lastName.length >= 2 && /^\d{5}$/.test(zip);
+    if (!ok) {
+        document.getElementById('signupError').textContent = 'Please fill in all required fields.';
+        document.getElementById('signupError').style.display = 'block';
+        return;
+    }
+    document.getElementById('signupError').style.display = 'none';
 
-function submitSignup(email, lastName, zip, additionalEmails, phone) {
-    var hasPhone = phone && phone.trim().length > 0;
-    return fetch(APP_SIGNUP_URL, {
+    // Only send phone if SMS consent given
+    if (!smsOk) phone = '';
+
+    var btn = document.getElementById('signupBtn');
+    btn.disabled = true; btn.textContent = 'Signing up…';
+
+    fetch(APP_SIGNUP_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ last_name: lastName.trim(), zip_code: zip.trim(), email: email.trim(), phone: (phone || '').trim(), sms_consent: hasPhone, family_members: additionalEmails || [] })
+        body: JSON.stringify({ last_name: lastName, zip_code: zip, email: email, phone: phone, sms_consent: smsOk, family_members: [] })
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -1360,111 +679,25 @@ function submitSignup(email, lastName, zip, additionalEmails, phone) {
         if (data.token && data.redirect) {
             window.location.href = 'https://app.kineticfam.com/auth/magic-link/verify?token=' +
                 encodeURIComponent(data.token) + '&next=' + encodeURIComponent(data.redirect);
-            return '__redirecting__';
+            return;
         }
-        return data;
-    });
-}
-
-function handleSignup() {
-    var email = document.getElementById('emailInput').value;
-    var lastName = document.getElementById('lastNameInput').value;
-    var zip = document.getElementById('zipInput').value;
-    var phone = document.getElementById('phoneInput').value;
-    var additionalEmails = getAdditionalEmails('cta');
-    var smsConsent = getSmsConsent('ctaSmsCheck');
-
-    ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
-        document.getElementById(id).style.borderColor = '';
-    });
-
-    var fieldsOk = validateFields(email, lastName, zip);
-
-    if (!fieldsOk) {
-        if (!email || !email.includes('@')) document.getElementById('emailInput').style.borderColor = '#ff6b6b';
-        if (!lastName || lastName.trim().length < 2) document.getElementById('lastNameInput').style.borderColor = '#ff6b6b';
-        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('zipInput').style.borderColor = '#ff6b6b';
-        return;
-    }
-
-    // If phone provided but SMS not opted in, clear phone before submit
-    if (!smsConsent) phone = '';
-
-    var btn = document.getElementById('ctaSignupButton');
-    if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
-
-    submitSignup(email, lastName, zip, additionalEmails, phone).then(function(result) {
-        if (result === '__redirecting__') return;
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
-    }).catch(function(err) {
-        if (btn) { btn.disabled = false; btn.textContent = 'Start for free →'; }
-        var errorDiv = document.getElementById('signupError');
-        if (errorDiv) {
-            var bodyText = 'Email: ' + email + '\nLast Name: ' + lastName + '\nZip: ' + zip;
-            errorDiv.innerHTML = (err && err.message && err.message !== 'Signup failed')
-                ? err.message
-                : 'Having trouble? <a href="mailto:admin@kineticfam.com?subject=Kinetic%20Signup&body=' + encodeURIComponent(bodyText) + '" style="color:var(--blue);">Email us to sign up</a>.';
-            errorDiv.style.display = 'block';
-        }
+    })
+    .catch(function(err) {
+        btn.disabled = false; btn.textContent = 'Start your free 14-day trial →';
+        var msg = (err && err.message && err.message !== 'Signup failed') ? err.message :
+            'Having trouble? <a href="mailto:admin@kineticfam.com?subject=Kinetic%20Signup">Email us to sign up</a>.';
+        document.getElementById('signupError').innerHTML = msg;
+        document.getElementById('signupError').style.display = 'block';
     });
 }
 
-function handleHeroSignup() {
-    var email = document.getElementById('heroEmailInput').value;
-    var lastName = document.getElementById('heroLastNameInput').value;
-    var zip = document.getElementById('heroZipInput').value;
-    var phone = document.getElementById('heroPhoneInput').value;
-    var additionalEmails = getAdditionalEmails('hero');
-    var smsConsent = getSmsConsent('heroSmsCheck');
-
-    ['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
-        document.getElementById(id).style.borderColor = '';
-    });
-
-    var fieldsOk = validateFields(email, lastName, zip);
-
-    if (!fieldsOk) {
-        if (!email || !email.includes('@')) document.getElementById('heroEmailInput').style.borderColor = '#ff6b6b';
-        if (!lastName || lastName.trim().length < 2) document.getElementById('heroLastNameInput').style.borderColor = '#ff6b6b';
-        if (!zip || !/^\d{5}$/.test(zip.trim())) document.getElementById('heroZipInput').style.borderColor = '#ff6b6b';
-        return;
-    }
-
-    // If phone provided but SMS not opted in, clear phone before submit
-    if (!smsConsent) phone = '';
-
-    var btn = document.getElementById('heroSignupButton');
-    if (btn) { btn.disabled = true; btn.textContent = 'Signing up…'; }
-
-    submitSignup(email, lastName, zip, additionalEmails, phone).then(function(result) {
-        if (result === '__redirecting__') return;
-        document.getElementById('heroForm').style.display = 'none';
-        document.getElementById('heroSuccess').style.display = 'block';
-    }).catch(function(err) {
-        if (btn) { btn.disabled = false; btn.textContent = 'Get Started — It\'s Free'; }
-        var errorDiv = document.getElementById('heroSignupError');
-        if (errorDiv) {
-            errorDiv.textContent = (err && err.message && err.message !== 'Signup failed') ? err.message : 'Something went wrong. Try the form below or email admin@kineticfam.com.';
-            errorDiv.style.display = 'block';
-        }
-    });
-}
-
-// Enter key support
 ['emailInput','lastNameInput','zipInput'].forEach(function(id) {
-    document.getElementById(id).addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSignup(); });
-});
-['heroEmailInput','heroLastNameInput','heroZipInput'].forEach(function(id) {
-    document.getElementById(id).addEventListener('keypress', function(e) { if (e.key === 'Enter') handleHeroSignup(); });
-});
-document.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        if (e.target.classList.contains('hero-family-email')) handleHeroSignup();
-        else if (e.target.classList.contains('cta-family-email')) handleSignup();
-    }
+    document.getElementById(id).addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') handleSignup();
+    });
 });
 </script>
-
 </body>
 </html>
