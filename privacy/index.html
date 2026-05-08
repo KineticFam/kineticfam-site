@@ -297,20 +297,52 @@
 <div class="content">
     <h1>Your Family's Privacy</h1>
     <p class="intro">At Kinetic, your family's trust is everything. Here's how we protect your information — and why you can feel confident using Kinetic every day.</p>
-    <p class="last-updated">Last updated: April 29, 2026</p>
+    <p class="last-updated">Last updated: May 8, 2026</p>
 
     <h2>What We Collect</h2>
-    <p>When you sign up, we ask for just the basics:</p>
+    <p>Here is a complete list of the information Kinetic collects and why:</p>
+
+    <p><strong>Account &amp; identity information</strong></p>
     <ul>
-        <li>Your <strong>last name</strong> — so we can personalize your newsletter</li>
-        <li>Your <strong>zip code</strong> — so we can deliver local weather and nearby events</li>
-        <li><strong>Email addresses</strong> of family members who should receive the newsletter</li>
+        <li>Your <strong>family last name</strong> — used to personalize your briefing</li>
+        <li>Your <strong>zip code</strong> — used for local weather and nearby events</li>
+        <li><strong>Email addresses</strong> of family members who receive the briefing</li>
+        <li><strong>Partner or co-parent email</strong> (optional) — to share access to the family schedule</li>
     </ul>
-    <p>
-        That's it. No passwords. No social media accounts.
-        If you subscribe to Kinetic, your payment is processed by Stripe or Apple &mdash;
-        we never see or store your card number. See <em>Billing &amp; Payment</em> below.
-    </p>
+
+    <p><strong>Family &amp; schedule information</strong></p>
+    <ul>
+        <li><strong>Kids' names and ages</strong> (provided by you) — used to personalize briefing content; see Children's Privacy section below</li>
+        <li><strong>Calendar events</strong> you add — via email, SMS, in-app, or file upload; stored in your family's schedule</li>
+        <li><strong>School name and district</strong> — used to sync school calendar events into your briefing</li>
+        <li><strong>iCal feed URLs</strong> from school, sports, or other calendar sources you connect</li>
+        <li><strong>Caregiver contacts</strong> (names, emails, phone numbers, relationship type) — used to generate Caregiver Briefings when you request them</li>
+        <li><strong>Carpool network contacts</strong> — used for carpool coordination features</li>
+    </ul>
+
+    <p><strong>Connected services</strong></p>
+    <ul>
+        <li><strong>Google Calendar OAuth tokens</strong> — if you choose to connect Google Calendar, we store an access token and refresh token to sync your calendar. We request read access (to import your events) and, optionally, write access (to push Kinetic-created events back to Google Calendar if you enable Primary Calendar Mode). You can disconnect Google Calendar at any time from your Connect tab.</li>
+        <li><strong>Phone number</strong> — if you opt in to SMS/RCS alerts; see SMS section below</li>
+    </ul>
+
+    <p><strong>Technical &amp; usage data</strong></p>
+    <ul>
+        <li><strong>AI chat history</strong> — messages you send to the Kinetic assistant are stored to provide conversational context and improve responses within your session. See <em>AI Processing</em> below.</li>
+        <li><strong>Push notification device tokens</strong> — if you enable push notifications on iOS or web</li>
+        <li><strong>Usage patterns</strong> — feature usage, session timing, and event add frequency; used to improve the product and personalize your experience</li>
+        <li><strong>Inbound email content</strong> — emails forwarded to your Kinetic address are processed to extract calendar events, then <strong>permanently deleted</strong>. We do not archive your emails.</li>
+        <li><strong>Photos or files</strong> you upload — processed by AI to extract event information, then deleted after parsing</li>
+    </ul>
+
+    <p><strong>Billing</strong></p>
+    <ul>
+        <li>Subscription status, plan type, and trial dates — so we know whether your account is active. Payment card details are never stored by Kinetic; they are held by Stripe or Apple. See <em>Billing &amp; Payment</em> below.</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p>We collect only what's needed to run Kinetic. We don't sell it, we don't share it, and we don't use it for advertising.</p>
+    </div>
 
     <h2>Your Family Calendar</h2>
     <p>Your family gets a <strong>private, dedicated calendar</strong> that only your authorized family members can add to. Here's how it works:</p>
@@ -343,6 +375,32 @@
     <div class="highlight-box">
         <p>We never sell, share, or rent your information to anyone. Period.</p>
     </div>
+
+    <h2>AI Processing &amp; Your Content</h2>
+    <p>Kinetic uses artificial intelligence to power several features — parsing events from emails and SMS messages, answering questions in the chat assistant, enriching event details, and generating your daily briefing. Here's what that means for your data:</p>
+    <ul>
+        <li><strong>AI provider:</strong> Kinetic uses the Anthropic API (Claude AI) to process natural language requests, extract calendar events from forwarded messages, and generate briefing content. Content you submit — including forwarded emails, SMS messages, chat messages, and uploaded files — is sent to Anthropic's API for processing.</li>
+        <li><strong>Anthropic's data use:</strong> Anthropic does not use API-submitted content to train its models by default. You can review Anthropic's privacy policy at <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>.</li>
+        <li><strong>What we send to AI:</strong> The content of messages you send to Kinetic (email, SMS, chat), along with relevant context about your family's schedule, may be included in API requests. We do not send payment information, passwords, or device identifiers to AI systems.</li>
+        <li><strong>AI-generated content:</strong> Your daily briefing, event confirmations, and assistant replies are generated by AI. We review outputs for quality but the AI may occasionally produce inaccurate information — particularly for third-party data like sports scores or school schedules.</li>
+        <li><strong>No AI decisions about your account:</strong> AI is not used to make automated decisions that have legal or significant effects on your account (such as billing, suspension, or data deletion). Those decisions are made by humans.</li>
+    </ul>
+
+    <h2>Third-Party Service Providers</h2>
+    <p>Kinetic uses trusted third-party services to operate. Each provider has access only to the information needed to perform their specific function:</p>
+    <ul>
+        <li><strong>Anthropic</strong> — AI processing (event parsing, chat, briefing generation)</li>
+        <li><strong>Postmark</strong> — email delivery and inbound email parsing</li>
+        <li><strong>Twilio</strong> — SMS and RCS message delivery</li>
+        <li><strong>Stripe</strong> — web payment processing and subscription management</li>
+        <li><strong>Apple</strong> — iOS app payment processing</li>
+        <li><strong>Google</strong> — Google Calendar OAuth (if you connect your calendar); Maps API for departure time calculations</li>
+        <li><strong>Open-Meteo</strong> — weather data (zip code only, no personal data shared)</li>
+        <li><strong>Cloudflare</strong> — network traffic, security, and tunnel routing</li>
+        <li><strong>Backblaze</strong> — encrypted offsite database backup</li>
+        <li><strong>GitHub / KineticFam</strong> — application code version control (no user data)</li>
+    </ul>
+    <p>We do not sell your data to any of these providers, and none of them are permitted to use your information for their own marketing or advertising purposes.</p>
 
     <h2>SMS and RCS Text Messaging</h2>
 
