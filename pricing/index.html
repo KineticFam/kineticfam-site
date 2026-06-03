@@ -394,7 +394,7 @@
     <div class="toggle-wrap">
         <span>Billed monthly</span>
         <button class="toggle-btn" onclick="toggleBilling(this)">Switch to annual</button>
-        <span class="save-badge">Save up to 35%</span>
+        <span class="save-badge">Save 40%</span>
     </div>
 </div>
 
@@ -421,47 +421,29 @@
             </ul>
         </div>
 
-        <!-- Family (Featured) -->
+        <!-- Kinetic Family (Featured) -->
         <div class="pricing-card featured">
             <div class="popular-badge">⭐ Most Popular</div>
-            <div class="card-tier">Family</div>
+            <div class="card-tier">Kinetic Family</div>
             <div class="card-price">
-                <span class="price-amount" id="familyPrice">$4.99</span>
+                <span class="price-amount" id="familyPrice">$6.99</span>
                 <span class="price-period">/mo</span>
             </div>
             <div class="price-annual-note" id="familyNote">&nbsp;</div>
-            <div class="card-desc">Everything in Free, plus your whole family gets the same briefing. Everyone in the loop.</div>
+            <div class="card-desc">Everything in Free, plus SMS texts, your whole family on the briefing, Google Calendar sync, and carpool coordination.</div>
             <a href="/" class="card-btn btn-softblue">Start for free</a>
             <div class="feature-label">Everything in Free, plus:</div>
             <ul class="feature-list">
-                <li><span class="check">✓</span> Up to 6 family email recipients</li>
+                <li><span class="check">✓</span> SMS morning text at 6:25 AM</li>
+                <li><span class="check">✓</span> Up to 6 family members on the briefing</li>
+                <li><span class="check">✓</span> Google Calendar two-way sync</li>
                 <li><span class="check">✓</span> Sports team scores &amp; schedules</li>
                 <li><span class="check">✓</span> iCal subscription sync</li>
                 <li><span class="check">✓</span> School calendar auto-loading</li>
                 <li><span class="check">✓</span> Carpool network &amp; ride requests</li>
                 <li><span class="check">✓</span> Family member event assignments</li>
-                <li><span class="check">✓</span> 90-day event history</li>
-            </ul>
-        </div>
-
-        <!-- Family Pro -->
-        <div class="pricing-card">
-            <div class="card-tier">Family Pro</div>
-            <div class="card-price">
-                <span class="price-amount" id="proPrice">$9.99</span>
-                <span class="price-period">/mo</span>
-            </div>
-            <div class="price-annual-note" id="proNote">&nbsp;</div>
-            <div class="card-desc">Your complete family operations center — SMS, Google Calendar sync, and school LMS integration.</div>
-            <a href="/" class="card-btn btn-softblue">Start for free</a>
-            <div class="feature-label">Everything in Family, plus:</div>
-            <ul class="feature-list">
-                <li><span class="check">✓</span> SMS morning text at 6:25 AM</li>
-                <li><span class="check">✓</span> Google Calendar two-way sync</li>
-                <li><span class="check">✓</span> LMS integration (Canvas / Schoology)</li>
-                <li><span class="check">✓</span> Priority email support</li>
                 <li><span class="check">✓</span> Unlimited event history</li>
-                <li><span class="check">✓</span> Early access to new features</li>
+                <li><span class="check">✓</span> Priority support</li>
             </ul>
         </div>
 
@@ -484,7 +466,7 @@
             </details>
             <details class="faq-item">
                 <summary>What do I get with the paid plan?</summary>
-                <p class="faq-answer">SMS morning text summaries, more family member slots (up to 6 recipients), iCal sync, school calendar auto-loading, and priority support. Family Pro adds Google Calendar two-way sync and LMS integrations.</p>
+                <p class="faq-answer">SMS morning text summaries, up to 6 family members on the briefing, Google Calendar two-way sync, iCal sync, school calendar auto-loading, carpool coordination, and priority support — all in one plan for $6.99/month or $49.99/year.</p>
             </details>
             <details class="faq-item">
                 <summary>Can I cancel anytime?</summary>
@@ -519,10 +501,8 @@
 var isAnnual = false;
 function toggleBilling(btn) {
     isAnnual = !isAnnual;
-    document.getElementById('familyPrice').textContent = isAnnual ? '$3.25' : '$4.99';
-    document.getElementById('familyNote').innerHTML = isAnnual ? 'Billed <strong>$39/year</strong> · save $21' : '&nbsp;';
-    document.getElementById('proPrice').textContent = isAnnual ? '$6.58' : '$9.99';
-    document.getElementById('proNote').innerHTML = isAnnual ? 'Billed <strong>$79/year</strong> · save $41' : '&nbsp;';
+    document.getElementById('familyPrice').textContent = isAnnual ? '$4.17' : '$6.99';
+    document.getElementById('familyNote').innerHTML = isAnnual ? 'Billed <strong>$49.99/year</strong> · save $34' : '&nbsp;';
     btn.textContent = isAnnual ? 'Switch to monthly' : 'Switch to annual';
 }
 </script>
