@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Get Kinetic — Life moves fast. We keep it calm.</title>
+  <meta name="description" content="Kinetic is the parenting platform that brings every schedule, practice, and plan into one calm morning briefing. Download free on the App Store." />
+  <link rel="canonical" href="https://kineticfam.com/get" />
+
+  <!-- Link-preview card (reuses the site's Open Graph image) -->
+  <meta property="og:title" content="Kinetic | One calm view of your family's week" />
+  <meta property="og:description" content="The parenting platform that brings every schedule, practice, and plan into one morning briefing. Download free on the App Store." />
+  <meta property="og:image" content="https://kineticfam.com/assets/og-image.png" />
+  <meta property="og:url" content="https://kineticfam.com/get" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://kineticfam.com/assets/og-image.png" />
+
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <meta name="theme-color" content="#2E3A59" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root{
+      --navy:#2E3A59; --blue:#AFCBFF; --sage:#CFE8D5; --beige:#F5F1EA; --white:#FFFFFF;
+      --line:rgba(255,255,255,0.12);
+    }
+    html{ -webkit-text-size-adjust:100%; }
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      color:#fff;
+      background:radial-gradient(1100px 640px at 50% -8%, #3A4A6E 0%, var(--navy) 42%, #1E2740 100%);
+      background-attachment:fixed;
+      min-height:100vh;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      padding:calc(env(safe-area-inset-top) + 52px) 22px calc(env(safe-area-inset-bottom) + 56px);
+    }
+    .wrap{ max-width:600px; margin:0 auto; }
+
+    .logo{ display:block; width:172px; height:auto; margin:0 auto 20px; }
+    .tagline{
+      text-align:center; font-family:'DM Sans',sans-serif;
+      font-size:12px; letter-spacing:2.6px; text-transform:uppercase;
+      color:var(--blue); font-weight:600; margin-bottom:42px;
+    }
+
+    h1{
+      text-align:center; font-family:'DM Serif Display',Georgia,serif; font-weight:400;
+      font-size:clamp(2.1rem,5.4vw,3rem); line-height:1.16; letter-spacing:-0.01em; margin-bottom:18px;
+    }
+    h1 em{ font-style:italic; color:var(--blue); }
+    .sub{
+      text-align:center; font-family:'DM Sans',sans-serif; font-size:1.06rem; line-height:1.62;
+      color:rgba(255,255,255,0.74); max-width:486px; margin:0 auto 40px;
+    }
+
+    .cta-wrap{ text-align:center; margin-bottom:13px; }
+    .appstore{
+      display:inline-flex; align-items:center; gap:13px;
+      background:var(--white); color:var(--navy); text-decoration:none;
+      border-radius:14px; padding:15px 28px;
+      box-shadow:0 12px 34px rgba(0,0,0,0.30);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .appstore:hover{ transform:translateY(-1px); box-shadow:0 16px 40px rgba(0,0,0,0.36); }
+    .appstore svg{ width:27px; height:27px; flex:none; }
+    .appstore .l{ display:flex; flex-direction:column; line-height:1.08; text-align:left; }
+    .appstore .l small{ font-family:'DM Sans',sans-serif; font-size:11px; font-weight:500; opacity:.68; }
+    .appstore .l span{ font-family:'DM Sans',sans-serif; font-size:19px; font-weight:700; letter-spacing:-0.2px; }
+    .free{ text-align:center; font-family:'DM Sans',sans-serif; font-size:13px; color:rgba(255,255,255,0.55); margin-bottom:48px; }
+
+    .features{ display:flex; flex-direction:column; gap:13px; margin-bottom:48px; }
+    .card{
+      background:rgba(255,255,255,0.045); border:1px solid var(--line); border-radius:14px;
+      padding:20px 22px; display:flex; gap:15px; align-items:flex-start;
+    }
+    .dot{ flex:none; width:9px; height:9px; border-radius:50%; margin-top:8px; }
+    .card h3{ font-family:'DM Sans',sans-serif; font-size:16px; font-weight:700; margin-bottom:5px; letter-spacing:-0.1px; }
+    .card p{ font-size:14.5px; line-height:1.55; color:rgba(255,255,255,0.72); }
+
+    .foot{ text-align:center; border-top:1px solid var(--line); padding-top:30px; font-family:'DM Sans',sans-serif; }
+    .foot .android{ font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:18px; }
+    .foot .links{ font-size:13px; }
+    .foot .links a{ color:rgba(255,255,255,0.72); text-decoration:none; margin:0 9px; }
+    .foot .links a:hover{ color:#fff; }
+    .foot .slogan{ margin-top:18px; font-size:11.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+
+    @media (max-width:430px){ .logo{ width:150px; } .sub{ font-size:1rem; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <img class="logo" src="/assets/kinetic-logo-white.png" alt="Kinetic Family" />
+    <div class="tagline">Life moves fast. We keep it calm.</div>
+
+    <h1>One calm view of your <em>family's week</em>.</h1>
+    <p class="sub">
+      Kinetic is the parenting platform that brings every schedule, practice, and plan
+      into one place — and sends it to you each morning, before the day begins.
+    </p>
+
+    <div class="cta-wrap">
+      <a class="appstore" id="appstore" href="https://apps.apple.com/us/app/kinetic-family/id6763799971">
+        <svg viewBox="0 0 24 24" fill="#2E3A59" aria-hidden="true"><path d="M16.36 12.78c.02 2.5 2.19 3.33 2.22 3.34-.02.06-.35 1.2-1.15 2.37-.69 1.02-1.41 2.03-2.55 2.05-1.11.02-1.47-.66-2.75-.66-1.27 0-1.67.64-2.72.68-1.09.04-1.93-1.1-2.63-2.11-1.43-2.07-2.52-5.84-1.05-8.4.73-1.27 2.03-2.07 3.44-2.09 1.07-.02 2.09.72 2.75.72.66 0 1.9-.89 3.2-.76.54.02 2.07.22 3.05 1.65-.08.05-1.82 1.06-1.8 3.16zM14.28 5.5c.58-.71.98-1.69.87-2.67-.84.03-1.86.56-2.47 1.26-.54.62-1.02 1.62-.89 2.58.94.07 1.9-.47 2.49-1.17z"/></svg>
+        <span class="l"><small>Download on the</small><span>App Store</span></span>
+      </a>
+    </div>
+    <div class="free">Free to download · iPhone &amp; iPad</div>
+
+    <div class="features">
+      <div class="card">
+        <span class="dot" style="background:var(--blue);"></span>
+        <div>
+          <h3>Your morning briefing</h3>
+          <p>Each morning, a clear look at everyone's day — events, weather, and who needs to be where. It comes to you; you don't have to go check it.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="dot" style="background:var(--sage);"></span>
+        <div>
+          <h3>Just forward it over</h3>
+          <p>Text or email your plans to your Kinetic assistant — a screenshot, a forwarded email, a photo of the season schedule — and it's added to your family's week automatically.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="dot" style="background:var(--blue);"></span>
+        <div>
+          <h3>Carpools, handled</h3>
+          <p>Set up and share the driving for practices, games, and activities — coordinated fairly, and without the endless group text.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="dot" style="background:var(--sage);"></span>
+        <div>
+          <h3>All your leagues, together</h3>
+          <p>Connect your youth-sports league apps and calendars, and Kinetic combines them into one schedule — every team, every kid, in one place.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="android">Coming soon to Android.</div>
+      <div class="links">
+        <a href="/">kineticfam.com</a> · <a href="/privacy/">Privacy</a>
+      </div>
+      <div class="slogan">Life moves fast. We keep it calm.</div>
+    </div>
+
+  </div>
+
+  <script>
+    // Carry the inviter's campaign/ref onto the App Store link as a campaign
+    // token (ct), best-effort, so installs from a share can be grouped in
+    // App Store Connect → App Analytics. Plain link still works if this no-ops.
+    (function () {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var ct = p.get('utm_campaign') || (p.get('ref') ? 'invite-' + p.get('ref') : 'invite-share');
+        var a = document.getElementById('appstore');
+        var url = new URL(a.href);
+        url.searchParams.set('ct', ct.substring(0, 40));
+        a.href = url.toString();
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
