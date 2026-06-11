@@ -1,0 +1,16 @@
+# kineticfam.com — robots
+# NOTE: AI-crawler blocking + content-signals are managed at the Cloudflare edge
+# (Cloudflare dashboard → AI Audit / "Block AI bots"). This file sets crawl
+# permissions for search + answer engines and points to the sitemap.
+
+User-agent: *
+Allow: /
+
+# Answer engines — allowed for search/citation (distinct from model-training bots)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://kineticfam.com/sitemap.xml
