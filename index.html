@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="vycEVCqRAHr3kqgU0z3qqDZN0MAOqZbVkoot1PZ1WOc" />
-    <title>Kinetic | Family Morning Briefing — From Chaos to Calm</title>
+    <title>Kinetic Family | Morning Briefing — From Chaos to Calm</title>
     <meta name="description" content="Kinetic delivers a personalized morning briefing for your family every day at 6:30 AM — your schedule, school calendar, local weather, and everything happening this week." />
     <link rel="canonical" href="https://kineticfam.com/" />
-    <meta property="og:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
+    <meta property="og:title" content="Kinetic Family | Morning Briefing — From Chaos to Calm">
     <meta property="og:description" content="Your family's schedule, school calendar, weather, and local events — in one smart morning briefing at 6:30 AM.">
     <meta property="og:image" content="https://kineticfam.com/assets/og-image.png">
     <meta property="og:url" content="https://kineticfam.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kinetic | Family Morning Briefing — From Chaos to Calm">
+    <meta name="twitter:title" content="Kinetic Family | Morning Briefing — From Chaos to Calm">
     <meta name="twitter:description" content="Your family's schedule, school calendar, weather, and local events — in one smart morning briefing at 6:30 AM.">
     <meta name="twitter:image" content="https://kineticfam.com/assets/og-image.png">
 
@@ -213,6 +213,16 @@
             transition: opacity 0.2s, transform 0.2s;
         }
         .btn-signup-main:hover { opacity: 0.9; transform: translateY(-1px); }
+        /* Two more doors to the same account: the iPhone app and the web app. */
+        .get-it {
+            margin: 22px auto 0; max-width: 480px; text-align: center;
+            font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+        }
+        .get-it a { color: white; font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(255,255,255,0.35); white-space: nowrap; }
+        .get-it a:hover { border-bottom-color: white; }
+        .get-it .sep { margin: 0 8px; opacity: 0.5; }
+        .footer-mark { margin-top: 6px; }
         .signup-fine {
             font-size: 0.76rem; color: #9CA3AF; text-align: center;
             margin-top: 10px; line-height: 1.5;
@@ -433,6 +443,7 @@
         <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
         <a href="/support/">Support</a>
+        <a href="https://app.kineticfam.com/login">Sign in</a>
     </div>
 </nav>
 
@@ -455,7 +466,7 @@
     <p class="hero-sub">Your family's schedule, school calendar, weather, and everything you need &mdash; delivered every morning at 6:30&nbsp;AM.</p>
 
     <!-- Signup card — email form is primary, no off-site auth links -->
-    <div class="signup-card">
+    <div class="signup-card" id="signup">
         <div class="signup-card-title">Get started — free for 14 days</div>
         <div id="signupForm">
             <div class="field-group">
@@ -495,6 +506,11 @@
             <p>Your first briefing arrives tomorrow morning at 6:30 AM.</p>
         </div>
     </div>
+
+    <p class="get-it">
+        Kinetic Family is on iPhone and the web.<br>
+        <a href="https://apps.apple.com/us/app/kinetic-family/id6763799971" target="_blank" rel="noopener">Download on the App Store</a><span class="sep">&middot;</span><a href="https://app.kineticfam.com/login">Sign in on the web</a>
+    </p>
 </section>
 
 <!-- Wave -->
@@ -687,6 +703,10 @@
     <p class="footer-copy">
         &copy; 2026 Kinetic Harmony LLC &middot;
         <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>
+    </p>
+    <p class="footer-copy footer-mark">
+        Kinetic Family&trade; is a trademark of Kinetic Harmony LLC.
+        <a href="https://apps.apple.com/us/app/kinetic-family/id6763799971" target="_blank" rel="noopener">Kinetic Family on the App Store</a>
     </p>
 </footer>
 
