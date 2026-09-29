@@ -498,12 +498,12 @@
                 Start your free 14-day trial →
             </button>
             <div id="signupError" style="display:none;margin-top:8px;font-size:0.82rem;color:#C0392B;"></div>
-            <p class="signup-fine">Your first briefing arrives tomorrow at 6:30 AM. No credit card required to start.</p>
+            <p class="signup-fine">We'll email you a link to finish setting up. No credit card required to start.</p>
         </div>
         <div class="signup-success-msg" id="signupSuccess">
-            <div class="check">🎉</div>
-            <h3>You're in!</h3>
-            <p>Your first briefing arrives tomorrow morning at 6:30 AM.</p>
+            <div class="check">✉️</div>
+            <h3>Check your email</h3>
+            <p id="signupSuccessText">We sent you a link. Open it to finish creating your account, and your first morning briefing will be on its way.</p>
         </div>
     </div>
 
@@ -742,21 +742,25 @@ function handleSignup() {
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
-        if (data.status === 'error') throw new Error(data.message || 'Signup failed');
-        if (data.token && data.redirect) {
-            window.location.href = 'https://app.kineticfam.com/auth/magic-link/verify?token=' +
-                encodeURIComponent(data.token) + '&next=' + encodeURIComponent(data.redirect);
-            return;
+        if (data.status === 'member_conflict') {
+            throw new Error("That email is already part of a family on Kinetic. Sign in at app.kineticfam.com/login.");
         }
+        // The account is created when the emailed link is opened, so success here
+        // means "check your email", never "you're in".
+        if (data.status !== 'check_email') throw new Error(data.message || 'Signup failed');
+        if (data.message) document.getElementById('signupSuccessText').textContent = data.message;
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('signupSuccess').style.display = 'block';
     })
     .catch(function(err) {
         btn.disabled = false; btn.textContent = 'Start your free 14-day trial →';
-        var msg = (err && err.message && err.message !== 'Signup failed') ? err.message :
-            'Having trouble? <a href="mailto:admin@kineticfam.com?subject=Kinetic%20Signup">Email us to sign up</a>.';
-        document.getElementById('signupError').innerHTML = msg;
-        document.getElementById('signupError').style.display = 'block';
+        var box = document.getElementById('signupError');
+        if (err && err.message && err.message !== 'Signup failed') {
+            box.textContent = err.message;
+        } else {
+            box.innerHTML = 'Having trouble? <a href="mailto:admin@kineticfam.com?subject=Kinetic%20Signup">Email us to sign up</a>.';
+        }
+        box.style.display = 'block';
     });
 }
 
