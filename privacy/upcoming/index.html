@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Kinetic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy:  #2E3A59;
+            --blue:  #AFCBFF;
+            --sage:  #CFE8D5;
+            --beige: #F5F1EA;
+            --gray:  #7A7A7A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--beige);
+            color: #4A4A4A;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav */
+        header {
+            background: var(--navy);
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+        .nav-home {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-home:hover { color: white; }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 52px 24px 80px;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .intro {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.75;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-top: 36px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1.5px solid rgba(46,58,89,0.1);
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            color: #4A4A4A;
+            line-height: 1.78;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.96rem;
+            color: #4A4A4A;
+            line-height: 1.75;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        a { color: var(--navy); font-weight: 500; }
+        a:hover { text-decoration: underline; }
+
+        .highlight-box {
+            background: white;
+            border-left: 3px solid var(--sage);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 24px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
+        }
+        .highlight-box p {
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* COPPA callout — slightly distinct from the sage highlight box */
+        .coppa-box {
+            background: #EFF4FF;
+            border-left: 3px solid var(--blue);
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 24px 0;
+            box-shadow: 0 2px 12px rgba(46,58,89,0.06);
+        }
+        .coppa-box p {
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .coppa-box p:last-child { margin-bottom: 0; }
+        .coppa-box .coppa-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--navy);
+            opacity: 0.55;
+            margin-bottom: 6px;
+        }
+
+        .heart-section {
+            text-align: center;
+            margin-top: 52px;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(46,58,89,0.07);
+        }
+        .heart-section .heart { font-size: 2.2rem; margin-bottom: 12px; }
+        .heart-section p {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--navy);
+        }
+        .heart-section .small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.84rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .contact-box {
+            background: white;
+            border: 1px solid rgba(46,58,89,0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .contact-box p { font-size: 0.92rem; color: var(--gray); }
+
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 28px 24px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+        }
+        footer a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            margin: 0 14px;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: white; }
+        .footer-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+        .footer-links { margin-bottom: 10px; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .content { padding: 36px 18px 60px; }
+        }
+
+        /* ── Mobile nav ── */
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 60px 0 0 0;
+            background: #1E2A3F;
+            z-index: 99;
+            flex-direction: column;
+            padding: 24px 24px;
+            gap: 4px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-menu a {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu .mobile-cta {
+            margin-top: 16px;
+            background: #AFCBFF;
+            color: #2E3A59 !important;
+            font-weight: 700 !important;
+            padding: 14px 0;
+            border-radius: 8px;
+            text-align: center;
+            border-bottom: none !important;
+        }
+        @media (max-width: 680px) {
+            .nav-links { display: none !important; }
+            .nav-hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/" class="nav-logo"><img src="/assets/kinetic-logo.png" alt="Kinetic" style="height:32px;display:block;filter:brightness(0) invert(1);"></a>
+    <a href="/" class="nav-home">← Home</a>
+</header>
+
+<div class="content">
+    <h1>Your Family's Privacy</h1>
+    <p class="intro">At Kinetic, your family's trust is everything. Here's how we protect your information — and why you can feel confident using Kinetic every day.</p>
+    <p class="last-updated">Effective November 1, 2026, at 9:00 a.m. Eastern · Upcoming policy; not yet effective</p>
+
+    <h2>What We Collect</h2>
+    <p>The information we collect depends on the features you use. The categories below describe those features, including school Forms:</p>
+
+    <p><strong>Account &amp; identity information</strong></p>
+    <ul>
+        <li>Your <strong>family last name</strong> — used to personalize your briefing</li>
+        <li>Your <strong>zip code</strong> — used for local weather and nearby events</li>
+        <li><strong>Email addresses</strong> of family members who receive the briefing</li>
+        <li><strong>Partner or co-parent email</strong> (optional) — to share access to the family schedule</li>
+    </ul>
+
+    <p><strong>Family &amp; schedule information</strong></p>
+    <ul>
+        <li><strong>Kids' names and ages</strong> (provided by you) — used to personalize briefing content; see Children's Privacy section below</li>
+        <li><strong>Calendar events</strong> you add — via email, SMS, in-app, or file upload; stored in your family's schedule</li>
+        <li><strong>School name and district</strong> — used to sync school calendar events into your briefing</li>
+        <li><strong>iCal feed URLs</strong> from school, sports, or other calendar sources you connect</li>
+        <li><strong>Caregiver contacts</strong> (names, emails, phone numbers, relationship type) — used to generate Caregiver Briefings when you request them</li>
+        <li><strong>Carpool network contacts</strong> — used for carpool coordination features</li>
+    </ul>
+
+    <p><strong>Connected services</strong></p>
+    <ul>
+        <li><strong>Google Calendar OAuth tokens</strong> — if you choose to connect Google Calendar, we store an access token and refresh token to sync your calendar. We request read access (to import your events) and, optionally, write access (to push Kinetic-created events back to Google Calendar if you enable Primary Calendar Mode). You can disconnect Google Calendar at any time from your Connect tab.</li>
+    </ul>
+
+    <div id="google-limited-use" style="background:#EEF4FF;border-left:4px solid #4285F4;border-radius:6px;padding:16px 20px;margin:20px 0;">
+      <p style="font-size:0.9rem;font-weight:600;color:#2E3A59;margin-bottom:6px;">Google API Limited Use Disclosure</p>
+      <p style="font-size:0.9rem;color:#4A4A4A;line-height:1.65;">The use of raw or derived user data received from Workspace APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener" style="color:#4285F4;">Google User Data Policy</a>, including the Limited Use requirements.</p>
+    </div>
+
+    <ul>
+        <li><strong>Phone number</strong> — if you opt in to SMS/RCS alerts; see SMS section below</li>
+    </ul>
+
+    <p><strong>Technical &amp; usage data</strong></p>
+    <ul>
+        <li><strong>AI chat history</strong> — messages you send to the Kinetic assistant are stored to provide conversational context and improve responses within your session. See <em>AI Processing</em> below.</li>
+        <li><strong>Push notification device tokens</strong> — if you enable push notifications on iOS or web</li>
+        <li><strong>Usage patterns</strong> — feature usage, session timing, and event add frequency; used to improve the product and personalize your experience</li>
+        <li><strong>Inbound email content</strong> — emails forwarded to your Kinetic address are processed to extract calendar events, then <strong>permanently deleted</strong>. We do not archive your emails.</li>
+        <li><strong>Photos or files you ask us to read</strong> — a flyer, schedule, or file you send so Kinetic can pull out the dates; processed by AI to extract event information, then deleted after parsing</li>
+        <li><strong>Photos you share in a group</strong> — if your school or group has turned photos on, photos you add to a message or announcement are stored so the group can see them; see <em>Photos You Share</em> below</li>
+        <li><strong>Signup source</strong> — if you arrive from a link, search result, or ad, we record basic attribution data (such as the campaign name or referring site, captured via a UTM tag in the link or a first-party cookie) so we understand which channels bring families to Kinetic. This is never used for advertising and never sold or shared.</li>
+    </ul>
+
+    <p><strong>Billing</strong></p>
+    <ul>
+        <li>Subscription status, plan type, and trial dates — so we know whether your account is active. Payment card details are never stored by Kinetic; they are held by Stripe or Apple. See <em>Billing &amp; Payment</em> below.</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p>We collect information to provide the services described here. We do not sell it or use it for advertising. We disclose information to authorized recipients and service providers as described in this policy.</p>
+    </div>
+
+    <h2>Your Family Calendar</h2>
+    <p>Your family gets a <strong>private, dedicated calendar</strong> that only your authorized family members can add to. Here's how it works:</p>
+    <ul>
+        <li>Only emails from addresses <strong>you've approved</strong> can add events to your calendar</li>
+        <li>No one outside your family can see or modify your schedule</li>
+        <li>Each family's calendar is completely separate — your schedule is <strong>never shared</strong> with other Kinetic families</li>
+    </ul>
+
+    <h2>Sharing Contact Details to Coordinate a Ride</h2>
+    <p>Coordinating a ride is the one place Kinetic passes a contact detail between two families, and it only ever happens because you asked it to:</p>
+    <ul>
+        <li><strong>When you ask for a ride</strong>, the families you choose are told who is asking and are given your mobile number, so they can reach you directly if they need to. We ask one family at a time, nearest first.</li>
+        <li><strong>When someone accepts</strong>, you and that family exchange contact details so you can work out the pickup.</li>
+        <li>We share <strong>only</strong> a name and a mobile number, and only with families you are already connected to or on a team you belong to. Your home address is never shared — a driver is shown only how far out of their way a trip would be.</li>
+        <li>If nobody accepts, nothing is exchanged beyond the ask itself.</li>
+    </ul>
+
+    <h2>Carpool &amp; People Who Join Without an Account</h2>
+    <p>Some Kinetic features — carpool coordination and finding families you already know — can involve people who don't have a Kinetic account. Here's exactly how we handle their information:</p>
+    <ul>
+        <li><strong>People who join a carpool via a shared link.</strong> If someone joins one of your carpools through a link without creating an account, we collect their name, mobile number, and home address solely to build and run that carpool's schedule (including driving-time estimates and pickup order). We do not sell or share this information, and we never use it for advertising. If they don't create an account and the carpool becomes inactive, we delete it. Their home address is used only for routing and is never shown to other families.</li>
+        <li><strong>Finding families you know (optional).</strong> If you choose to find families you already know, we ask permission to access your contacts. We convert your contacts' phone numbers into irreversible hashes <em>on your device</em> and send only those hashes to check which numbers already belong to Kinetic families. We do not upload, store, or sell your address book, and the hashes are used only for that one check.</li>
+        <li><strong>Your rights apply whether or not you have an account.</strong> Anyone whose information we collect — including carpool participants without a Kinetic account — may request to access, correct, or delete it, and we do not sell it or "share" it for cross-context advertising. To exercise these rights, email <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+    </ul>
+
+    <h2>How You Opt In to the Newsletter</h2>
+    <p>The Kinetic newsletter is an <strong>opt-in only</strong> service. Here's how newsletter signup works:</p>
+    <ul>
+        <li>A parent or guardian visits <a href="https://kineticfam.com">kineticfam.com</a> and completes the sign-up form</li>
+        <li>The form asks for your family name, zip code, and the email addresses you want to receive the newsletter</li>
+        <li>By submitting the form, you explicitly consent to receive the Kinetic Daily newsletter at the email addresses you provide</li>
+        <li>A confirmation email is sent immediately after sign-up — no newsletters are sent until sign-up is complete</li>
+        <li>You can unsubscribe at any time by clicking the unsubscribe link in any newsletter email, or by emailing <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a></li>
+        <li>We do not add anyone to the list without their explicit sign-up — no purchased lists, no referrals, no pre-checked boxes</li>
+    </ul>
+
+    <h2>School Forms</h2>
+    <p>When an adult completes school forms through Kinetic, we receive the registration and emergency-contact information requested by the school, school-facing medical clearance and necessary supporting files, answers to the school’s forms, and consent, signature and submission evidence. We use this information to provide the school’s registration, form completion, review, clearance and emergency-information workflows; provide authorized copies and assistance; and maintain records and evidence under the applicable arrangements and preservation requirements. The fields and requested documents depend on the school’s program. Electronic-record consent is separate from permission given in an individual form.</p>
+    <p>School forms are made available to authorized recipients according to their assigned responsibilities. Medical information requires separately controlled access. Coaches’ access is limited to clearance, restrictions and actionable emergency information needed for their role, rather than general access to complete medical histories. Kinetic uses service providers to operate, secure and support these services. Any additional disclosure or use must have an appropriate basis and be described where required.</p>
+    <p>School Forms attachments are records supporting the school’s form process. They are distinct from files supplied to extract events for a family schedule. Processing and retention depend on the workflow in which the file was provided. Provide only school-facing clearance and necessary supporting information, not provider-only questionnaires, clinical notes or unrelated medical records.</p>
+    <p>School Forms use your account identity and verified sign-in, school and program assignments, and registration status to connect the correct person to the correct records. The account service receives registration progress; the separate Forms service controls access to answers, attachments and signature evidence.</p>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use information to provide the Kinetic features you use: your family schedule and briefing, coordination and communication, connected services, account support and school Forms. For your daily briefing, that includes:</p>
+    <ul>
+        <li>Pulling weather for your zip code</li>
+        <li>Showing your family's schedule</li>
+        <li>Finding events near you</li>
+        <li>Delivering to the email addresses you've chosen</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p>We do not sell or rent your information. Sharing is limited to the recipients and purposes described in this policy, including the people you choose to coordinate with, authorized school recipients and service providers.</p>
+    </div>
+
+    <h2>Photos You Share</h2>
+    <p>If your school or group has turned photos on, you can add photos to a message in a Kinetic group, and school staff can add photos to announcements. We store those photos privately and show them only to people who can already see that message or announcement in Kinetic — there is never a public link. We remove location and camera details from every photo before storing it, and we never use facial recognition or try to identify anyone in a photo.</p>
+    <p>A photo is deleted when its message or announcement is deleted, when the family that posted it deletes their account, and automatically after one year (sooner if the group is closed). Group organizers and school staff can remove any photo, and you can ask us to remove a photo of your child by writing to <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</p>
+    <p>Photos you share in a group are not read by our AI. Kinetic reads a photo only when the person sending it asks: when you choose "Read dates from a flyer," or when your school posts a schedule and asks Kinetic to read the dates on it. What it finds is offered to your group to confirm; nothing is added to a calendar until someone says yes. We read text only, never who is in the picture, and a flyer you ask us to read is discarded — never stored.</p>
+
+    <h2>AI Processing &amp; Your Content</h2>
+    <p>Kinetic uses artificial intelligence to power several features — parsing events from emails and SMS messages, answering questions in the chat assistant, enriching event details, and generating your daily briefing. Here's what that means for your data:</p>
+    <ul>
+        <li><strong>AI provider:</strong> Kinetic uses the Anthropic API (Claude AI) to process natural language requests, extract calendar events from forwarded messages, and generate briefing content. Content submitted to those AI-assisted workflows — including forwarded schedule emails, schedule-related SMS messages, assistant chat messages, and files you ask us to read for dates — is sent to Anthropic's API for processing. Uploading a file through School Forms is a different workflow.</li>
+        <li><strong>Anthropic's data use:</strong> Anthropic does not use API-submitted content to train its models by default. You can review Anthropic's privacy policy at <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>.</li>
+        <li><strong>What we send to AI:</strong> The content of messages you send to Kinetic (email, SMS, chat), along with relevant context about your family's schedule, may be included in API requests. We do not send payment information, passwords, or device identifiers to AI systems.</li>
+        <li><strong>Photos:</strong> A photo is sent to AI only when the sender asks Kinetic to read it (for example, "Read dates from a flyer"). Photos shared in a group are never sent to AI. See <em>Photos You Share</em> above.</li>
+        <li><strong>School Forms files:</strong> School Forms uploads are checked for malware and parsed to validate files and display document previews. The Forms upload workflow does not send these files to Anthropic for schedule extraction or assistant responses. They remain supporting school records under the Forms retention arrangements. If you separately send the same information to an AI-assisted chat or schedule-extraction feature, that feature’s processing applies; do not submit medical records through those channels.</li>
+        <li><strong>AI-generated content:</strong> Your daily briefing, event confirmations, and assistant replies are generated by AI. We review outputs for quality but the AI may occasionally produce inaccurate information — particularly for third-party data like sports scores or school schedules.</li>
+        <li><strong>No AI decisions about your account:</strong> AI is not used to make automated decisions that have legal or significant effects on your account (such as billing, suspension, or data deletion). Those decisions are made by humans.</li>
+    </ul>
+
+    <h2>Rating Juno's Answers</h2>
+    <p>If you rate a Juno answer, we keep your rating, a category, and a pointer to that answer for 90 days. Juno uses your recent ratings, along with a short excerpt of the answer you rated, when it replies to you, and that context is sent to our AI provider as part of producing the reply. If you choose to share with your household, its other adults can see your ratings, and Juno can use them, without your name, to avoid offering ride help again for a trip you turned down. Forgetting your ratings, clearing your Juno conversation, or leaving the household stops their use in new answers. Answers already given aren't changed, and a short-lived working copy can remain for about a day. Ratings are used for your family only, are never used to train AI models, and aren't viewed by our team unless you ask us for help.</p>
+
+    <h2>Third-Party Service Providers</h2>
+    <p>Kinetic uses trusted third-party services to operate. Each provider has access only to the information needed to perform their specific function:</p>
+    <ul>
+        <li><strong>Anthropic</strong> — AI processing (event parsing, chat, briefing generation)</li>
+        <li><strong>Postmark</strong> — email delivery, including account sign-in messages</li>
+        <li><strong>Twilio</strong> — SMS and RCS message delivery and account phone verification</li>
+        <li><strong>Stripe</strong> — web payment processing and subscription management</li>
+        <li><strong>Apple</strong> — iOS app payment processing</li>
+        <li><strong>Google</strong> — Google Calendar OAuth (if you connect your calendar); Maps API for departure time calculations</li>
+        <li><strong>Open-Meteo</strong> — weather data (zip code only, no personal data shared)</li>
+        <li><strong>Cloudflare</strong> — network traffic, security, account-service tunnel routing and inbound email routing; private storage for photos shared in groups; DNS for the separate Forms service</li>
+        <li><strong>Amazon Web Services (AWS)</strong> — hosting the separate Forms service, private record databases and supporting file content, encryption and signature keys, upload quarantine and malware scanning, operational logging and backup infrastructure. Accepted private Forms content is stored in private databases; the upload quarantine is separate temporary storage. AWS processes Forms content to provide these functions.</li>
+        <li><strong>Hetzner</strong> — hosting the account and coordination service, including identities, school relationships and registration progress used to connect users to Forms</li>
+        <li><strong>Backblaze</strong> — encrypted offsite database backup</li>
+        <li><strong>GitHub / KineticFam</strong> — application code version control (no user data)</li>
+    </ul>
+    <p>We do not sell your data to any of these providers, and none of them are permitted to use your information for their own marketing or advertising purposes.</p>
+
+    <h2>SMS and RCS Text Messaging</h2>
+
+    <p>Kinetic Family offers an optional text messaging service that delivers your family's daily schedule briefing and event alerts. Messages may be delivered via SMS (Short Message Service) or RCS (Rich Communication Services), depending on your device and carrier. The sender name displayed in your messaging app is <strong>Kinetic Family Assistant</strong>, sending from toll-free number +1 (844) 991-3182. This section explains how we handle your phone number and all text message communications.</p>
+
+    <p><strong>What we collect.</strong> When you opt in to text updates, we collect your mobile phone number. We also record the date and time you gave consent, and the version of the consent language you agreed to. We do not collect carrier information or device identifiers.</p>
+
+    <p><strong>How it is used.</strong> Your phone number is used solely to send you schedule-related messages from Kinetic Family, including:</p>
+    <ul>
+        <li>Daily morning briefings with your family&#8217;s events, times, and locations (1 per day)</li>
+        <li>Departure alerts when it&#8217;s time to leave for a scheduled event (up to 2 per event, on days with events only)</li>
+        <li>Event updates or changes you&#8217;ve made to your schedule</li>
+        <li>Occasional service notifications related to your Kinetic account (e.g., trial expiration reminders)</li>
+    </ul>
+    <p><strong>Message frequency: up to 5 messages per day.</strong> Most days you will receive 1 morning briefing. On days with events requiring travel, you may also receive up to 2 departure alert messages per event. We do not send unsolicited advertising or third-party promotional messages.</p>
+
+    <p><strong>Carpool &amp; coordination texts.</strong> If you invite another parent to a carpool by phone number, or ask families in your circle for a ride, we send a one-time text on your behalf to help coordinate. You confirm you have a relationship with anyone you invite. These messages identify Kinetic as the sender and include opt-out instructions (reply STOP); recipients receive ongoing carpool texts only if they choose to join a carpool. Standard message and data rates may apply.</p>
+
+    <p><strong>RCS and SMS delivery.</strong> Kinetic Family uses RCS Business Messaging (Rich Communication Services) where your device and carrier support it. If your device or carrier does not support RCS, messages automatically fall back to SMS or MMS at no change to you. The same opt-in, opt-out, and content policies apply regardless of delivery method (RCS or SMS).</p>
+
+    <p><strong>How to opt in.</strong> You may opt in by: (1) checking the SMS/RCS consent checkbox on the Kinetic signup form at <a href="https://kineticfam.com">kineticfam.com</a> and verifying your number with a one-time code; (2) entering your mobile number in your Kinetic account settings and completing verification; or (3) texting Kinetic&#8217;s number at +1 (844) 991-3182 and completing the guided setup. No messages are sent until verification is complete. Full program details: <a href="https://app.kineticfam.com/text-updates">app.kineticfam.com/text-updates</a>.</p>
+
+    <p><strong>Consent is voluntary.</strong> Text messaging is optional &#8212; you can use Kinetic Family fully without enrolling. Checking the consent box is not required to create an account or access any feature. Consent is logged with a timestamp and version identifier and retained as part of your account record.</p>
+
+    <p><strong>Consent is not shared with third parties.</strong> Your consent to receive messages from Kinetic Family is not transferred, sold, or shared with any other company or program. Consent applies solely to messages sent by Kinetic Family (operated by Kinetic Harmony LLC) from the Kinetic Family Assistant sender.</p>
+
+    <p><strong>How to opt out.</strong> You can stop receiving all messages at any time by:</p>
+    <ul>
+        <li>Replying <strong>STOP</strong> to any Kinetic text message &#8212; you will be unsubscribed immediately and receive one final confirmation. No further messages will be sent from any channel (RCS or SMS).</li>
+        <li>Turning off text messages in your Kinetic account settings</li>
+        <li>Emailing us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> &#8212; we will remove your number within 24 hours</li>
+    </ul>
+    <p>You may re-enroll at any time by re-entering your number in your account settings or by replying <strong>START</strong> to any previous Kinetic message.</p>
+
+    <p><strong>Help.</strong> Reply <strong>HELP</strong> to any Kinetic message for assistance, or email <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>. Full program information is at <a href="https://app.kineticfam.com/text-updates">app.kineticfam.com/text-updates</a>.</p>
+
+    <p><strong>Your data is not sold or shared.</strong> We never sell, rent, share, or disclose your phone number to any third party for marketing or advertising. Your number is never used to build audience profiles or shared with data brokers.</p>
+
+    <p><strong>Message and data rates.</strong> Standard message and data rates may apply depending on your carrier and plan. Kinetic does not charge separately for text messages. We are not responsible for carrier charges. Carriers are not liable for delayed or undelivered messages.</p>
+
+    <p>For full program details, message examples, and opt-in/opt-out instructions, visit <a href="https://app.kineticfam.com/text-updates">app.kineticfam.com/text-updates</a>.</p>
+
+        <h2>Billing &amp; Payment</h2>
+    <p>
+        Kinetic offers a <strong>14-day free trial</strong>, after which continued access requires
+        a paid subscription.
+    </p>
+    <p>
+        <strong>What we collect for billing.</strong>
+        If you subscribe via the web, your payment is processed by
+        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe</a>.
+        If you subscribe through the iOS app, payment is handled by Apple.
+        In both cases, Kinetic Harmony LLC <strong>does not store your credit card number,
+        expiration date, or CVV</strong>. We only store your subscription status,
+        plan type, and billing period so we know whether your account is active.
+    </p>
+    <p>
+        <strong>What Stripe stores.</strong>
+        Stripe stores your payment method securely under their
+        <a href="https://stripe.com/privacy" target="_blank" rel="noopener">privacy policy</a>
+        and PCI-DSS compliance program. Kinetic receives only a token (customer ID and
+        subscription ID) that lets us verify your subscription status.
+    </p>
+    <p>
+        <strong>Subscription data.</strong>
+        We store: whether your subscription is active, your plan tier (monthly/annual),
+        and your trial start/end dates. We do not share this with third parties.
+    </p>
+    <p>
+        <strong>Cancellation.</strong>
+        You can cancel at any time from your account settings or the
+        <a href="https://app.kineticfam.com">Kinetic dashboard</a>.
+        Cancellation takes effect at the end of the current billing period.
+    </p>
+
+    <h2>Children's Privacy (COPPA)</h2>
+
+    <div class="coppa-box">
+        <p class="coppa-label">Children's Online Privacy Protection Act</p>
+        <p>Kinetic is a parent-controlled service. <strong>We do not knowingly collect personal information directly from children under 13.</strong> Family accounts are managed by adults. Schools also use authorized staff accounts to administer their programs and the school records described here.</p>
+    </div>
+
+    <p>Because Kinetic is built for families, some information you add to your account naturally relates to your children — their names, school, sports schedules, upcoming events, and school registration, emergency-contact and clearance information. Here is how we handle that:</p>
+
+    <ul>
+        <li><strong>Adult-led school Forms.</strong> The launch school-forms workflow is intended for adults completing forms in their own authorized capacity and providing information about a child. A parent’s action is not recorded as the child’s signature. Any future workflow asking a child to enter information, upload content or sign requires separate review of the resulting collection and applicable protections before it is enabled. Schools may supply school records through authorized staff.</li>
+        <li><strong>We collect only what's necessary.</strong> We collect information needed for the family and school services described here. For school Forms, this includes the school-facing information and supporting evidence required for registration, review and emergency-information workflows.</li>
+        <li><strong>No behavioral advertising — ever.</strong> We do not use any information about your children (or anyone in your family) for advertising purposes, and we never will.</li>
+        <li><strong>Limited recipients.</strong> We do not sell or rent information about your children or use it for advertising. Authorized school recipients and service providers receive information needed for the purposes described here; school medical information has separately controlled access.</li>
+        <li><strong>Photos of children are handled with care.</strong> A photo shared in a group is visible only to people who can already see that message, is never read by AI or used to identify anyone, and is deleted automatically after one year. You can ask us to remove any photo of your child at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+        <li><strong>Emails are never permanently stored.</strong> When you forward a school PDF or send us schedule information, the original email is automatically deleted after we extract the relevant dates and events. We keep the extracted events — not your emails.</li>
+        <li><strong>You can review or delete your children's data at any time.</strong> Log in to your dashboard at <a href="https://app.kineticfam.com">app.kineticfam.com</a> to view, edit, or remove any event or family member. To request account deletion, visit Account → Delete Account, or email us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+        <li><strong>We will respond to parental data requests within 30 days.</strong> If you want to review what information we hold about your child, request corrections, or ask us to stop collecting it, contact us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a>.</li>
+    </ul>
+
+    <p>If we ever discover that we have inadvertently collected personal information directly from a child under 13 without parental consent, we will delete that information immediately. Please contact us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> if you have any concerns.</p>
+
+    <h2>How We Protect Your Data</h2>
+    <ul>
+        <li>We use access controls to limit information to authorized users, school recipients, Kinetic support personnel when needed, and service providers performing the functions described here</li>
+        <li>All connections to Kinetic are encrypted in transit (HTTPS)</li>
+        <li>We regularly review our security practices to make sure your information stays safe</li>
+        <li>Authorized sender verification means strangers can't add events to your calendar, even if they guess your Kinetic email address</li>
+        <li>Emails you send to your Kinetic address are <strong>automatically deleted after processing</strong> — we extract the dates and events, then the original email is permanently removed. Your personal emails are never stored.</li>
+    </ul>
+
+    <h2>You're Always in Control</h2>
+    <ul>
+        <li><strong>View your data</strong> anytime at <a href="https://app.kineticfam.com">app.kineticfam.com</a></li>
+        <li><strong>Edit or delete any event</strong> directly from your dashboard</li>
+        <li><strong>Add or remove family members</strong> anytime from your account settings</li>
+        <li><strong>Request a copy of your data</strong> by emailing <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a> — we'll send it within 30 days</li>
+        <li><strong>Request account deletion</strong> at any time from Account Settings. Unrelated account information follows the 30-day commitment below. School records and necessary supporting evidence are addressed separately; we evaluate the full request under applicable rights and preservation requirements.</li>
+        <li><strong>Unsubscribe</strong> from any email using the link in the footer, or by emailing us directly</li>
+    </ul>
+
+    <h2>Data Retention</h2>
+    <p>We keep your account data for as long as your account is active. If you delete your account, we permanently remove unrelated account information — including your family’s account name, email addresses and schedule events — within 30 days of your request. The limited school-record exception below applies only to school records and the supporting evidence necessary to understand and authenticate them, including necessary identifying information. It does not extend to unrelated account information, photos, email or messaging commitments, and it does not change this commitment into an active-storage-only deletion promise.</p>
+    <p><strong>League schedule records.</strong> When a youth league you belong to postpones or cancels a game through Kinetic, we keep a record of that change for the league. If you delete your account, we erase your personal details from those records. What remains has no name, contact information, location, or note, only the league's record that the game was changed.</p>
+    <p>Inbound emails sent to your Kinetic address are deleted immediately after processing. We never archive or retain the original content of emails you send us.</p>
+    <p>Photos shared in a group are kept for one year and then deleted automatically (30 days after a group is closed). They are deleted sooner when their message or announcement is deleted, when the posting family deletes their account, or when you ask us to remove them.</p>
+
+    <h2>School Records, Requests and Remaining Copies</h2>
+    <p>Closing your Kinetic account does not by itself delete records maintained for your child’s school or the supporting information necessary to preserve those records. Those records remain subject to the applicable school retention schedule and preservation requirements. Unrelated account information is handled under our account-deletion policy. You may contact your school or Kinetic for assistance with a request concerning school records, including without an active login. We assess requests under applicable rights and preservation obligations; the school-record exception is not a blanket denial of a deletion request.</p>
+    <p>Each completed or signed version keeps its associated form, answers, source PDF where used, necessary attachments, execution evidence and accepted electronic-record consent. Reuse does not replace original dates. Retention endpoints trigger review, not automatic deletion. Supporting records may need to remain available while later records depend on them. School preservation duties and Kinetic’s continued hosting are separate; an authorized transfer requires complete records and confirmation of receipt.</p>
+    <p>Deleting a record from active systems does not necessarily remove every backup or provider copy at the same time. The handling of remaining copies must comply with applicable retention and preservation requirements. Contact the school or Kinetic for information about a particular record. The school-record exception is limited to necessary records and supporting evidence; it does not authorize indefinite retention.</p>
+    <h2>Changes to This Policy</h2>
+    <p>If we make material changes to this privacy policy — particularly anything affecting how children's information is handled — we'll notify you by email before those changes take effect. The published effective date will identify when approved changes take effect. We preserve earlier policy bindings and original request-receipt dates. New electronic-signing consent does not authorize a retroactive expansion of privacy practices. Changes affecting existing information require the notice and any additional permission applicable to that change.</p>
+
+    <div class="contact-box">
+        <p>Questions about your family's privacy?<br>We're real people. Reach us at <a href="mailto:admin@kineticfam.com">admin@kineticfam.com</a><br><span style="font-size:0.85em;">We respond to all privacy inquiries within 30 days.</span></p>
+    </div>
+
+    <div class="heart-section">
+        <div class="heart">💙</div>
+        <p>Your family's trust makes Kinetic possible.<br>We don't take that lightly.</p>
+        <p class="small">This policy is kept simple on purpose — because protecting your family's information shouldn't require a law degree to understand.</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-tagline">Kinetic Family by Kinetic Harmony LLC</div>
+    <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:12px;">Fort Lauderdale, FL · <a href="mailto:admin@kineticfam.com" style="color:rgba(255,255,255,0.4);text-decoration:none;">admin@kineticfam.com</a></p>
+    <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/text-updates/">Text Updates</a>
+        <a href="mailto:admin@kineticfam.com">Contact</a>
+    </div>
+    <p>© 2026 Kinetic Harmony LLC</p>
+</footer>
+
+<script>
+function toggleMobileNav() {
+    var menu = document.getElementById('mobileMenu');
+    var btn = document.getElementById('navHamburger');
+    var open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    btn.setAttribute('aria-expanded', !open);
+}
+document.addEventListener('click', function(e) {
+    var menu = document.getElementById('mobileMenu');
+    var btn = document.getElementById('navHamburger');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>
